@@ -1,0 +1,26 @@
+<div>
+  Landing
+</div>
+
+<p>Find me in app/views/landing/index.html.erb</p>
+
+<% if !current_user %>
+  <%= link_to 'sign in', new_user_session_path %>
+<% end %>
+<% if current_user %>
+  <%= link_to 'sign out', destroy_user_session_path, method: 'delete' %>
+<% end %>
+
+<% if @player.errors %>
+  <%= @player.errors.full_messages %>
+<% end %>
+
+
+<%= form_for @player do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :region %>
+  <%= f.select :region, options_for_select(regions), :include_blank => "Select Region" %>
+  <%= f.submit 'find' %>
+<% end %>
