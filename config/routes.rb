@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'landing#index'
-  resources :users, only: :show
-  resources :players, only: [:show, :create]
+  resources :users, only: :show do
+    resources :reports, only:[:index]
+  end
+  resources :players, only: [:show, :create] do
+    resources :reports, only: [:create, :index]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

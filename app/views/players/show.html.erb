@@ -1,2 +1,23 @@
-<h1>Player Show Page</h1>
-<h2><%=@player.inspect%></h2>
+<div ng-controller="PlayersCtrl">
+  <h1>Player Show Page</h1>
+  <h2><%=@player.inspect%></h2>
+  <div id="player-id" class="hidden"><%=@player.id%></div>
+  <div id="user-id" class="hidden"><%=@user.id%></div>
+
+  <div class="col-md-6">
+    <form>
+      <textarea ng-model="report.message"></textarea>
+      <select ng-model="report.rating" ng-options="rating for rating in ratingOptions">
+        <option disabled selected value="">Rating</option>
+      </select>
+      <br>
+      <button ng-click="submitReport()">SUBMIT THIS SHIT</button>
+    </form>
+  </div>
+  <div class="col-md-12">
+    <div class="col-md-6" ng-repeat="report in reports">
+      <h1 ng-bind="report.message"></h1>
+    </div>
+  </div>
+</div>
+

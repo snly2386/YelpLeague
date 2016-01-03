@@ -4,5 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :reports
   validates_presence_of :email, :username
+
+  def report_count
+    reports.count
+  end
 end

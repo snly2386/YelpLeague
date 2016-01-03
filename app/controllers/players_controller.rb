@@ -7,6 +7,8 @@ class PlayersController < ApplicationController
   end
 
   def create
+    params["player"]["name"] = params["player"]["name"].downcase
+    params["player"]["name"].gsub!(/\s+/, "")
     @player = Player.find_or_initialize_by(player_params)
     ps = player_service_request(@player.name, @player.region)
     if @missing
@@ -27,6 +29,12 @@ class PlayersController < ApplicationController
   end
 
   def show
+    @player = Player.find(params[:id])
+    @user = current_user
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @player.reported_by_user(current_user) }
+    end
   end
 
   def player_service_request(name, region)
