@@ -3,14 +3,102 @@
 <head>
   <title>YelpLeague</title>
   <%= stylesheet_link_tag    "application", media: 'all' %>
-  <%= stylesheet_link_tag    "#{@theme}" %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body ng-app="yelpleague" <% if @theme == 'home' %> class="home page page-id-6 page-template page-template-page-templates page-template-template-home page-template-page-templatestemplate-home-php template-home fixed-header directory-fields color-scheme-default footer- listify listify-120 wp-job-manager wp-job-manager-bookmarks wp-job-manager-wc-paid-listings wp-job-manager-tags wp-job-manager-field-editor wp-job-manager-regions wp-job-manager-reviews wp-job-manager-products wp-job-manager-claim-listing woocommerce-social-login woocommerce woocommerce-bookings jetpack ratings listify-child wp-job-manager-categories-enabled wp-job-manager-categories-only" <% end %> >
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-<%= yield %>
+  <div id="page" class="hfeed site">
+    <header id="masthead" class="site-header" role="banner">
+        <div class="primary-header">
+            <div class="container">
+                <div class="primary-header-inner">
+                    <div class="site-branding">
+                        <a href="https://demo.astoundify.com/listify/" title="Listify" rel="home" class="custom-header"><img src="https://demo.astoundify.com/listify/wp-content/uploads/sites/39/2014/11/copy-listify-footer-logo.svg" alt="">
+                        </a>
+
+                        <h1 class="site-title"><a href="https://demo.astoundify.com/listify/" rel="home">Listify</a></h1>
+                        <h2 class="site-description">The last directory theme you will ever buy.</h2>
+                    </div>
+
+                    <div class="primary nav-menu">
+                        <div class="nav-menu-container">
+                            <ul id="menu-menu" class="menu">
+                                <li class="menu-item menu-type-link">
+                                    <a href="#search-header" data-toggle="#search-header" class="search-overlay-toggle"></a>
+                                </li>
+                                <li class="menu-item menu-type-link"><a href="https://demo.astoundify.com/listify/cart/" class="current-cart"><span class="current-cart-count">0</span> Items</a>
+                                </li>
+                                <li id="menu-item-59" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-59"><a href="https://demo.astoundify.com/listify/blog/">Blog</a>
+                                </li>
+                                <li id="menu-item-58" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-58"><a href="https://demo.astoundify.com/listify/plans-and-pricing/">Plans and Pricing</a>
+                                </li>
+                                <li id="menu-item-4482" class="popup-wide menu-item menu-item-type-post_type menu-item-object-page menu-item-4482"><a href="https://demo.astoundify.com/listify/my-account/" class="popup-trigger-ajax popup-wide">Log In</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="search-header" class="search-overlay">
+                    <div class="container">
+
+                        <form role="search" method="get" class="search-form" action="https://demo.astoundify.com/listify/listings/">
+                            <label>
+                                <span class="screen-reader-text">Search for:</span>
+                                <input type="search" class="search-field" placeholder="Search" value="" name="search_keywords" title="Search for:" />
+                            </label>
+                            <button type="submit" class="search-submit"></button>
+                        </form>
+                        <a href="#search-header" data-toggle="#search-header" class="ion-close search-overlay-toggle"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav id="site-navigation" class="main-navigation" role="navigation">
+            <div class="container">
+                <a href="#" class="navigation-bar-toggle">
+                    <i class="ion-navicon-round"></i> Menu </a>
+
+                <div class="navigation-bar-wrapper">
+                    <div class="primary nav-menu">
+                        <ul id="menu-menu-1" class="primary nav-menu">
+                            <li class="menu-item menu-type-link">
+                                <a href="#search-header" data-toggle="#search-header" class="search-overlay-toggle"></a>
+                            </li>
+                            <li class="menu-item menu-type-link"><a href="https://demo.astoundify.com/listify/cart/" class="current-cart"><span class="current-cart-count">0</span> Items</a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-59"><a href="https://demo.astoundify.com/listify/blog/">Blog</a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-58"><a href="https://demo.astoundify.com/listify/plans-and-pricing/">Plans and Pricing</a>
+                            </li>
+                            <li class="popup-wide menu-item menu-item-type-post_type menu-item-object-page menu-item-4482"><a href="https://demo.astoundify.com/listify/my-account/" class="popup-trigger-ajax popup-wide">Log In</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                <a href="#search-navigation" data-toggle="#search-navigation" class="ion-search search-overlay-toggle"></a>
+
+                <div id="search-navigation" class="search-overlay">
+
+                    <form role="search" method="get" class="search-form" action="https://demo.astoundify.com/listify/listings/">
+                        <label>
+                            <span class="screen-reader-text">Search for:</span>
+                            <input type="search" class="search-field" placeholder="Search" value="" name="search_keywords" title="Search for:" />
+                        </label>
+                        <button type="submit" class="search-submit"></button>
+                    </form>
+                    <a href="#search-navigation" data-toggle="#search-navigation" class="ion-close search-overlay-toggle"></a>
+                </div>
+            </div>
+        </nav>
+        <!-- #site-navigation -->
+    </header>
+    <%= yield %>
+  </div>
+<!-- #page -->
 
 </body>
 </html>

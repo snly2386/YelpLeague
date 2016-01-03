@@ -18,6 +18,18 @@ class ReportsController < ApplicationController
     end
   end
 
+  def update
+    @report = Report.find(params[:id])
+
+    respond_to do |format|
+      if @report.update(report_params)
+        format.json { render json: @report, notice: 'Report has been updated'}
+      else
+        format.json { render json: @report.errors, status: :unprocessable_entity}
+      end
+    end
+  end
+
   private
 
   def report_params

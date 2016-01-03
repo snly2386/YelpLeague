@@ -1,1 +1,1 @@
-var app = angular.module('yelpleague', ['templates', 'ngResource']);
+var app = angular.module('yelpleague', ['templates', 'ngResource', 'yaru22.angular-timeago']);
