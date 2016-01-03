@@ -16,8 +16,9 @@
   </div>
   <div class="col-md-12">
     <div class="col-md-6" ng-repeat="report in reports">
+      <span ng-bind="report.rating"></span>
       <h1 ng-bind="report.message"></h1>
+      <%=time_ago_in_words(Time.now)%>
     </div>
   </div>
 </div>
-
