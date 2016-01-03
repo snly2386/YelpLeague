@@ -18,4 +18,5 @@
 //= require angular-resource
 //= require angular-timeago
 //= require bootstrap-sprockets
-//= require_tree .
+//= require_tree ./angular-app
+

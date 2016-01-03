@@ -1,0 +1,451 @@
+.nav-menu .sub-menu.category-list,
+ul.nav-menu .sub-menu.category-list,
+input,
+textarea,
+.site select,
+.facetwp-facet .facetwp-checkbox:before,
+.widget_layered_nav li a:before,
+.site-main .content-box select,
+.site-main .job_listings select,
+body .chosen-container-single .chosen-single,
+body .chosen-container-multi .chosen-choices li.search-field input[type=text],
+.select2-container .select2-choice,
+.entry-content div.mce-toolbar-grp {
+    background-color: #f3f6f9;
+}
+.listing-cover,
+.entry-cover,
+.homepage-cover.page-cover,
+.list-cover {
+    background-color: #e6e9ec;
+}
+input,
+textarea,
+input[type="checkbox"],
+input[type="radio"],
+.site select,
+.facetwp-facet .facetwp-checkbox:before,
+.widget_layered_nav li a:before,
+.site-main .content-box select,
+.site-main .job_listings select,
+.content-pagination .page-numbers,
+.facetwp-pager .facetwp-page,
+.js-toggle-area-trigger,
+.chosen-container-multi .chosen-choices,
+.wp-editor-wrap,
+.account-sign-in,
+.filter_by_tag,
+.job-manager-form fieldset.fieldset-job_hours,
+.ninja-forms-required-items,
+.showing_jobs,
+.summary .stock,
+.woocommerce-tabs .woocommerce-noreviews,
+.entry-content .rcp_form input[type="text"]:focus,
+.entry-content .rcp_form input[type="password"]:focus,
+.entry-content .rcp_form input[type="email"]:focus,
+.entry-content div.mce-toolbar-grp,
+body .chosen-container-single .chosen-single,
+body .chosen-container-multi .chosen-choices,
+body .chosen-container-multi .chosen-choices li.search-field input[type=text],
+.payment_methods li .payment_box,
+.search-choice-close,
+.filter_by_tag a:before,
+.woocommerce .quantity input[type="button"] {
+    border-color: #ebeef1;
+}
+.payment_methods li {
+    background-color: #ebeef1;
+}
+.map-marker.type-46:after {
+    border-top-color: #1abc9c;
+}
+.map-marker.type-46 i:after {
+    background-color: #1abc9c;
+}
+.map-marker.type-46 i:before {
+    color: #1abc9c;
+}
+.map-marker.type-23:after {
+    border-top-color: #2c3e50;
+}
+.map-marker.type-23 i:after {
+    background-color: #2c3e50;
+}
+.map-marker.type-23 i:before {
+    color: #2c3e50;
+}
+.map-marker.type-174:after {
+    border-top-color: #627e82;
+}
+.map-marker.type-174 i:after {
+    background-color: #627e82;
+}
+.map-marker.type-174 i:before {
+    color: #627e82;
+}
+.map-marker.type-50:after {
+    border-top-color: #eb974e;
+}
+.map-marker.type-50 i:after {
+    background-color: #eb974e;
+}
+.map-marker.type-50 i:before {
+    color: #eb974e;
+}
+.map-marker.type-49:after {
+    border-top-color: #d64541;
+}
+.map-marker.type-49 i:after {
+    background-color: #d64541;
+}
+.map-marker.type-49 i:before {
+    color: #d64541;
+}
+.map-marker.type-75:after {
+    border-top-color: #1e73be;
+}
+.map-marker.type-75 i:after {
+    background-color: #1e73be;
+}
+.map-marker.type-75 i:before {
+    color: #1e73be;
+}
+.map-marker.type-163:after {
+    border-top-color: #1fc6b6;
+}
+.map-marker.type-163 i:after {
+    background-color: #1fc6b6;
+}
+.map-marker.type-163 i:before {
+    color: #1fc6b6;
+}
+.map-marker.type-29:after {
+    border-top-color: #8f5c3d;
+}
+.map-marker.type-29 i:after {
+    background-color: #8f5c3d;
+}
+.map-marker.type-29 i:before {
+    color: #8f5c3d;
+}
+.map-marker.type-72:after {
+    border-top-color: #6bd4e0;
+}
+.map-marker.type-72 i:after {
+    background-color: #6bd4e0;
+}
+.map-marker.type-72 i:before {
+    color: #6bd4e0;
+}
+.map-marker.type-41:after {
+    border-top-color: #2574a9;
+}
+.map-marker.type-41 i:after {
+    background-color: #2574a9;
+}
+.map-marker.type-41 i:before {
+    color: #2574a9;
+}
+.map-marker.type-28:after {
+    border-top-color: #95cb70;
+}
+.map-marker.type-28 i:after {
+    background-color: #95cb70;
+}
+.map-marker.type-28 i:before {
+    color: #95cb70;
+}
+.map-marker.type-48:after {
+    border-top-color: #7ccc8d;
+}
+.map-marker.type-48 i:after {
+    background-color: #7ccc8d;
+}
+.map-marker.type-48 i:before {
+    color: #7ccc8d;
+}
+.map-marker.type-156:after {
+    border-top-color: #3b8473;
+}
+.map-marker.type-156 i:after {
+    background-color: #3b8473;
+}
+.map-marker.type-156 i:before {
+    color: #3b8473;
+}
+.map-marker.type-22:after {
+    border-top-color: #6084ba;
+}
+.map-marker.type-22 i:after {
+    background-color: #6084ba;
+}
+.map-marker.type-22 i:before {
+    color: #6084ba;
+}
+.map-marker.type-43:after {
+    border-top-color: #114589;
+}
+.map-marker.type-43 i:after {
+    background-color: #114589;
+}
+.map-marker.type-43 i:before {
+    color: #114589;
+}
+.map-marker.type-79:after {
+    border-top-color: #dd3333;
+}
+.map-marker.type-79 i:after {
+    background-color: #dd3333;
+}
+.map-marker.type-79 i:before {
+    color: #dd3333;
+}
+a,
+.content-pagination .page-numbers.current {
+    color: #3396d1;
+}
+a:active,
+a:hover,
+.primary-header .current-account-toggle .sub-menu a {
+    color: #1a7db8;
+}
+.job_position_featured .content-box {
+    box-shadow: 0 0 0 3px #3396d1;
+}
+#wpjmr-submit-ratings .star-rating .dashicons-star-filled,
+#wpjmr-list-reviews .star-rating .dashicons-star-filled,
+.stars-rating .dashicons.dashicons-star-filled,
+#wpjmr-submit-ratings .choose-rating .star:hover,
+#wpjmr-submit-ratings .choose-rating .star:hover ~ .star,
+#wpjmr-submit-ratings .choose-rating .star.active,
+#wpjmr-submit-ratings .choose-rating .star.active ~ .star {
+    color: #77c04b;
+}
+.woocommerce .quantity input[type="button"] {
+    color: #77c04b;
+}
+.woocommerce-message,
+.job-manager-message {
+    border-color: #77c04b;
+}
+.type-product .onsale,
+.type-product .price ins,
+.job-package-tag {
+    background-color: #3396d1;
+}
+.woocommerce-tabs .tabs .active a {
+    color: #3396d1;
+}
+.as-seen-on {
+    background-color: #3396d1;
+}
+body,
+button,
+input,
+select,
+textarea,
+.current-account-user-info,
+.listify_widget_panel_listing_tags .tag,
+.entry-cover.no-image,
+.entry-cover.no-image a,
+.listing-cover.no-image,
+.listing-cover.no-image a:not(.button),
+.entry-footer .button.button-small,
+.button[name="apply_coupon"],
+.button[name="apply_coupon"]:hover,
+.widget a,
+.content-pagination .page-numbers,
+.facetwp-pager .facetwp-page,
+.type-job_listing.style-list .job_listing-entry-header,
+.type-job_listing.style-list .job_listing-entry-header a,
+.js-toggle-area-trigger,
+.job-dashboard-actions a,
+body.fixed-map .site-footer,
+body.fixed-map .site-footer a,
+.homepage-cover .job_search_form .select:after,
+.tabbed-listings-tabs a,
+.archive-job_listing-toggle,
+.map-marker-info a,
+.map-marker-info a:hover,
+.job-manager-form fieldset.fieldset-job_hours,
+.listing-by-term-title a,
+.listings-by-term-more a:hover,
+.search_location .locate-me:hover:before,
+.no-image .ion-ios-star:before,
+.no-image .ion-ios-star-half:before,
+.back-to-listing a,
+body .chosen-container-single .chosen-single,
+.select2-default,
+.select2-container .select2-choice,
+.select2-container-multi .select2-choices .select2-search-choice,
+body .homepage-cover .chosen-container .chosen-results li,
+.filter_by_tag a,
+a.upload-images,
+a.upload-images span,
+.nav-menu .sub-menu.category-list a,
+.woocommerce-tabs .tabs a,
+.job-manager-bookmark-actions a {
+    color: #717a8f;
+}
+.comment-meta a,
+.commentlist a.comment-ago,
+div:not(.no-image) .star-rating:before,
+div:not(.no-image) .stars span a:before,
+.cta-subtext,
+.cta-description p,
+.job_listing-author-descriptor,
+.entry-meta,
+.entry-meta a,
+.home-widget-description,
+.listings-by-term-content .job_listing-rating-count,
+.listings-by-term-more a,
+.search-form .search-submit:before,
+.mfp-content .mfp-close:before,
+div:not(.job-package-price) .woocommerce .amount,
+.woocommerce .quantity,
+.showing_jobs {
+    color: #949db2;
+}
+.social-profiles a,
+.listing-gallery-nav .slick-dots li button:before {
+    background-color: #949db2;
+}
+.search-overlay,
+.primary-header {
+    background-color: #3396d1;
+}
+.nav-menu a,
+.nav-menu li:before,
+.nav-menu li:after,
+.nav-menu a:before,
+.nav-menu a:after,
+.nav-menu ul a,
+.nav-menu.primary ul ul a,
+.nav-menu.primary ul ul li:before,
+.nav-menu.primary ul ul li:after {
+    color: #3396d1;
+}
+.search-overlay a.search-overlay-toggle {
+    color: #ffffff;
+}
+.listify_widget_panel_listing_tags .tag.active:before,
+.job-package-includes li:before,
+.woocommerce-tabs .tabs .active a {
+    color: #77c04b;
+}
+.button-secondary:hover,
+.button-secondary:focus,
+input[type="button"].facetwp-reset:hover,
+input[type="button"].facetwp-reset:focus,
+.star-rating-wrapper a:hover ~ a:before,
+.star-rating-wrapper a:hover:before,
+.star-rating-wrapper a.active ~ a:before,
+.star-rating-wrapper a.active:before,
+.woocommerce-tabs .stars span a:hover:before,
+.woocommerce-tabs .stars span a.active:before,
+.woocommerce-tabs .stars span a.hover:before,
+.tabbed-listings-tabs a:hover,
+.tabbed-listings-tabs a.active,
+.archive-job_listing-toggle.active {
+    color: #549d28;
+}
+button:not([role="presentation"]),
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.button,
+.facetwp-type-slider .noUi-connect,
+.ui-slider .ui-slider-range,
+.listing-owner,
+.comment-rating,
+.job_listing-rating-average,
+.map-marker.active:after,
+.cluster,
+.widget_calendar tbody a,
+.job_listing-author-info-more a:first-child,
+.load_more_jobs {
+    background-color: #77c04b;
+}
+button:not([role="presentation"]):hover,
+button:not([role="presentation"]):focus,
+input[type="button"]:hover,
+input[type="button"]:focus,
+input[type="reset"]:hover,
+input[type="reset"]:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus,
+.button:hover,
+.button:focus,
+::selection,
+.load_more_jobs:hover,
+.update_results.refreshing {
+    background-color: #72bb46;
+}
+::-moz-selection {
+    background-color: #72bb46;
+}
+.facetwp-type-slider .noUi-horizontal .noUi-handle,
+.ui-slider .ui-slider-handle,
+.tabbed-listings-tabs a:hover,
+.tabbed-listings-tabs a.active,
+.archive-job_listing-toggle.active,
+li.job-package:hover,
+.job_listing_packages ul.job_packages li:hover,
+.woocommerce-info {
+    border-color: #77c04b;
+}
+input[type=checkbox]:checked:before,
+.facetwp-facet .facetwp-checkbox.checked:after,
+.facetwp-facet .facetwp-link.checked,
+.widget_layered_nav li.chosen a:after,
+.widget_layered_nav li.chosen a,
+.ion-ios-star:before,
+.ion-ios-star-half:before,
+.upload-images:hover .upload-area,
+.comment-author .rating-stars .ion-ios-star,
+.archive-job_listing-layout.button.active,
+.job_listing_packages ul.job_packages li label,
+.upload-images:hover,
+.filter_by_tag a:after,
+.search-choice-close:after,
+.claimed-ribbon span:before {
+    color: #3396d1;
+}
+.button-secondary,
+input[type="button"].facetwp-reset,
+.job_listing-author-info-more a:last-child {
+    background-color: #3396d1;
+}
+.button-secondary:hover,
+.button-secondary:focus,
+input[type="button"].facetwp-reset:hover,
+input[type="button"].facetwp-reset:focus {
+    background-color: #2e91cc;
+}
+.upload-images:hover {
+    border-color: #3396d1;
+}
+.site-footer-widgets {
+    background-color: #2f3339;
+}
+.site-footer {
+    background-color: #22262c;
+}
+@media screen and (min-width: 768px) {
+    .nav-menu .sub-menu.category-list {
+        background-color: #f0f3f6;
+    }
+}
+@media screen and (min-width: 992px) {
+    .nav-menu.primary a,
+    .nav-menu.primary li:before,
+    .nav-menu.primary li:after,
+    .nav-menu.primary a:before,
+    .nav-menu.primary a:after {
+        color: #ffffff;
+    }
+    .primary.nav-menu .current-cart .current-cart-count {
+        background-color: #77c04b;
+        border-color: #3396d1;
+    }
+}

@@ -2,11 +2,12 @@
 <html>
 <head>
   <title>YelpLeague</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= stylesheet_link_tag    "application", media: 'all' %>
+  <%= stylesheet_link_tag    "#{@theme}" %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body ng-app="yelpleague">
+<body ng-app="yelpleague" <% if @theme == 'home' %> class="home page page-id-6 page-template page-template-page-templates page-template-template-home page-template-page-templatestemplate-home-php template-home fixed-header directory-fields color-scheme-default footer- listify listify-120 wp-job-manager wp-job-manager-bookmarks wp-job-manager-wc-paid-listings wp-job-manager-tags wp-job-manager-field-editor wp-job-manager-regions wp-job-manager-reviews wp-job-manager-products wp-job-manager-claim-listing woocommerce-social-login woocommerce woocommerce-bookings jetpack ratings listify-child wp-job-manager-categories-enabled wp-job-manager-categories-only" <% end %> >
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 <%= yield %>
