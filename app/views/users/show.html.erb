@@ -1,6 +1,6 @@
 
 <div>
   <h1>SHOW PAGE</h1>
-<%= link_to 'sign out', destroy_user_session_path, method: 'delete' %>
-
+<%= link_to 'sign out', destroy_user_session_path, method: :delete %>
+  <h2><%=current_user.username%></h2>
 </div>

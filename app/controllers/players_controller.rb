@@ -33,7 +33,7 @@ class PlayersController < ApplicationController
     @user = current_user
     respond_to do |format|
       format.html { render :show }
-      format.json { render json: @player.reported_by_user(current_user) }
+      format.json { render json: { player: @player, reported_by_user: @player.reported_by_user(current_user) } }
     end
   end
 

@@ -4,7 +4,7 @@
   <div id="player-id" class="hidden"><%=@player.id%></div>
   <div id="user-id" class="hidden"><%=@user.id%></div>
 
-  <div class="col-md-6">
+  <div class="col-md-6" ng-if="<%=user_signed_in?%>">
     <form>
       <textarea ng-model="report.message"></textarea>
       <select ng-model="report.rating" ng-options="rating for rating in ratingOptions">
@@ -22,3 +22,5 @@
     </div>
   </div>
 </div>
+
+<%= link_to 'sign out', destroy_user_session_path, method: 'delete' %>
