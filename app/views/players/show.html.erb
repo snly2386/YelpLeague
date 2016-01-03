@@ -2,7 +2,7 @@
   <h1>Player Show Page</h1>
   <h2><%=@player.inspect%></h2>
   <div id="player-id" class="hidden"><%=@player.id%></div>
-  <div id="user-id" class="hidden"><%=@user.id%></div>
+  <div id="user-id" class="hidden"><%=@user.try(:id)%></div>
 
   <div class="col-md-6" ng-if="<%=user_signed_in?%>">
     <form>
