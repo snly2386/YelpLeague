@@ -16,9 +16,9 @@
         $scope.reports = data.reports
       )
 
-      # PlayersService.get( {id: playerId}, (data) ->
-      #   console.log data
-      # )
+      PlayersService.get( {id: playerId}, (data) ->
+        console.log data
+      )
 
       $scope.submitReport = () ->
         report = new ReportsService($scope.report)
