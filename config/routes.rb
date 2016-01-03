@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
   root 'landing#index'
+
+  devise_for :users
+
   resources :users, only: :show do
     resources :reports, only:[:index]
   end
