@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :reports, only:[:index]
   end
   resources :players, only: [:show, :create] do
-    resources :reports, only: [:create, :index]
+    resources :reports, only: [:create, :index, :update]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

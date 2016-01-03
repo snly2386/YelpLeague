@@ -2,8 +2,9 @@
   "name": "yelp-league",
   "description": "Yelp for League of Legends",
   "dependencies": {
-    "angular" : "1.5.0-rc.0",
-    "angular-route" : "",
-    "angular-resource" : ""
+    "angular": "1.5.0-rc.0",
+    "angular-route": "",
+    "angular-resource": "",
+    "angular-timeago": "~0.2.4"
   }
 }

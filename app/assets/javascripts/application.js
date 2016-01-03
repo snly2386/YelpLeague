@@ -16,5 +16,6 @@
 //= require angular-route
 //= require angular-rails-templates
 //= require angular-resource
+//= require angular-timeago
 //= require bootstrap-sprockets
 //= require_tree .

@@ -7,9 +7,10 @@
 
     ($http, $resource) ->
 
-      $resource("/players/:id/reports.json"
-        { id: '@id' }
+      $resource("/players/:player_id/reports/:id.json"
+        { player_id: '@player_id', id: '@id' }
+       update:
+         method: "PUT"
       )
-
   ]
 )()
