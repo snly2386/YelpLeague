@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   resources :users, only: :show do
     resources :reports, only:[:index]
   end
-  resources :players, only: [:show, :create] do
+  resources :players, only: [:show, :create, :index] do
+    post '/bookmark' => 'players#bookmark'
+    post '/unbookmark' => 'players#unbookmark'
     resources :reports, only: [:create, :index, :update]
   end
 

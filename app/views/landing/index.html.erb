@@ -1,185 +1,54 @@
-<div>
-  Landing
-</div>
-
-<p>Find me in app/views/landing/index.html.erb</p>
-
-<% if !current_user %>
-  <%= link_to 'sign in', new_user_session_path %>
-<% end %>
-<% if current_user %>
-  <%= link_to 'sign out', destroy_user_session_path, method: 'delete' %>
-<% end %>
-
-<% if @player.errors %>
+<section ng-controller="HomeCtrl">
+<% if @player.errors.any? %>
   <%= @player.errors.full_messages %>
 <% end %>
-
-
-<%= form_for @player do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br>
-  <%= f.label :region %>
-  <%= f.select :region, options_for_select(regions), :include_blank => "Select Region" %>
-  <%= f.submit 'find' %>
-<% end %>
-
-<div id="page" class="hfeed site">
-<header id="masthead" class="site-header" role="banner">
-    <div class="primary-header">
-        <div class="container">
-            <div class="primary-header-inner">
-                <div class="site-branding">
-                    <a href="https://demo.astoundify.com/listify/" title="Listify" rel="home" class="custom-header"><img src="https://demo.astoundify.com/listify/wp-content/uploads/sites/39/2014/11/copy-listify-footer-logo.svg" alt="">
-                    </a>
-
-                    <h1 class="site-title"><a href="https://demo.astoundify.com/listify/" rel="home">Listify</a></h1>
-                    <h2 class="site-description">The last directory theme you will ever buy.</h2>
-                </div>
-
-                <div class="primary nav-menu">
-                    <div class="nav-menu-container">
-                        <ul id="menu-menu" class="menu">
-                            <li id="menu-item-4482" class="popup-wide menu-item menu-item-type-post_type menu-item-object-page menu-item-4482"><a href="https://demo.astoundify.com/listify/my-account/" class="popup-trigger-ajax popup-wide">Log In</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div id="search-header" class="search-overlay">
-                <div class="container">
-
-                    <form role="search" method="get" class="search-form" action="https://demo.astoundify.com/listify/listings/">
-                        <label>
-                            <span class="screen-reader-text">Search for:</span>
-                            <input type="search" class="search-field" placeholder="Search" value="" name="search_keywords" title="Search for:" />
-                        </label>
-                        <button type="submit" class="search-submit"></button>
-                    </form>
-                    <a href="#search-header" data-toggle="#search-header" class="ion-close search-overlay-toggle"></a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <nav id="site-navigation" class="main-navigation" role="navigation">
-        <div class="container">
-            <a href="#" class="navigation-bar-toggle">
-                <i class="ion-navicon-round"></i> Menu </a>
-
-            <div class="navigation-bar-wrapper">
-                <div class="primary nav-menu">
-                    <ul id="menu-menu-1" class="primary nav-menu">
-                        <li class="menu-item menu-type-link">
-                            <a href="#search-header" data-toggle="#search-header" class="search-overlay-toggle"></a>
-                        </li>
-                        <li class="menu-item menu-type-link"><a href="https://demo.astoundify.com/listify/cart/" class="current-cart"><span class="current-cart-count">0</span> Items</a>
-                        </li>
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-59"><a href="https://demo.astoundify.com/listify/blog/">Blog</a>
-                        </li>
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-58"><a href="https://demo.astoundify.com/listify/plans-and-pricing/">Plans and Pricing</a>
-                        </li>
-                        <li class="popup-wide menu-item menu-item-type-post_type menu-item-object-page menu-item-4482"><a href="https://demo.astoundify.com/listify/my-account/" class="popup-trigger-ajax popup-wide">Log In</a>
-                        </li>
-                    </ul>
-                </div>
-
-            <a href="#search-navigation" data-toggle="#search-navigation" class="ion-search search-overlay-toggle"></a>
-
-            <div id="search-navigation" class="search-overlay">
-
-                <form role="search" method="get" class="search-form" action="https://demo.astoundify.com/listify/listings/">
-                    <label>
-                        <span class="screen-reader-text">Search for:</span>
-                        <input type="search" class="search-field" placeholder="Search" value="" name="search_keywords" title="Search for:" />
-                    </label>
-                    <button type="submit" class="search-submit"></button>
-                </form>
-                <a href="#search-navigation" data-toggle="#search-navigation" class="ion-close search-overlay-toggle"></a>
-            </div>
-        </div>
-    </nav>
-    <!-- #site-navigation -->
-</header>
-<!-- #masthead -->
-
+<!-- <div id="page" class="hfeed site"> -->
 
 <div id="content" class="site-content">
-    <div style="background-image: url(https://demo.astoundify.com/listify/wp-content/uploads/sites/39/2014/10/main-bg-top_mini-1.jpg);" class="homepage-cover page-cover entry-cover has-image">
+    <div style="background-image: url(https://s3-us-west-2.amazonaws.com/dynamicowlwendy/summoners_rift.jpg);" class="homepage-cover page-cover entry-cover has-image">
         <div class="cover-wrapper container">
             <div class="listify_widget_search_listings">
                 <div class="home-widget-section-title">
-                    <h1 class="home-widget-title">Search Your City<h2 class="home-widget-description">
+                    <h1 class="home-widget-title">Search for Summoner<h2 class="home-widget-description">
 
-Listify helps you find out whats happening in your city, Let&#039;s explore.</h2></h1>
+Help inform and improve the community.</h2></h1>
                 </div>
                 <a href="#" data-toggle=".job_filters" class="js-toggle-area-trigger">Toggle Filters</a>
 
-                <form class="job_search_form" action="https://demo.astoundify.com/listify/listings/" method="GET">
+                <%= form_for @player, class: 'job_search_form' do |f| %>
 
                     <div class="search_jobs">
 
                         <div class="search_keywords">
-                            <label for="search_keywords">Keywords</label>
-                            <input type="text" name="search_keywords" id="search_keywords" placeholder="Keywords" />
+                            <%= f.label :name %>
+                            <%= f.text_field :name, placeholder: 'Summoner Name', class: 'name-input' %>
                         </div>
-
-                        <div class="search_location">
-                            <label for="search_location">Location</label>
-                            <input type="text" name="search_location" id="search_location" placeholder="Location" />
-                        </div>
-
 
                         <div class="search_categories">
-                            <label for="search_categories">Category</label>
-                            <select name='search_categories[]' id='search_categories' class='job-manager-category-dropdown ' data-placeholder='Choose a category&hellip;' data-no_results_text='No results match' data-multiple_text='Select Some Options'>
-                                <option value="">Any category</option>
-                                <option class="level-0" value="46">Arts &amp; Entertainment</option>
-                                <option class="level-1" value="156">&nbsp;&nbsp;&nbsp;Nightclub</option>
-                                <option class="level-0" value="50">Bars</option>
-                                <option class="level-1" value="75">&nbsp;&nbsp;&nbsp;Breweries</option>
-                                <option class="level-0" value="49">Beauty &amp; Spas</option>
-                                <option class="level-1" value="174">&nbsp;&nbsp;&nbsp;Barbershop</option>
-                                <option class="level-0" value="28">Food</option>
-                                <option class="level-1" value="29">&nbsp;&nbsp;&nbsp;Coffee &amp; Tea</option>
-                                <option class="level-1" value="72">&nbsp;&nbsp;&nbsp;Doughnuts</option>
-                                <option class="level-0" value="48">Home Services</option>
-                                <option class="level-0" value="45">Hotels &amp; Travel</option>
-                                <option class="level-0" value="43">Pets</option>
-                                <option class="level-0" value="21">Restaurants</option>
-                                <option class="level-1" value="163">&nbsp;&nbsp;&nbsp;Cafes</option>
-                                <option class="level-1" value="165">&nbsp;&nbsp;&nbsp;Chinese</option>
-                                <option class="level-1" value="79">&nbsp;&nbsp;&nbsp;Pizza</option>
-                            </select>
+                             <%= f.label :region %>
+                             <%= f.select :region, options_for_select(regions), :include_blank => "Select Region" %>
                         </div>
 
 
                         <div class="search-radius-wrapper in-use">
                             <div class="search-radius-label">
                                 <label for="use_search_radius">
-                                    <input type="checkbox" name="use_search_radius" id="use_search_radius" checked='checked' /> Radius: <span class="radi">300</span> mi </label>
                             </div>
                             <div class="search-radius-slider">
                                 <div id="search-radius"></div>
                             </div>
 
-                            <input type="hidden" id="search_radius" name="search_radius" value="300" />
                         </div>
 
-                        <input type="hidden" id="search_lat" name="search_lat" value="0" />
-                        <input type="hidden" id="search_lng" name="search_lng" value="0" />
                         <div class="filter_wide filter_by_tag">Filter by tag: <span class="filter_by_tag_cloud"></span>
                         </div>
-                        <input type="hidden" name="search_region" class="search_region" value="" /> </div>
+                        </div>
 
                     <p class="filter-by-type-label">Filter by type:</p>
-                    <input type="hidden" id="search_context" name="search_context" value="6" />
                     <ul class="job_types">
                     </ul>
-                    <input type="hidden" name="filter_job_type[]" value="" />
-                    <button type="submit" data-refresh="Loading..." data-label="Search Listings" name="update_results" class="update_results">Search Listings</button>
+                    <%=f.button 'Search Player', class: "update_results"%>
+                    <% end %>
                     <div class="showing_jobs"></div>
                 </form>
 
@@ -195,7 +64,7 @@ Listify helps you find out whats happening in your city, Let&#039;s explore.</h2
             <span class="results-found">0</span> Results Found            </h3>
                 </div>
 
-                <noscript>Your browser does not support JavaScript, or it is disabled. JavaScript must be enabled in order to view listings.</noscript>
+
             </div>
         </div>
 
@@ -214,36 +83,32 @@ Listify helps you find out whats happening in your city, Let&#039;s explore.</h2
     <div class="container homepage-hero-style-video">
         <aside id="listify_widget_recent_listings-3" class="home-widget listify_widget_recent_listings">
             <div class="home-widget-section-title">
-                <h2 class="home-widget-title">Recent Listings<h2 class="home-widget-description">Discover some of our best listings</h2></h2>
+                <h2 class="home-widget-title">Recent Listings<h2 class="home-widget-description">Discover Latest Player Listings</h2></h2>
             </div>
             <ul class="job_listings">
 
 
-                <li id="job_listing-685" class="job_listing post-685 type-job_listing status-publish has-post-thumbnail hentry job_listing_region-toronto job_listing_category-barbershop job_listing_tag-accepts-credit-cards job_listing_tag-good-for-kids job_listing_tag-wheelchair-accessible job_listing_tag-wifi claimed col-xs-12 col-sm-6 col-md-4 style-grid" data-grid-columns="col-xs-12 col-sm-6 col-md-4" data-id="685" data-link="https://demo.astoundify.com/listify/listing/555-liberty-village-toronto-ontario-canada-astoundify-barbershop/" data-thumb="https://demo.astoundify.com/listify/wp-content/uploads/sites/39/job_listings/2014/11/Stocksy_txp782c31421CE000_Medium_85879-150x150.jpg" data-title="Astoundify Barbershop" data-address="555 Liberty Village, Toronto, Ontario, Canada" data-longitude="-79.42553470000001" data-latitude="43.6380835" data-color="#627e82" data-icon="ion-scissors" data-term="174" data-featured="" data-rating="4 Stars">
+                <li id="job_listing-685" class="job_listing post-685 type-job_listing status-publish has-post-thumbnail hentry job_listing_region-toronto job_listing_category-barbershop job_listing_tag-accepts-credit-cards job_listing_tag-good-for-kids job_listing_tag-wheelchair-accessible job_listing_tag-wifi claimed col-xs-12 col-sm-6 col-md-4 style-grid" data-grid-columns="col-xs-12 col-sm-6 col-md-4" ng-repeat="player in players" >
 
                     <div class="content-box">
 
-                        <a href="https://demo.astoundify.com/listify/listing/555-liberty-village-toronto-ontario-canada-astoundify-barbershop/" class="job_listing-clickbox"></a>
-
-                        <header style="background-image: url(https://demo.astoundify.com/listify/wp-content/uploads/sites/39/job_listings/2014/11/Stocksy_txp782c31421CE000_Medium_85879-1024x682.jpg);" class="job_listing-entry-header listing-cover has-image">
-
+                        <header class="job_listing-entry-header listing-cover has-image">
+                            <div class="home-player-listing-container">
+                              <img src="https://s3-us-west-2.amazonaws.com/dynamicowlwendy/profileicon/{{player.player.icon}}.png" class="home-player-listing center-block" />
+                            </div>
                             <div class="job_listing-entry-header-wrapper cover-wrapper">
 
                                 <div class="job_listing-entry-thumbnail">
                                     <div style="background-image: url(https://demo.astoundify.com/listify/wp-content/uploads/sites/39/job_listings/2014/11/Stocksy_txp782c31421CE000_Medium_85879-1024x682.jpg);" class="list-cover has-image"></div>
                                 </div>
                                 <div class="job_listing-entry-meta">
-                                    <h1 itemprop="name" class="job_listing-title">
-        Astoundify Barbershop        </h1>
-                                    <a href="#what-is-claimed" class="claimed-ribbon popup-trigger">
-                                        <span class="ion-checkmark-circled"></span>
-                                        <span class="tooltip">Verified Listing</span>
+                                    <a ng-href="/players/{{player.player.id}}">
+                                      <h1 itemprop="name" class="job_listing-title" ng-bind="player.player.display_name"></h1>
                                     </a>
-
-                                    <div class="job_listing-location job_listing-location-formatted"><a class="google_map_link" href="http://maps.google.com/maps?saddr=Current+Location&#038;daddr=43.6380835%2C-79.42553470000001" target="_blank"><span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">67 <span itemprop="streetAddress">Mowat Avenue</span><br/><span itemprop="addressLocality">Toronto</span> <span itemprop="addressRegion">Ontario</span> <span itemprop="postalCode">M6K 3E3</span><br/><span itemprop="addressCountry">Canada</span></span></a>
-                                    </div>
-                                    <div class="job_listing-phone">
-                                        <span itemprop="telephone"><a href="tel:9055555555">(905) 555-5555</a></span>
+                                    <div class="job_listing-location job_listing-location-formatted">
+                                      Region: <span ng-bind="player.player.region"></span>
+                                      <br/>
+                                      Summoner Level: <span ng-bind="player.player.level"></span>
                                     </div>
                                 </div>
 
@@ -254,400 +119,44 @@ Listify helps you find out whats happening in your city, Let&#039;s explore.</h2
 
                         <footer class="job_listing-entry-footer">
 
-                            <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="rating-4 job_listing-rating-wrapper" title="4 Reviews">
+                            <div itemprop="aggregateRating" class="rating-4 job_listing-rating-wrapper" title="4 Reviews">
                                 <span class="job_listing-rating-stars">
 
-<span class='stars-rating'>
+                                  <span class='stars-rating'>
 
-              <span class="dashicons dashicons-star-filled"></span>
+                                    <span style="color:#77c04b"><i class="fa" ng-class="player.average_rating < 1 ? 'fa-star-o' : 'fa-star'"></i></span>
 
-
-                                <span class="dashicons dashicons-star-filled"></span>
-
-
-                                <span class="dashicons dashicons-star-filled"></span>
+                                    <span style="color:#77c04b"><i class="fa" ng-class="player.average_rating < 2 ? 'fa-star-o' : 'fa-star'"></i></span>
 
 
-                                <span class="dashicons dashicons-star-filled"></span>
+
+                                    <span style="color:#77c04b"><i class="fa" ng-class="player.average_rating < 3 ? 'fa-star-o' : 'fa-star'"></i></span>
 
 
-                                <span class="dashicons dashicons-star-filled"></span>
+
+                                    <span style="color:#77c04b"><i class="fa" ng-class="player.average_rating < 4 ? 'fa-star-o' : 'fa-star'"></i></span>
+
+
+
+                                    <span style="color:#77c04b"><i class="fa" ng-class="player.average_rating < 5 ? 'fa-star-o' : 'fa-star'"></i></span>
+
 
                                 </span>
                                 </span>
 
                                 <span class="job_listing-rating-average">
-    <span itemprop="ratingValue">4.8</span>
+                                  <span ng-bind="player.average_rating || 'n/a' "></span>
                                 </span>
                                 <span class="job_listing-rating-count">
     <span itemprop="reviewCount">4</span> Reviews </span>
                             </div>
-                            <div class="job-manager-form wp-job-manager-bookmarks-form">
-                                <div><a class="bookmark-notice" href="https://demo.astoundify.com/listify/my-account/">Login to bookmark this Listing</a>
-                                </div>
-                            </div>
+                            <i class="fa bookmark-icon" ng-class="{ 'fa-bookmark' : player.bookmarked, 'fa-heart-o' : !player.bookmarked }" ng-click="player.bookmarked ? unbookmarkPlayer(player.player.id, $index) : bookmarkPlayer(player.player.id, $index)"></i>
                         </footer>
                         <!-- .entry-footer -->
 
                     </div>
                 </li>
                 <!-- #post-## -->
-
-
-
-                <li id="job_listing-270" class="job_listing post-270 type-job_listing status-publish has-post-thumbnail hentry job_listing_region-chandler-arizona job_listing_category-bars job_listing_category-breweries job_listing_category-restaurants job_listing_tag-accepts-credit-cards job_listing_tag-alcohol job_listing_tag-caters job_listing_tag-good-for-groups job_listing_tag-has-tv job_listing_tag-outdoor-seating job_listing_tag-parking job_listing_tag-take-out job_listing_tag-takes-reservations job_listing_tag-waiter-service job_listing_tag-wheelchair-accessible job_listing_tag-wifi not-claimed col-xs-12 col-sm-6 col-md-4 style-grid" data-grid-columns="col-xs-12 col-sm-6 col-md-4" data-id="270" data-link="https://demo.astoundify.com/listify/listing/8-s-san-marcos-pl-chandler-az-85225-united-states/" data-thumb="https://demo.astoundify.com/listify/wp-content/uploads/sites/39/2014/11/Stocksy_txpf3080aa3KME000_Medium_434948-150x150.jpg" data-title="SanTan Brewing" data-address="8 S San Marcos Pl Chandler, AZ 85225 United States" data-longitude="-111.842532" data-latitude="33.303233" data-color="#eb974e" data-icon="ion-beer" data-term="50" data-featured="" data-rating="4 Stars">
-
-                    <div class="content-box">
-
-                        <a href="https://demo.astoundify.com/listify/listing/8-s-san-marcos-pl-chandler-az-85225-united-states/" class="job_listing-clickbox"></a>
-
-                        <header style="background-image: url(https://demo.astoundify.com/listify/wp-content/uploads/sites/39/2014/11/Stocksy_txpf3080aa3KME000_Medium_434948-1024x683.jpg);" class="job_listing-entry-header listing-cover has-image">
-
-                            <div class="job_listing-entry-header-wrapper cover-wrapper">
-
-                                <div class="job_listing-entry-thumbnail">
-                                    <div style="background-image: url(https://demo.astoundify.com/listify/wp-content/uploads/sites/39/2014/11/Stocksy_txpf3080aa3KME000_Medium_434948-1024x683.jpg);" class="list-cover has-image"></div>
-                                </div>
-                                <div class="job_listing-entry-meta">
-                                    <h1 itemprop="name" class="job_listing-title">
-        SanTan Brewing        </h1>
-                                    <div class="job_listing-location job_listing-location-formatted"><a class="google_map_link" href="http://maps.google.com/maps?saddr=Current+Location&#038;daddr=33.303233%2C-111.842532" target="_blank"><span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span itemprop="streetAddress">8 South San Marcos Place</span><br/><span itemprop="addressLocality">Chandler</span>, AZ <span itemprop="postalCode">85225</span></span></a>
-                                    </div>
-                                    <div class="job_listing-phone">
-                                        <span itemprop="telephone"><a href="tel:4809178700">(480) 917-8700</a></span>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </header>
-                        <!-- .entry-header -->
-
-                        <footer class="job_listing-entry-footer">
-
-                            <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="rating-4 job_listing-rating-wrapper" title="4 Reviews">
-                                <span class="job_listing-rating-stars">
-
-<span class='stars-rating'>
-
-              <span class="dashicons dashicons-star-filled"></span>
-
-
-                                <span class="dashicons dashicons-star-filled"></span>
-
-
-                                <span class="dashicons dashicons-star-filled"></span>
-
-
-                                <span class="dashicons dashicons-star-filled"></span>
-
-
-                                <span class="dashicons dashicons-star-filled"></span>
-
-                                </span>
-                                </span>
-
-                                <span class="job_listing-rating-average">
-    <span itemprop="ratingValue">4.3</span>
-                                </span>
-                                <span class="job_listing-rating-count">
-    <span itemprop="reviewCount">4</span> Reviews </span>
-                            </div>
-                            <div class="job-manager-form wp-job-manager-bookmarks-form">
-                                <div><a class="bookmark-notice" href="https://demo.astoundify.com/listify/my-account/">Login to bookmark this Listing</a>
-                                </div>
-                            </div>
-                        </footer>
-                        <!-- .entry-footer -->
-
-                    </div>
-                </li>
-                <!-- #post-## -->
-
-
-
-                <li id="job_listing-264" class="job_listing post-264 type-job_listing status-publish has-post-thumbnail hentry job_listing_region-toronto job_listing_category-food job_listing_category-restaurants job_listing_tag-accepts-credit-cards job_listing_tag-delivery job_listing_tag-outdoor-seating job_listing_tag-parking job_listing_tag-take-out job_listing_tag-takes-reservations job_listing_tag-waiter-service job_listing_tag-wheelchair-accessible job_listing_tag-wifi not-claimed col-xs-12 col-sm-6 col-md-4 style-grid" data-grid-columns="col-xs-12 col-sm-6 col-md-4" data-id="264" data-link="https://demo.astoundify.com/listify/listing/240-leighland-avenue-oakville-on-canada-oliver-bonacini-cafe-grill/" data-thumb="https://demo.astoundify.com/listify/wp-content/uploads/sites/39/2014/11/oliver-and-bonacini-one-150x150.jpg" data-title="Oliver &amp; Bonacini Café Grill" data-address="240 Leighland Avenue Oakville, ON, Canada" data-longitude="-79.68714039999998" data-latitude="43.4617715" data-color="#95cb70" data-icon="ion-pizza" data-term="28" data-featured="" data-rating="4 Stars">
-
-                    <div class="content-box">
-
-                        <a href="https://demo.astoundify.com/listify/listing/240-leighland-avenue-oakville-on-canada-oliver-bonacini-cafe-grill/" class="job_listing-clickbox"></a>
-
-                        <header style="background-image: url(https://demo.astoundify.com/listify/wp-content/uploads/sites/39/2014/11/oliver-and-bonacini-one.jpg);" class="job_listing-entry-header listing-cover has-image">
-
-                            <div class="job_listing-entry-header-wrapper cover-wrapper">
-
-                                <div class="job_listing-entry-thumbnail">
-                                    <div style="background-image: url(https://demo.astoundify.com/listify/wp-content/uploads/sites/39/2014/11/oliver-and-bonacini-one.jpg);" class="list-cover has-image"></div>
-                                </div>
-                                <div class="job_listing-entry-meta">
-                                    <h1 itemprop="name" class="job_listing-title">
-        Oliver &amp; Bonacini Café Grill        </h1>
-                                    <div class="job_listing-location job_listing-location-formatted"><a class="google_map_link" href="http://maps.google.com/maps?saddr=Current+Location&#038;daddr=43.4617715%2C-79.68714039999998" target="_blank"><span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span itemprop="streetAddress">240 Leighland Avenue</span><br/><span itemprop="addressLocality">Oakville</span> <span itemprop="addressRegion">Ontario</span> <span itemprop="postalCode">L6H 3H6</span><br/><span itemprop="addressCountry">Canada</span></span></a>
-                                    </div>
-                                    <div class="job_listing-phone">
-                                        <span itemprop="telephone"><a href="tel:2892910265">(289) 291-0265</a></span>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </header>
-                        <!-- .entry-header -->
-
-                        <footer class="job_listing-entry-footer">
-
-                            <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="rating-4 job_listing-rating-wrapper" title="4 Reviews">
-                                <span class="job_listing-rating-stars">
-
-<span class='stars-rating'>
-
-              <span class="dashicons dashicons-star-filled"></span>
-
-
-                                <span class="dashicons dashicons-star-filled"></span>
-
-
-                                <span class="dashicons dashicons-star-filled"></span>
-
-
-                                <span class="dashicons dashicons-star-filled"></span>
-
-
-                                <span class="dashicons dashicons-star-filled"></span>
-
-                                </span>
-                                </span>
-
-                                <span class="job_listing-rating-average">
-    <span itemprop="ratingValue">4.8</span>
-                                </span>
-                                <span class="job_listing-rating-count">
-    <span itemprop="reviewCount">4</span> Reviews </span>
-                            </div>
-                            <div class="job-manager-form wp-job-manager-bookmarks-form">
-                                <div><a class="bookmark-notice" href="https://demo.astoundify.com/listify/my-account/">Login to bookmark this Listing</a>
-                                </div>
-                            </div>
-                        </footer>
-                        <!-- .entry-footer -->
-
-                    </div>
-                </li>
-                <!-- #post-## -->
-
-
-
-                <li id="job_listing-452" class="job_listing post-452 type-job_listing status-publish has-post-thumbnail hentry job_listing_region-ohio job_listing_category-food job_listing_category-restaurants job_listing_tag-accepts-credit-cards job_listing_tag-alcohol job_listing_tag-delivery job_listing_tag-good-for-groups job_listing_tag-good-for-kids job_listing_tag-has-tv job_listing_tag-outdoor-seating job_listing_tag-parking job_listing_tag-take-out job_listing_tag-takes-reservations job_listing_tag-waiter-service job_listing_tag-wheelchair-accessible not-claimed col-xs-12 col-sm-6 col-md-4 style-grid" data-grid-columns="col-xs-12 col-sm-6 col-md-4" data-id="452" data-link="https://demo.astoundify.com/listify/listing/234-euclid-ave-euclid-ave-cleveland-oh-44114-united-states-noodlecat/" data-thumb="https://demo.astoundify.com/listify/wp-content/uploads/sites/39/job_listings/2014/11/6108942040_831d9b466f_b-150x150.jpg" data-title="Noodlecat" data-address="234 Euclid Ave, Cleveland, OH 44114, United States" data-longitude="-81.6913909" data-latitude="41.4993921" data-color="#95cb70" data-icon="ion-pizza" data-term="28" data-featured="" data-rating="5 Stars">
-
-                    <div class="content-box">
-
-                        <a href="https://demo.astoundify.com/listify/listing/234-euclid-ave-euclid-ave-cleveland-oh-44114-united-states-noodlecat/" class="job_listing-clickbox"></a>
-
-                        <header style="background-image: url(https://demo.astoundify.com/listify/wp-content/uploads/sites/39/job_listings/2014/11/6108942040_831d9b466f_b.jpg);" class="job_listing-entry-header listing-cover has-image">
-
-                            <div class="job_listing-entry-header-wrapper cover-wrapper">
-
-                                <div class="job_listing-entry-thumbnail">
-                                    <div style="background-image: url(https://demo.astoundify.com/listify/wp-content/uploads/sites/39/job_listings/2014/11/6108942040_831d9b466f_b.jpg);" class="list-cover has-image"></div>
-                                </div>
-                                <div class="job_listing-entry-meta">
-                                    <h1 itemprop="name" class="job_listing-title">
-        Noodlecat        </h1>
-                                    <div class="job_listing-location job_listing-location-formatted"><a class="google_map_link" href="http://maps.google.com/maps?saddr=Current+Location&#038;daddr=41.4993921%2C-81.6913909" target="_blank"><span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span itemprop="streetAddress">234 Euclid Avenue</span><br/><span itemprop="addressLocality">Cleveland</span>, OH <span itemprop="postalCode">44114</span></span></a>
-                                    </div>
-                                    <div class="job_listing-phone">
-                                        <span itemprop="telephone"><a href="tel:2165890007">(216) 589-0007</a></span>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </header>
-                        <!-- .entry-header -->
-
-                        <footer class="job_listing-entry-footer">
-
-                            <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="rating-5 job_listing-rating-wrapper" title="2 Reviews">
-                                <span class="job_listing-rating-stars">
-
-<span class='stars-rating'>
-
-              <span class="dashicons dashicons-star-filled"></span>
-
-
-                                <span class="dashicons dashicons-star-filled"></span>
-
-
-                                <span class="dashicons dashicons-star-filled"></span>
-
-
-                                <span class="dashicons dashicons-star-filled"></span>
-
-
-                                <span class="dashicons dashicons-star-filled"></span>
-
-                                </span>
-                                </span>
-
-                                <span class="job_listing-rating-average">
-    <span itemprop="ratingValue">5.0</span>
-                                </span>
-                                <span class="job_listing-rating-count">
-    <span itemprop="reviewCount">2</span> Reviews </span>
-                            </div>
-                            <div class="job-manager-form wp-job-manager-bookmarks-form">
-                                <div><a class="bookmark-notice" href="https://demo.astoundify.com/listify/my-account/">Login to bookmark this Listing</a>
-                                </div>
-                            </div>
-                        </footer>
-                        <!-- .entry-footer -->
-
-                    </div>
-                </li>
-                <!-- #post-## -->
-
-
-
-                <li id="job_listing-660" class="job_listing post-660 type-job_listing status-publish has-post-thumbnail hentry job_listing_category-bars job_listing_tag-good-for-kids job_listing_tag-parking job_listing_tag-take-out job_listing_tag-takes-reservations not-claimed col-xs-12 col-sm-6 col-md-4 style-grid" data-grid-columns="col-xs-12 col-sm-6 col-md-4" data-id="660" data-link="https://demo.astoundify.com/listify/listing/redmonds-bar-and-grill/" data-thumb="https://demo.astoundify.com/listify/wp-content/uploads/sites/39/2014/11/EOZpjI3oSqKPNnF2S4Tp_Untitled-150x150.jpg" data-title="Redmond’s Bar and Grill" data-address="7979 Leary Way NE Redmond, WA 98052 United States" data-longitude="-122.12291800000003" data-latitude="47.674509" data-color="#eb974e" data-icon="ion-beer" data-term="50" data-featured="" data-rating="4 Stars">
-
-                    <div class="content-box">
-
-                        <a href="https://demo.astoundify.com/listify/listing/redmonds-bar-and-grill/" class="job_listing-clickbox"></a>
-
-                        <header style="background-image: url(https://demo.astoundify.com/listify/wp-content/uploads/sites/39/2014/11/EOZpjI3oSqKPNnF2S4Tp_Untitled-1024x682.jpg);" class="job_listing-entry-header listing-cover has-image">
-
-                            <div class="job_listing-entry-header-wrapper cover-wrapper">
-
-                                <div class="job_listing-entry-thumbnail">
-                                    <div style="background-image: url(https://demo.astoundify.com/listify/wp-content/uploads/sites/39/2014/11/EOZpjI3oSqKPNnF2S4Tp_Untitled-1024x682.jpg);" class="list-cover has-image"></div>
-                                </div>
-                                <div class="job_listing-entry-meta">
-                                    <h1 itemprop="name" class="job_listing-title">
-        Redmond’s Bar and Grill        </h1>
-                                    <div class="job_listing-location job_listing-location-formatted"><a class="google_map_link" href="http://maps.google.com/maps?saddr=Current+Location&#038;daddr=47.674509%2C-122.12291800000003" target="_blank"><span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span itemprop="streetAddress">7979 Leary Way Northeast</span><br/><span itemprop="addressLocality">Redmond</span>, WA <span itemprop="postalCode">98052</span></span></a>
-                                    </div>
-                                    <div class="job_listing-phone">
-                                        <span itemprop="telephone"><a href="tel:4255589800">(425) 558-9800</a></span>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </header>
-                        <!-- .entry-header -->
-
-                        <footer class="job_listing-entry-footer">
-
-                            <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="rating-4 job_listing-rating-wrapper" title="4 Reviews">
-                                <span class="job_listing-rating-stars">
-
-<span class='stars-rating'>
-
-              <span class="dashicons dashicons-star-filled"></span>
-
-
-                                <span class="dashicons dashicons-star-filled"></span>
-
-
-                                <span class="dashicons dashicons-star-filled"></span>
-
-
-                                <span class="dashicons dashicons-star-filled"></span>
-
-
-                                <span class="dashicons dashicons-star-filled"></span>
-
-                                </span>
-                                </span>
-
-                                <span class="job_listing-rating-average">
-    <span itemprop="ratingValue">4.5</span>
-                                </span>
-                                <span class="job_listing-rating-count">
-    <span itemprop="reviewCount">4</span> Reviews </span>
-                            </div>
-                            <div class="job-manager-form wp-job-manager-bookmarks-form">
-                                <div><a class="bookmark-notice" href="https://demo.astoundify.com/listify/my-account/">Login to bookmark this Listing</a>
-                                </div>
-                            </div>
-                        </footer>
-                        <!-- .entry-footer -->
-
-                    </div>
-                </li>
-                <!-- #post-## -->
-
-
-
-                <li id="job_listing-233" class="job_listing job_position_featured post-233 type-job_listing status-publish has-post-thumbnail hentry job_listing_region-toronto job_listing_category-doughnuts job_listing_category-food job_listing_tag-accepts-credit-cards job_listing_tag-caters job_listing_tag-delivery job_listing_tag-parking not-claimed col-xs-12 col-sm-6 col-md-4 style-grid" data-grid-columns="col-xs-12 col-sm-6 col-md-4" data-id="233" data-link="https://demo.astoundify.com/listify/listing/1596-queen-street-w-toronto-on-m6r-glory-hole-doughnuts/" data-thumb="https://demo.astoundify.com/listify/wp-content/uploads/sites/39/job_listings/2014/11/8684005585_ee87d84a32_k-150x150.jpg" data-title="Glory Hole Doughnuts" data-address="1596 Queen Street W Toronto, ON M6R" data-longitude="-79.4415219" data-latitude="43.6397507" data-color="#6bd4e0" data-icon="ion-fork" data-term="72" data-featured="featured" data-rating="4 Stars">
-
-                    <div class="content-box">
-
-                        <a href="https://demo.astoundify.com/listify/listing/1596-queen-street-w-toronto-on-m6r-glory-hole-doughnuts/" class="job_listing-clickbox"></a>
-
-                        <header style="background-image: url(https://demo.astoundify.com/listify/wp-content/uploads/sites/39/job_listings/2014/11/8684005585_ee87d84a32_k-1024x682.jpg);" class="job_listing-entry-header listing-cover has-image">
-
-                            <div class="job_listing-entry-header-wrapper cover-wrapper">
-
-                                <div class="job_listing-entry-thumbnail">
-                                    <div style="background-image: url(https://demo.astoundify.com/listify/wp-content/uploads/sites/39/job_listings/2014/11/8684005585_ee87d84a32_k-1024x682.jpg);" class="list-cover has-image"></div>
-                                </div>
-                                <div class="job_listing-entry-meta">
-                                    <h1 itemprop="name" class="job_listing-title">
-        Glory Hole Doughnuts        </h1>
-                                    <div class="job_listing-location job_listing-location-formatted"><a class="google_map_link" href="http://maps.google.com/maps?saddr=Current+Location&#038;daddr=43.6397507%2C-79.4415219" target="_blank"><span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span itemprop="streetAddress">1596 Queen Street West</span><br/><span itemprop="addressLocality">Toronto</span> <span itemprop="addressRegion">Ontario</span> <span itemprop="postalCode">M6R 1A8</span><br/><span itemprop="addressCountry">Canada</span></span></a>
-                                    </div>
-                                    <div class="job_listing-phone">
-                                        <span itemprop="telephone"><a href="tel:6473524848">(647) 352-4848</a></span>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </header>
-                        <!-- .entry-header -->
-
-                        <footer class="job_listing-entry-footer">
-
-                            <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="rating-4 job_listing-rating-wrapper" title="4 Reviews">
-                                <span class="job_listing-rating-stars">
-
-<span class='stars-rating'>
-
-              <span class="dashicons dashicons-star-filled"></span>
-
-
-                                <span class="dashicons dashicons-star-filled"></span>
-
-
-                                <span class="dashicons dashicons-star-filled"></span>
-
-
-                                <span class="dashicons dashicons-star-filled"></span>
-
-
-                                <span class="dashicons dashicons-star-filled"></span>
-
-                                </span>
-                                </span>
-
-                                <span class="job_listing-rating-average">
-    <span itemprop="ratingValue">4.8</span>
-                                </span>
-                                <span class="job_listing-rating-count">
-    <span itemprop="reviewCount">4</span> Reviews </span>
-                            </div>
-                            <div class="job-manager-form wp-job-manager-bookmarks-form">
-                                <div><a class="bookmark-notice" href="https://demo.astoundify.com/listify/my-account/">Login to bookmark this Listing</a>
-                                </div>
-                            </div>
-                        </footer>
-                        <!-- .entry-footer -->
-
-                    </div>
-                </li>
-                <!-- #post-## -->
-
             </ul>
 
         </aside>
@@ -674,15 +183,15 @@ Listify helps you find out whats happening in your city, Let&#039;s explore.</h2
                                 <div class="textwidget">
                                     <embed src="https://demo.astoundify.com/listify/wp-content/uploads/sites/39/2014/11/copy-listify-footer-logo.svg" type="image/svg+xml" />
                                     <p>
-                                        At Listify our purpose is to help people find great local businesses like dentists, hair stylists and mechanics. Go Explore!
+                                        Keep the League Community Informed
                                         <p>
-                                            Proudly Made in Canada & USA</div>
+                                  </div>
                             </aside>
                         </div>
 
                         <div class="footer-widget-column col-xs-12 col-sm-6 col-lg-3 col-lg-offset-1">
                             <aside id="nav_menu-2" class="footer-widget widget_nav_menu">
-                                <h4 class="footer-widget-title">About Listify</h4>
+                                <h4 class="footer-widget-title">About League Yelp</h4>
                                 <div class="menu-need-help-menu-footer-container">
                                     <ul id="menu-need-help-menu-footer" class="menu">
                                         <li id="menu-item-248" class="ion-help-buoy menu-item menu-item-type-custom menu-item-object-custom menu-item-248"><a href="#">Help Center</a>
@@ -730,35 +239,15 @@ Listify helps you find out whats happening in your city, Let&#039;s explore.</h2
                 <div class="container">
 
                     <div class="site-info">
-                        Copyright Astoundify © 2015. All Rights Reserved </div>
-                    <!-- .site-info -->
-
-                    <div class="site-social">
-                        <div class="menu-social-container">
-                            <ul id="menu-social" class="nav-menu-social">
-                                <li id="menu-item-240" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-240"><a href="http://facebook.com/astoundify">facebook</a>
-                                </li>
-                                <li id="menu-item-241" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-241"><a href="http://twitter.com/astoundify">twitter</a>
-                                </li>
-                                <li id="menu-item-242" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-242"><a href="https://plus.google.com/">google</a>
-                                </li>
-                                <li id="menu-item-244" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-244"><a href="http://instagram.com/">instagram</a>
-                                </li>
-                                <li id="menu-item-246" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-246"><a href="https://vimeo.com/astoundify">vimeo</a>
-                                </li>
-                                <li id="menu-item-8176" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8176"><a href="http://tumblr.com">tumblr</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
+                        League Yelp isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc. </div>
                 </div>
             </footer>
             <!-- #colophon -->
 
-        </div>
+        <!-- </div> -->
 
 
+</section>
 
 <div id="ajax-response"></div>
 <%= javascript_include_tag 'home' %>

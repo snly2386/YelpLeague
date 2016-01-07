@@ -5,8 +5,9 @@
     '$scope'
     'ReportsService'
     'PlayersService'
+    'BookmarkService'
 
-    ($scope, ReportsService, PlayersService) ->
+    ($scope, ReportsService, PlayersService, BookmarkService) ->
       $scope.updateReport = {}
       playerId = $("#player-id").text()
       userId = $("#user-id").text()
@@ -38,6 +39,5 @@
           $scope.reports.unshift($scope.report)
           $scope.report = { user_id : userId, player_id: playerId }
         )
-
   ]
 )()

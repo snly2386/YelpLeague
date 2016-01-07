@@ -1,6 +1,21 @@
 class PlayersController < ApplicationController
+  layout 'member'
+  before_action :get_player, only: [:show]
+  before_action :get_player_for_bookmark, only: [:bookmark, :unbookmark]
+  respond_to :json, only: [:bookmark, :unbookmark]
 
-  before_action :get_player, only: :show
+  def index
+    @players = Player.most_recent_with_bookmark_data(current_user)
+
+    # @players_with_bookmarks = @players.reduce([]) do |arr, player|
+    #   arr.push({player: player, bookmarked: player.bookmarked(current_user) })
+    #   arr
+    # end
+
+    respond_to do |format|
+      format.json { render json: @players }
+    end
+  end
 
   def new
     @player = Player.new
@@ -49,10 +64,25 @@ class PlayersController < ApplicationController
     end
   end
 
+  def bookmark
+    @player.bookmark(current_user)
+    render json: true
+  end
+
+  def unbookmark
+    @player.unbookmark(current_user)
+    render json: false
+  end
+
   private
+
 
   def player_params
     params.require(:player).permit(:name, :region, :display_name, :avatar)
+  end
+
+  def get_player_for_bookmark
+    @player = Player.find(params[:player_id])
   end
 
   def get_player

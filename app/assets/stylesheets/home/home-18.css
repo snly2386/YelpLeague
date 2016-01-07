@@ -6610,6 +6610,9 @@ ul.nav-menu li>a {
         margin-left: 20px
     }
 }
+#page{
+    margin-top: -76px;
+}
 .content-single-job_listing-actions-start a:last-child {
     margin-right: 0
 }
@@ -7952,10 +7955,14 @@ body.footer-light .site-footer:hover {
         padding-top: 15em
     }
 }
+.job_listing-entry-header-wrapper, .job_listing-location, .job_listing-phone, .listing-cover.has-image a{
+    color: black !important;
+}
 .type-job_listing.style-grid .job_listing-entry-header:after {
-    background: -webkit-linear-gradient(top, transparent 0, transparent 0, rgba(0, 0, 0, .45) 100%);
+    background: white;
+  /*  background: -webkit-linear-gradient(top, transparent 0, transparent 0, rgba(0, 0, 0, .45) 100%);
     background: -moz-linear-gradient(top, transparent 0, transparent 0, rgba(0, 0, 0, .45) 100%);
-    background: linear-gradient(to bottom, transparent 0, transparent 0, rgba(0, 0, 0, .45) 100%)
+    background: linear-gradient(to bottom*/, transparent 0, transparent 0, rgba(0, 0, 0, .45) 100%);
 }
 @media (min-width: 768px) {
     .type-job_listing.style-grid .job_listing-entry-header-wrapper {
@@ -8129,6 +8136,18 @@ body.footer-light .site-footer:hover {
     font-size: 12px;
     margin: 1em 0 0
 }
+.nav-menu-item{
+    display: block !important;
+    color: white;
+}
+.nav-menu-item:hover{
+    color: white;
+}
+.main-nav-menu{
+    display:table-cell;
+    color: white;
+    padding-top: 25px;
+}
 .type-job_listing.style-list .job_listing-location:before,
 .type-job_listing.style-list .job_listing-phone:before {
     display: inline-block;
@@ -8166,6 +8185,12 @@ body.footer-light .site-footer:hover {
     .type-job_listing.style-list .job_listing-location.job_listing-location-formatted {
         max-width: none
     }
+}
+.name-input{
+    border: 0;
+    background: #fff;
+    box-shadow: none;
+    padding: 13px 16px;
 }
 .load_more_jobs {
     display: block;
@@ -8743,7 +8768,7 @@ span.page-numbers {
 }
 @media (min-width: 992px) {
     .home-widget {
-        margin: 9em 0
+        margin: 0em 0
     }
     .home-widget+.container {
         margin-top: -9em
@@ -8776,7 +8801,8 @@ span.page-numbers {
 }
 @media (min-width: 768px) {
     .home-widget-title {
-        font-size: 26px
+        font-size: 26px;
+        margin-top: 25px;
     }
 }
 .home-widget-description {
@@ -9543,7 +9569,7 @@ body.facetwp .locate-me {
     }
     .wp-job-manager-categories-enabled.wp-job-manager-categories-multi-enabled.home .search_jobs>div,
     .wp-job-manager-categories-enabled:not(.wp-job-manager-categories-multi-enabled) .search_jobs>div {
-        width: 31.25%;
+        width: 48.5%;
         margin-right: 3%
     }
     .home .home-widget .search_jobs>div.filter_by_tag {

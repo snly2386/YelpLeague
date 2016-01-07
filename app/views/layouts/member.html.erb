@@ -1,0 +1,77 @@
+<header id="masthead" class="site-header" role="banner">
+    <div class="primary-header">
+        <div class="container">
+            <div class="primary-header-inner">
+                <div class="site-branding">
+                    <a href="https://demo.astoundify.com/listify/" title="Listify" rel="home" class="custom-header"><img src="https://demo.astoundify.com/listify/wp-content/uploads/sites/39/2014/11/copy-listify-footer-logo.svg" alt="">
+                    </a>
+                    <h2 class="site-description">The last directory theme you will ever buy.</h2>
+                </div>
+
+                <div class="main-nav-menu" style="display:table-cell; color: white; padding-top: 25px;">
+                    <div >
+                      <div uib-dropdown class="pull-right navmenu-container">
+                        <span uib-dropdown-toggle class="navmenu-toggle-container">
+                          <div class="navmenu-avatar">
+                            <img src="/assets/annie.png" />
+                          </div>
+                          <div class="navmenu-toggle">
+                            <i class="fa fa-caret-down navmenu-toggle-icon" ></i>
+                          </div>
+                        </span>
+                        <ul class="uib-dropdown-menu dropdown-menu">
+                          <li>
+                            <div class="col-md-5">
+                              <img src="/assets/annie.png", class: 'dropdown-avatar-img'>
+                            </div>
+                            <div class="col-md-7 nav-dropdown-username">
+                              <%= current_user.username %><br>
+                              <i class="fa fa-star"></i> <%= current_user.report_count %>
+                              <div><i class="fa fa-calendar-check-o"></i> <%=format_date(current_user.created_at)%></div>
+                            </div>
+                          </li>
+                          <li>
+                            <hr class="nav-separator"></hr>
+                          </li>
+                          <li>
+                            <%= link_to current_user do %>
+                              <i class="fa fa-user"></i> &nbsp;About Me
+                            <% end %>
+                          </li>
+                          <li><i class="fa fa-cog"></i> Account Settings</li>
+                          <li><hr class="nav-separator bottom"></hr></li>
+                          <li>
+                            <% if !current_user %>
+                              <%= link_to new_user_session_path, class: 'nav-menu-item ' do %>
+                                <i class="fa fa-sign-out"></i> Log In
+                              <% end %>
+                            <% else %>
+                              <%= link_to destroy_user_session_path, class: 'nav-menu-item ', method: 'delete' do  %>
+                                <i class="fa fa-sign-in"></i> Log Out
+                              <% end %>
+                            <% end %>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="search-header" class="search-overlay">
+                <div class="container">
+
+                    <form role="search" method="get" class="search-form" action="https://demo.astoundify.com/listify/listings/">
+                        <label>
+                            <span class="screen-reader-text">Search for:</span>
+                            <input type="search" class="search-field" placeholder="Search" value="" name="search_keywords" title="Search for:" />
+                        </label>
+                        <button type="submit" class="search-submit"></button>
+                    </form>
+                    <a href="#search-header" data-toggle="#search-header" class="ion-close search-overlay-toggle"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<%= render template: 'layouts/application' %>

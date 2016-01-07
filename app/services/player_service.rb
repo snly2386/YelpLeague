@@ -14,7 +14,7 @@ class PlayerService
 
   def get_player
     player_obj = JSON.parse(@player_obj.body_str)[@name]
-    { display_name: player_obj['name'], icon: player_obj['profileIconId'] }
+    { display_name: player_obj['name'], icon: player_obj['profileIconId'], level: player_obj['summonerLevel'] }
   end
 
   def success

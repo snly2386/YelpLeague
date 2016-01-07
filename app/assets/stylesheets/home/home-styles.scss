@@ -1,0 +1,13 @@
+@import "variables";
+
+.dropdown-menu{
+  .fa-star{
+    color: $green
+  }
+  a{
+    padding: 0px !important;
+  }
+  .nav-dropdown-username{
+    padding-left: 0px;
+  }
+}
