@@ -10,12 +10,6 @@
     margin-right: auto;
     margin-left: auto
 }
-.bookmark-icon{
-    color: #e27276;
-    float: right;
-    font-size: 25px !important;
-    cursor: pointer;
-}
 .container:after,
 .container:before {
     content: " ";
@@ -679,6 +673,9 @@ li.ui-timepicker-selected .ui-timepicker-duration {
 .ui-timepicker-list li.ui-timepicker-selected.ui-timepicker-disabled {
     background: #f2f2f2
 }
+.nav-menu-item a{
+    color: #fff;
+}
 .mfp-bg {
     top: 0;
     left: 0;
@@ -697,7 +694,7 @@ li.ui-timepicker-selected .ui-timepicker-duration {
     left: 0;
     width: 100%;
     height: 100%;
-    position: fixed;
+    position: relative;
     outline: 0!important;
     -webkit-backface-visibility: hidden
 }
@@ -5822,7 +5819,7 @@ img.size-large {
     margin-top: -1px
 }
 .primary.nav-menu .search-overlay-toggle {
-    /*display: none*/
+    display: none
 }
 @media (min-width: 992px) {
     .primary.nav-menu .search-overlay-toggle {
@@ -5999,7 +5996,7 @@ ul.nav-menu [class^=ion]:before {
 }
 .main-navigation .mega-category-list-wrapper,
 .primary-header .nav-menu.primary {
-    /*display: none;*/
+    display: none;
     vertical-align: middle
 }
 .nav-menu,
@@ -6120,7 +6117,7 @@ ul.nav-menu li>a {
     .navigation-bar-wrapper .primary,
     .navigation-bar-wrapper:after,
     .navigation-bar-wrapper:before {
-        /*display: none*/
+        display: none
     }
     .navigation-bar-wrapper {
         position: inherit;
@@ -6260,7 +6257,7 @@ ul.nav-menu li>a {
     .nav-menu .sub-menu,
     ul.nav-menu .children,
     ul.nav-menu .sub-menu {
-        /*display: none;*/
+        display: none;
         position: absolute;
         padding: 10px 0;
         top: 95%;
@@ -6289,7 +6286,7 @@ ul.nav-menu li>a {
     .nav-menu .sub-menu li.menu-item-has-children:after,
     ul.nav-menu .children li.menu-item-has-children:after,
     ul.nav-menu .sub-menu li.menu-item-has-children:after {
-        /*display: none*/
+        display: none
     }
     .nav-menu .children a,
     .nav-menu .sub-menu a,
@@ -6377,7 +6374,7 @@ ul.nav-menu li>a {
     ul.nav-menu .sub-menu.category-list .select,
     ul.nav-menu .sub-menu.category-list:after,
     ul.nav-menu .sub-menu.category-list:before {
-        /*display: none*/
+        display: none
     }
     .nav-menu .children.category-list a,
     .nav-menu .sub-menu.category-list a,
@@ -8500,12 +8497,11 @@ span.page-numbers {
     margin-top: 0
 }
 .homepage-cover .home-widget-title {
-    font-size: 20px;
+    font-size: 20px
 }
 @media (min-width: 768px) {
     .homepage-cover .home-widget-title {
-        font-size: 30px;
-        margin-top: 25px;
+        font-size: 30px
     }
 }
 @media (min-width: 992px) {
@@ -8742,8 +8738,7 @@ span.page-numbers {
 }
 @media (min-width: 768px) {
     .home-widget {
-        margin: 6em 0;
-        margin-bottom: 0px;
+        margin: 6em 0
     }
     .home-widget+.container {
         margin-top: -6em
@@ -8751,8 +8746,7 @@ span.page-numbers {
 }
 @media (min-width: 992px) {
     .home-widget {
-        margin: 0em 0;
-        margin-bottom: 0px;
+        margin: 9em 0
     }
     .home-widget+.container {
         margin-top: -9em
@@ -8766,14 +8760,12 @@ span.page-numbers {
 }
 @media (min-width: 768px) {
     .home-widget-section-title {
-        margin: 3em 0;
-        margin-bottom: 0px;
+        margin: 3em 0
     }
 }
 @media (min-width: 992px) {
     .home-widget-section-title {
-        margin: 4em 0;
-        margin-bottom: 0px;
+        margin: 4em 0
     }
 }
 .home-widget-description,
@@ -9946,7 +9938,6 @@ body .job-manager-form .chosen-container-multi .chosen-choices {
 .popup .bookmark-notice,
 div.bookmark-details,
 form.wp-job-manager-bookmarks-form .remove-bookmark {
-    display: none
 }
 .popup form.wp-job-manager-bookmarks-form {
     display: block;
@@ -10299,26 +10290,6 @@ table.job-manager-bookmarks td {
         border: 0;
         padding: 0
     }
-}
-.home-player-listing-container{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 90;
-}
-.home-player-listing{
-    float: right;
-    height: 80px;
-    width: 80px;
-    margin-right: 20px;
-    margin-top: 10px;
-    border-radius: 50%;
-}
-.job_listing-entry-header-wrapper{
-    z-index: 100 !important;
-    background-color: transparent;
 }
 .job-packages {
     margin: 0 0 -3em;
@@ -10690,19 +10661,19 @@ body p.job-manager-single-alert-link a:before {
     margin-top: 2em
 }
 .popup .woocommerce>h2 {
-    display: none
 }
-#customer_login form.login {
-    width: 100%;
-    border-right: 0;
-    padding-right: 0
+.wc-social-login.form-row-wide{
+    width: 42%;
+    float: right;
+    margin-top: 39px;
 }
-#customer_login~.wc-social-login {
-    margin-top: 20px;
-    text-align: left;
-    float: none;
-    width: 100%
+form.login {
+    width: 50%;
+    border-right: 1px solid #DDDDDD;
+    padding-right: 41px;
+    display: inline-block;
 }
+
 .cart-collaterals .cross-sells .content-shop-wrapper[data-columns]::before,
 .content-shop-wrapper[data-columns]::before {
     content: '1 .col-xs-12';
@@ -12874,6 +12845,7 @@ only screen and (min-resolution: 2dppx) {
     content: '\f128'
 }
 .popup {
+    width: 75%;
     background: #FFF;
     padding: 2em;
     text-align: left;
@@ -12881,6 +12853,18 @@ only screen and (min-resolution: 2dppx) {
     position: relative;
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, .15) 0 0 0 4px
+}
+.fixed-centering-container{
+   /*position: fixed;*/
+   /*overflow: scroll;*/
+   width: 100%;
+   top: 75px;
+   left: 0px;
+   border: 1px solid pink;
+   bottom: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .mfp-auto-cursor .mfp-content {
     top: 0
@@ -13265,59 +13249,4 @@ body #OT_searchWrapperAll {
 }
 .site-social a[href$=".rss"]::before {
     content: '\f245'
-}
-
-/*weird ass nav bar image shit*/
-.navmenu-container{
-    margin-top: -27px;
-    padding-bottom: 20px;
-}
-.navmenu-toggle-container{
-    margin-top: 32px;
-    display: block;
-}
-
-.navmenu-avatar{
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-}
-
-.navmenu-avatar img{
-    margin-top: -3px;
-    margin-left: 2px;
-    border-radius: 50%;
-}
-
-.navmenu-toggle{
-    display: inline-block;
-    height: 50px;
-    cursor: pointer;
-}
-.navmenu-toggle-icon{
-    font-size: 20px;
-    padding: 16px 4px;
-}
-
-.dropdown-menu li{
-    padding: 5px 10px;
-    color: black;
-    min-width: 258px;
-}
-
-.dropdown-avatar-img{
-    display: block;
-    width: 49px;
-    margin-left: -10px;
-    max-width: none;
-}
-.nav-separator{
-    background-color: #B3B3B3;
-    border: 0;
-    height: 1px;
-    margin-top: 77px;
-    margin-bottom: 5px;
-}
-.nav-separator.bottom{
-    margin-top: 7px;
 }

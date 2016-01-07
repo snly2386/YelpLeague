@@ -11,3 +11,13 @@
     padding-left: 0px;
   }
 }
+
+@media screen and (max-width: 992px){
+    form.login{
+        width: 100% !important;
+        border-right: none !important;
+    }
+    .wc-social-login.form-row-wide{
+        float: none !important;
+    }
+}

@@ -12869,11 +12869,9 @@ only screen and (min-resolution: 2dppx) {
     content: '\f128'
 }
 .popup {
-    display: none;
     background: #FFF;
     padding: 2em;
     text-align: left;
-    max-width: 550px;
     margin: 40px auto;
     position: relative;
     border-radius: 4px;
