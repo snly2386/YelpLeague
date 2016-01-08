@@ -39,6 +39,9 @@ gem 'sprockets', '2.12.3'
 gem 'active_model_serializers'
 gem 'acts_as_votable', '~> 0.10.0'
 
+# omniauth
+gem 'omniauth-facebook'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

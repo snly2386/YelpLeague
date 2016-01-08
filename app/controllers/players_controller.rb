@@ -5,8 +5,7 @@ class PlayersController < ApplicationController
   respond_to :json, only: [:bookmark, :unbookmark]
 
   def index
-    @players = Player.most_recent_with_bookmark_data(current_user)
-
+    @players = current_user ? Player.most_recent_with_bookmark_data(current_user) : Player.most_recent
     # @players_with_bookmarks = @players.reduce([]) do |arr, player|
     #   arr.push({player: player, bookmarked: player.bookmarked(current_user) })
     #   arr

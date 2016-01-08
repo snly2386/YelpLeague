@@ -10,6 +10,20 @@
     margin-right: auto;
     margin-left: auto
 }
+.social-icon-link{
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: black;
+    display: inline-block;
+    position: relative;
+}
+.social-icon-link i{
+    display: block;
+    font-size: 26px;
+    width: 17px;
+    margin: 12px auto;
+}
 .container:after,
 .container:before {
     content: " ";
@@ -12860,7 +12874,6 @@ only screen and (min-resolution: 2dppx) {
    width: 100%;
    top: 75px;
    left: 0px;
-   border: 1px solid pink;
    bottom: 0px;
   display: flex;
   align-items: center;

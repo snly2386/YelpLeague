@@ -10307,6 +10307,8 @@ table.job-manager-bookmarks td {
     left: 0;
     width: 100%;
     z-index: 90;
+    background: #fff;
+
 }
 .home-player-listing{
     float: right;
@@ -13287,6 +13289,7 @@ body #OT_searchWrapperAll {
     margin-top: -3px;
     margin-left: 2px;
     border-radius: 50%;
+    width: 100%;
 }
 
 .navmenu-toggle{
@@ -13307,7 +13310,7 @@ body #OT_searchWrapperAll {
 
 .dropdown-avatar-img{
     display: block;
-    width: 49px;
+    width: 100%;
     margin-left: -10px;
     max-width: none;
 }
