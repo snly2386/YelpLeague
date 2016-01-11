@@ -1,6 +1,7 @@
 @import "variables";
 
 .dropdown-menu{
+  width: 300px;
   .fa-star{
     color: $green
   }
@@ -10,6 +11,11 @@
   .nav-dropdown-username{
     padding-left: 0px;
   }
+}
+
+.dropdown-avatar-img{
+  width: 76px;
+  max-width: none;
 }
 
 @media screen and (max-width: 992px){

@@ -9560,7 +9560,7 @@ body.facetwp .locate-me {
     }
     .wp-job-manager-categories-enabled.wp-job-manager-categories-multi-enabled.home .search_jobs>div,
     .wp-job-manager-categories-enabled:not(.wp-job-manager-categories-multi-enabled) .search_jobs>div {
-        width: 31.25%;
+        width: 45%;
         margin-right: 3%
     }
     .home .home-widget .search_jobs>div.filter_by_tag {

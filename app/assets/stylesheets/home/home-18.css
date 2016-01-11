@@ -686,6 +686,9 @@ li.ui-timepicker-selected .ui-timepicker-duration {
 .mfp-bg.mfp-ready {
     opacity: 1
 }
+.users-container{
+    margin-top: 100px;
+}
 .mfp-wrap {
     top: 0;
     left: 0;
@@ -883,6 +886,9 @@ button.mfp-close {
 }
 .mfp-arrow-left {
     left: 0
+}
+.tertiary.nav-menu{
+    padding: 28px 0px;
 }
 .mfp-arrow-left .mfp-a,
 .mfp-arrow-left:after {
@@ -5746,7 +5752,9 @@ img.size-large {
     text-align: right;
     color: #fff;
     width: 100%;
-    min-height: 75px
+    min-height: 75px;
+    position: fixed;
+    top: 0;
 }
 .primary-header .primary-header-inner {
     display: table;
@@ -6611,7 +6619,7 @@ ul.nav-menu li>a {
     }
 }
 #page{
-    margin-top: -76px;
+    /*margin-top: -76px;*/
 }
 .content-single-job_listing-actions-start a:last-child {
     margin-right: 0
@@ -13260,4 +13268,87 @@ body #OT_searchWrapperAll {
 }
 .site-social a[href$=".rss"]::before {
     content: '\f245'
+}
+/*weird ass nav bar image shit*/
+.home-player-listing-container{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 90;
+    background: #fff;
+
+}
+.home-player-listing{
+    float: right;
+    height: 80px;
+    width: 80px;
+    margin-right: 20px;
+    margin-top: 10px;
+    border-radius: 50%;
+}
+.job_listing-entry-header-wrapper{
+    z-index: 100 !important;
+    background-color: transparent;
+}
+.bookmark-icon{
+    color: #e27276;
+    float: right;
+    font-size: 25px !important;
+    cursor: pointer;
+}
+.navmenu-container{
+    margin-top: -27px;
+    padding-bottom: 20px;
+}
+.navmenu-toggle-container{
+    margin-top: 32px;
+    display: block;
+}
+
+.navmenu-avatar{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+}
+
+.navmenu-avatar img{
+    margin-top: -3px;
+    margin-left: 2px;
+    border-radius: 50%;
+    width: 100%;
+}
+
+.navmenu-toggle{
+    display: inline-block;
+    height: 50px;
+    cursor: pointer;
+}
+.navmenu-toggle-icon{
+    font-size: 20px;
+    padding: 16px 4px;
+}
+
+.dropdown-menu li{
+    padding: 5px 10px;
+    color: black;
+    min-width: 258px;
+}
+
+.dropdown-avatar-img{
+    display: block;
+    width: 100%;
+    margin-left: -10px;
+    max-width: none;
+}
+.nav-separator{
+    background-color: #B3B3B3;
+    border: 0;
+    height: 1px;
+    margin-top: 77px;
+    margin-bottom: 5px;
+}
+.nav-separator.bottom{
+    margin-top: 7px;
 }

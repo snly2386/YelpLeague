@@ -17,6 +17,10 @@ class Player < ActiveRecord::Base
     end
   end
 
+  def bookmarks
+    votes_for
+  end
+
   def bookmark(user)
     liked_by(user)
   end
@@ -32,6 +36,13 @@ class Player < ActiveRecord::Base
   def self.most_recent_with_bookmark_data(user)
     most_recent.reduce([]) do |arr, player|
       arr.push({player: player, bookmarked: player.bookmarked(user), average_rating: player.average_rating })
+      arr
+    end
+  end
+
+  def self.most_recent_serialized
+    most_recent.reduce([]) do |arr, player|
+      arr.push({player: player, average_rating: player.average_rating })
       arr
     end
   end

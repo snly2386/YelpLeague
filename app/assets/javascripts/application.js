@@ -19,5 +19,8 @@
 //= require angular-timeago
 //= require bootstrap-sprockets
 //= require angular-bootstrap
-//= require_tree ./angular-app
+//= require classie
+//= require modernizr
+//= require notification
+//= require_tree .
 

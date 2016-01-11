@@ -5,7 +5,7 @@ class PlayersController < ApplicationController
   respond_to :json, only: [:bookmark, :unbookmark]
 
   def index
-    @players = current_user ? Player.most_recent_with_bookmark_data(current_user) : Player.most_recent
+    @players = current_user ? Player.most_recent_with_bookmark_data(current_user) : Player.most_recent_serialized
     # @players_with_bookmarks = @players.reduce([]) do |arr, player|
     #   arr.push({player: player, bookmarked: player.bookmarked(current_user) })
     #   arr
@@ -43,6 +43,7 @@ class PlayersController < ApplicationController
   end
 
   def show
+    @playerSearch = Player.new
     @player = Player.find(params[:id])
     @user = current_user
     respond_to do |format|
@@ -64,13 +65,21 @@ class PlayersController < ApplicationController
   end
 
   def bookmark
-    @player.bookmark(current_user)
-    render json: true
+    if current_user
+      @player.bookmark(current_user)
+      render json: true
+    else
+      render json: { message: 'You must sign in to bookmark' }, status: 401
+    end
   end
 
   def unbookmark
-    @player.unbookmark(current_user)
-    render json: false
+    if current_user
+      @player.unbookmark(current_user)
+      render json: false
+    else
+      render json: { message:'You must sign in to bookmark' }, status: 401
+    end
   end
 
   private

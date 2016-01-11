@@ -12,6 +12,6 @@ class LandingController < ApplicationController
   end
 
   def set_layout
-    current_user ? 'member' : 'non_member'
+    current_user ? 'member_without_search' : 'non_member'
   end
 end
