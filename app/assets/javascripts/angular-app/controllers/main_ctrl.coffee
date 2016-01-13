@@ -6,7 +6,7 @@
 
     ($scope) ->
       $scope.noticeMsg = $('#notice').text()
-      $scope.avatar = $('#avatar').text() || '/assets/annie.png'
+      $scope.avatar = $('#avatar').text() || '/assets/default-avatar.jpg'
 
       $scope.noticeAlert = (msg) ->
         notification = new NotificationFx(
@@ -20,6 +20,10 @@
         )
         #show the notification
         notification.show()
+
+      $scope.$on('updated-avatar', (event, data)->
+        $scope.avatar = data
+      )
 
       angular.element(document).ready( ()->
           console.log $scope.noticeMsg

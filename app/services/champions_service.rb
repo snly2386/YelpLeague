@@ -11,7 +11,7 @@ class ChampionsService
       response = Curl::Easy.perform("https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=image&api_key=#{@api}").body_str
       jsonResponse = JSON.parse response
       @champions = jsonResponse['data'].reduce([]) do |arr, champion|
-        arr << champion[1]["image"]["full"]
+        arr << { name: champion[1]["name"], image:"https://s3-us-west-2.amazonaws.com/dynamicowlwendy/champions/champion/#{champion[1]["image"]["full"]}" }
       end
       @champions
     end

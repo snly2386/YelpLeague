@@ -1,5 +1,5 @@
 app = angular.module('yelpleague')
-app.directive 'userDashboard', [ () ->
+app.directive 'userDashboard', [ "UsersService", (UsersService) ->
     scope: false
     link: (scope, element, attrs) ->
       scope.$on('userFound', (event, data)->
@@ -7,7 +7,15 @@ app.directive 'userDashboard', [ () ->
       )
 
       scope.setAvatar = () ->
-        console.log 'avatar set'
+        UsersService.update(angular.extend({id: scope.userId}, {avatar: scope.activeAvatar})
+          (data) ->
+            scope.user.avatar = data.user.avatar
+            $("#avatar-modal").modal('hide')
+            scope.$emit('updated-avatar', data.user.avatar)
+        )
+
+      scope.setActiveAvatar = (image) ->
+        scope.activeAvatar = image
 
     templateUrl: 'dashboard.html'
  ]

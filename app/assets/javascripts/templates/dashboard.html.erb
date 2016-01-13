@@ -10,8 +10,8 @@
                 </p>
                 <div class="wc-social-login-profile">
                   <h2>My Profile Photo</h2>
-                  <p class="myaccount_address" data-toggle="modal" data-target="#avatar-modal">
-                    <img ng-src="{{user.avatar || '/assets/default-avatar.jpg'}}" />
+                  <p class="myaccount_address" data-toggle="modal" data-target="#avatar-modal" data-backdrop="static" data-keyboard="false">
+                    <img ng-src="{{user.avatar || '/assets/default-avatar.jpg'}}", class= 'profile-photo' />
                   &nbsp; <i class="fa fa-pencil"></i>
                   </p>
                   <h2>My Social Login Accounts</h2>

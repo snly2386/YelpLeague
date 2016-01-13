@@ -9,6 +9,8 @@
 
       $resource("/users/:id.json"
         { id: '@id' }
+        update:
+          method: "PUT"
       )
 
   ]
