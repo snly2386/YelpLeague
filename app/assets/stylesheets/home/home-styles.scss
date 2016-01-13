@@ -18,6 +18,16 @@
   max-width: none;
 }
 
+.active-class{
+  color: #3396d1
+}
+
+.active-border{
+  border-color: #3396d1 !important;
+}
+
+
+
 @media screen and (max-width: 992px){
     form.login{
         width: 100% !important;

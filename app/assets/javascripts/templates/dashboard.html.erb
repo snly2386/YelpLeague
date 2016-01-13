@@ -9,8 +9,13 @@
                   Hello <strong ng-bind="user.username"></strong> (not <span ng-bind="user.username"></span>? <a href="/users/sign_out" data-method="delete">Sign Out</a>). From your account dashboard you can view your reviews, manage your account and edit your password and account details</a>.
                 </p>
                 <div class="wc-social-login-profile">
+                  <h2>My Profile Photo</h2>
+                  <p class="myaccount_address" data-toggle="modal" data-target="#avatar-modal">
+                    <img ng-src="{{user.avatar || '/assets/default-avatar.jpg'}}" />
+                  &nbsp; <i class="fa fa-pencil"></i>
+                  </p>
                   <h2>My Social Login Accounts</h2>
-                  <p>Your account is connected to the following social login providers. <a href="#" class="js-show-available-providers">Add more...</a></p>
+                  <p>Your account is connected to the following social login providers. <span href="/users/auth/twitter" class="js-show-available-providers" data-toggle="modal" data-target="#social-oauth-modal" ng-if="user.providers.count < 2">Add More.</span></p>
                   <table class="shop_table shop_table_responsive wc-social-login-linked-profiles">
                     <thead>
                       <tr>
@@ -19,52 +24,39 @@
                         <th colspan="2">Last login</th>
                       </tr>
                     </thead>
-                    <tr>
+                    <tr ng-repeat="provider in user.providers">
                       <td data-title="Provider">
-                        <span class="social-badge social-badge-facebook"><span class="si si-facebook"></span>Facebook</span>
+                        <span class="social-badge social-badge-facebook"><span class="si si-{{provider.name}}"></span><span ng-bind="provider.name"></span></span>
                       </td>
-                      <td data-title="Account">
-                        wendyhsu67@hotmail.com
+                      <td data-title="Account" ng-bind="provider.email || provider.username">
                       </td>
-                      <td data-title="Last login">
-                        January 11, 2016 @ 6:29 pm
+                      <td data-title="Last login" ng-bind="user.last_sign_in_at">
                       </td>
                       <td class="profile-actions">
-                        <a href="https://demo.astoundify.com/listify/wc-api/auth/unlink/facebook/?return=https%3A%2F%2Fdemo.astoundify.com%2Flistify%2Fmy-account%2F" class="button unlink-social-login-profile">
-                        Unlink          </a>
+                        <a href="#" class="button unlink-social-login-profile">
+                        Unlink</a>
                       </td>
                     </tr>
                   </table>
-                  <div class="wc-social-login-available-providers" style="display:none;">
-                    <p>You can link your account to the following providers:</p>
-                    <div class="wc-social-login wc-social-login-link-account">
-                      <a href="https://demo.astoundify.com/listify/wc-api/auth/twitter/?return=https%3A%2F%2Fdemo.astoundify.com%2Flistify%2Fmy-account%2F" class="button-social-login button-social-login-twitter"><span class="si si-twitter"></span>Link your account to Twitter</a> <a href="https://demo.astoundify.com/listify/wc-api/auth/google/?return=https%3A%2F%2Fdemo.astoundify.com%2Flistify%2Fmy-account%2F" class="button-social-login button-social-login-google"><span class="si si-google"></span>Link your account to Google</a> <a href="https://demo.astoundify.com/listify/wc-api/auth/instagram/?return=https%3A%2F%2Fdemo.astoundify.com%2Flistify%2Fmy-account%2F" class="button-social-login button-social-login-instagram"><span class="si si-instagram"></span>Link your account to Instagram</a>
-                    </div>
                   </div>
                 </div>
-                <h2>My Addresses</h2>
+                <h2>My Info</h2>
                 <p class="myaccount_address">
-                  The following addresses will be used on the checkout page by default.
+                  <table class="job-manager-reviews">
+                    <thead>
+                      <th>Username</th>
+                      <th>Email</th>
+                      <th>Member Since</th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td ng-bind="user.username"></td>
+                        <td ng-bind="user.email || 'none'"></td>
+                        <td ng-bind="user.created_at | date:'MM/dd/yyyy'"></td>
+                      <tr>
+                    </tbody>
+                  </table>
                 </p>
-                <div class="col2-set addresses">
-                  <div class="col-1 address">
-                    <header class="title">
-                      <h3>Billing Address</h3>
-                      <a href="https://demo.astoundify.com/listify/my-account/edit-address/billing" class="edit">Edit</a>
-                    </header>
-                    <address>
-                      Wendy Hsu
-                    </address>
-                  </div>
-                  <div class="col-2 address">
-                    <header class="title">
-                      <h3>Shipping Address</h3>
-                      <a href="https://demo.astoundify.com/listify/my-account/edit-address/shipping" class="edit">Edit</a>
-                    </header>
-                    <address>
-                      You have not set up this type of address yet.
-                    </address>
-                  </div>
                 </div>
               </div>
             </div>

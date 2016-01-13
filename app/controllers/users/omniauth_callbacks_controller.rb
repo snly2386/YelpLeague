@@ -2,10 +2,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
 
-  # You should also create an action method in this controller like this:
-  # def twitter
-  # end
-
   def facebook
     @user = User.from_omniauth(request.env["omniauth.auth"])
 
@@ -16,6 +12,25 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       session["devise.facebook_data"] = request.env["omniauth.auth"]
       redirect_to root_path
+    end
+  end
+
+  def twitter
+    if current_user
+      current_user.add_omniauth(request.env["omniauth.auth"])
+      redirect_to current_user
+    else
+
+      @user = User.from_omniauth(request.env["omniauth.auth"])
+
+      if @user
+        session[:fuck] = @user
+        sign_in_and_redirect @user
+        set_flash_message(:notice, :success, :kind => "Twitter") if is_navigational_format?
+      else
+        session["devise.twitter_data"] = request.env["omniauth.auth"]
+        redirect_to root_path
+      end
     end
   end
 

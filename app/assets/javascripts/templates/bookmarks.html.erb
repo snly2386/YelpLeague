@@ -1,0 +1,34 @@
+<div id="primary" class="container">
+    <div class="content-area">
+      <main id="main" class="site-main" role="main">
+        <article id="post-4479" class="post-4479 page type-page status-publish has-post-thumbnail hentry not-claimed content-box content-box-wrapper">
+          <div class="content-box-inner">
+            <div class="entry-content">
+              <div class="woocommerce">
+                <p>Manage your bookmarks below.</p>
+                <table class="job-manager-reviews">
+                  <thead>
+                    <tr>
+                      <th class="" style="width: 30%;">Name</th>
+                      <th class="" style="width: 30%;">Region</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-show="!user.bookmarks.length">
+                      <td colspan="6">You currently have no bookmarks.</td>
+                    </tr>
+                    <tr ng-repeat="bookmark in user.bookmarks">
+                      <td ng-bind="bookmark.display_name"></td>
+                      <td ng-bind="bookmark.region"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
+        <!-- #post-## -->
+      </main>
+    </div>
+  </div>
+</div>

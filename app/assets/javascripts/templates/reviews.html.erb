@@ -1,0 +1,42 @@
+<div id="primary" class="container">
+    <div class="content-area">
+      <main id="main" class="site-main" role="main">
+        <article id="post-4479" class="post-4479 page type-page status-publish has-post-thumbnail hentry not-claimed content-box content-box-wrapper">
+          <div class="content-box-inner">
+            <div class="entry-content">
+              <div class="woocommerce">
+                <p>Moderate your reviews below.</p>
+                <table class="job-manager-reviews">
+                  <thead>
+                    <tr>
+                      <th class="" style="width: 20%;">Summoner</th>
+                      <th class="" style="width: 50%;">Review</th>
+                      <th class="" style="width: 25%;">Rating</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-show="!user.reports.length">
+                      <td colspan="6">You currently have no reviews.</td>
+                    </tr>
+                    <tr ng-repeat="report in reports">
+                      <td ng-bind="report.player_name"></td>
+                      <td ng-bind="report.message"></td>
+                      <td>
+                        <span style="color:#77c04b"><i class="fa" ng-class="report.rating < 1 ? 'fa-star-o' : 'fa-star'"></i></span>
+                        <span style="color:#77c04b"><i class="fa" ng-class="report.rating < 2 ? 'fa-star-o' : 'fa-star'"></i></span>
+                        <span style="color:#77c04b"><i class="fa" ng-class="report.rating < 3 ? 'fa-star-o' : 'fa-star'"></i></span>
+                        <span style="color:#77c04b"><i class="fa" ng-class="report.rating < 4 ? 'fa-star-o' : 'fa-star'"></i></span>
+                        <span style="color:#77c04b"><i class="fa" ng-class="report.rating < 5 ? 'fa-star-o' : 'fa-star'"></i></span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
+        <!-- #post-## -->
+      </main>
+    </div>
+  </div>
+</div>

@@ -4,13 +4,15 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions', :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :users, only: :show do
-    resources :reports, only:[:index]
+    get '/reports' => "reports#by_user"
   end
   resources :players, only: [:show, :create, :index] do
     post '/bookmark' => 'players#bookmark'
     post '/unbookmark' => 'players#unbookmark'
     resources :reports, only: [:create, :index, :update]
   end
+
+  get '/avatars' => "users#avatar_selection"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

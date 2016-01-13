@@ -18,5 +18,6 @@
 @import "home/home-18";
 @import "home/home-styles";
 @import "home/login";
+@import "home/avatar-modal";
 @import "variables";
 

@@ -1,0 +1,17 @@
+#avatar-modal{
+  .modal-body{
+    height: 250px;
+    margin: 10px 0px;
+  }
+  .avatars-wrap{
+    overflow: scroll;
+    height: 250px;
+    .avatar-wrap{
+      margin-bottom: 10px;
+      img{
+        width: 100%;
+        border: 13px solid black;
+      }
+    }
+  }
+}

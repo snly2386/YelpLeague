@@ -15,25 +15,28 @@
             <div class="navigation-bar-wrapper">
               <div class="navigation-bar nav-menu">
                 <ul id="menu-tertiary" class="tertiary nav-menu">
-                  <li id="menu-item-14493" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14493">
+                  <li id="menu-item-14493" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14493" ng-class="activeTab == 'dashboard' ? 'active-class' : ''" ng-click="activeTab = 'dashboard'">
                       <i class="fa fa-tachometer"></i> Dashboard
                   </li>
-                  <li id="menu-item-14493" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14493">
+                  <li id="menu-item-14493" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14493" ng-class="activeTab == 'reviews' ? 'active-class' : ''" ng-click="activeTab = 'reviews'">
                       <i class="fa fa-list-alt"></i> Reviews
                   </li>
-                  <li id="menu-item-5283" class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-5283">
+                  <li id="menu-item-5283" class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-5283" ng-class="activeTab == 'bookmarks' ? 'active-class' : ''" ng-click="activeTab = 'bookmarks'">
                     <i class="fa fa-bookmark-o"></i> Bookmarks
                   </li>
-                  <li id="menu-item-51" class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-51">
+<!--                   <li id="menu-item-51" class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-51" ng-class="activeTab == 'settings' ? 'active-class' : ''" ng-click="activeTab = 'settings'">
                     <i class="fa fa-cog"></i> Settings
-                  </li>
+                  </li> -->
                 </ul>
               </div>
             </div>
           </div>
         </nav>
         <!-- dashboard -->
-        <user-dashboard></user-dashboard>
+        <user-dashboard ng-show="activeTab == 'dashboard'"></user-dashboard>
+        <user-reviews ng-show="activeTab == 'reviews'"></user-reviews>
+        <user-bookmarks ng-show="activeTab == 'bookmarks'"></user-bookmarks>
+        <user-settings ng-show="activeTab == 'settings'"></user-settings>
 
       <!-- #content -->
       <div class="footer-wrapper">
@@ -104,6 +107,8 @@
         </footer>
         <!-- #colophon -->
       </div>
+  <%= render "social_oauth_modal" %>
+  <%= render "avatar_modal" %>
 </section>
 
 <%= javascript_include_tag 'home' %>

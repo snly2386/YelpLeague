@@ -1,0 +1,27 @@
+
+<div class="modal fade" tabindex="-1" role="dialog" id="avatar-modal">
+  <div class="modal-dialog col-md-8 col-md-offset-2">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Select Avatar</h4>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-7 avatars-wrap">
+          <div class="col-xs-3 avatar-wrap" ng-repeat="avatar in avatars">
+            <img src="https://s3-us-west-2.amazonaws.com/dynamicowlwendy/champions/champion/{{avatar}}" ng-class="{'active-border' : activeAvatar == avatar}" ng-click="setAvatar()"/>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <p>
+            This avatar will be used to represent you in reports.  You may change it anytime in your account dashboard.
+          </p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

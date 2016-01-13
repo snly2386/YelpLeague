@@ -9,4 +9,13 @@ class UsersController < ApplicationController
       format.json { render json: @user}
     end
   end
+
+  def avatar_selection
+    cs = ChampionsService.new
+    avatars = cs.get_champions
+
+    respond_to do |format|
+      format.json { render json: { avatars: avatars } }
+    end
+  end
 end

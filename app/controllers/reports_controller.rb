@@ -6,6 +6,13 @@ class ReportsController < ApplicationController
     end
   end
 
+  def by_user
+    @reports = Report.where(user_id: params[:user_id])
+    respond_to do |format|
+      format.json { render json: @reports }
+    end
+  end
+
   def create
     @report = Report.new(report_params)
 
