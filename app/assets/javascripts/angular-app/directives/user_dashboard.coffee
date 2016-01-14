@@ -17,5 +17,12 @@ app.directive 'userDashboard', [ "UsersService", (UsersService) ->
       scope.setActiveAvatar = (image) ->
         scope.activeAvatar = image
 
+      $("#avatar-modal").on('hidden.bs.modal', ()->
+        scope.$apply(
+          ()->
+            scope.activeAvatar = scope.user.avatar
+        )
+      )
+
     templateUrl: 'dashboard.html'
  ]

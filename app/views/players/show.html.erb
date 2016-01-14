@@ -1,4 +1,6 @@
 <div ng-controller="PlayersCtrl">
+  <div class="hidden" id="avatar"><%=current_user.avatar%></div>
+  <div class="hidden" id="user-id"><%=current_user.id%></div>
 
 
 
@@ -9,19 +11,16 @@
 
 
       <!-- #masthead -->
-      <div id="content" class="site-content">
+      <div id="content" class="site-content players-content">
         <div class="single_job_listing" itemscope itemtype="http://schema.org/LocalBusiness" data-grid-columns="col-xs-12 col-sm-6" data-id="270" data-link="https://demo.astoundify.com/listify/listing/8-s-san-marcos-pl-chandler-az-85225-united-states/" data-thumb="https://demo.astoundify.com/listify/wp-content/uploads/sites/39/2014/11/Stocksy_txpf3080aa3KME000_Medium_434948-150x150.jpg" data-title="SanTan Brewing" data-address="8 S San Marcos Pl Chandler, AZ 85225 United States" data-longitude="-111.842532" data-latitude="33.303233" data-color="#eb974e" data-icon="ion-beer" data-term="50" data-featured="">
-          <div style="background-image: url(https://demo.astoundify.com/listify/wp-content/uploads/sites/39/2014/11/Stocksy_txpf3080aa3KME000_Medium_434948.jpg);" class="listing-cover content-single-job_listing-hero has-image">
+          <div style="background-image: url(https://s3-us-west-2.amazonaws.com/dynamicowlwendy/player_background.jpg);" class="listing-cover content-single-job_listing-hero has-image">
             <div class="content-single-job_listing-hero-wrapper cover-wrapper container">
               <div class="content-single-job_listing-hero-inner row">
                 <div class="content-single-job_listing-hero-company col-md-7 col-sm-12">
                   <h1 itemprop="name" class="job_listing-title">
                     SanTan Brewing
                   </h1>
-                  <div class="job_listing-location job_listing-location-formatted"><a class="google_map_link" href="http://maps.google.com/maps?saddr=Current+Location&#038;daddr=33.303233%2C-111.842532" target="_blank"><span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span itemprop="streetAddress">8 South San Marcos Place</span><br/><span itemprop="addressLocality">Chandler</span>, AZ <span itemprop="postalCode">85225</span></span></a></div>
-                  <div class="content-single-job_listing-title-category">
-                    <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="https://demo.astoundify.com/listify/listing-category/bars/" rel="tag" itemprop="url"><span itemprop="title">Bars</span></a></span><span class="ion-chevron-right"></span><span itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="https://demo.astoundify.com/listify/listing-category/breweries/" rel="tag" itemprop="url"><span itemprop="title">Breweries</span></a></span>
-                  </div>
+                  <div class="job_listing-location job_listing-location-formatted"><a class="google_map_link" ><span class="player-profile-header-text"><span itemprop="streetAddress">8 South San Marcos Place</span><br/><span itemprop="addressLocality">Chandler</span>, AZ <span itemprop="postalCode">85225</span></span></a></div>
                   <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="rating-4 job_listing-rating-wrapper" title="4 Reviews">
                     <span class="job_listing-rating-stars">
                     <span class='stars-rating'>
@@ -50,44 +49,9 @@
                   <span class="wp-job-manager-bookmarks-count">187 Favorites
                 </div>
                 <div class="content-single-job_listing-hero-actions col-md-5 col-sm-12">
-                  <div class="content-single-job_listing-actions-start">
-                    <a href="#share-270" class="popup-trigger"><i class="ion-share"></i> Share</a>
-                    <div class="popup share-popup" id="share-270">
-                      <h3 class="popup-title">Share</h3>
-                      <div class="sharedaddy sd-sharing-enabled">
-                        <div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing">
-                          <h3 class="sd-title">Share</h3>
-                          <div class="sd-content">
-                            <ul>
-                              <li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-270" class="share-facebook sd-button share-icon no-text" href="https://demo.astoundify.com/listify/listing/8-s-san-marcos-pl-chandler-az-85225-united-states/?share=facebook" target="_blank" title="Share on Facebook"><span></span><span class="sharing-screen-reader-text">Share on Facebook (Opens in new window)</span></a></li>
-                              <li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-270" class="share-twitter sd-button share-icon no-text" href="https://demo.astoundify.com/listify/listing/8-s-san-marcos-pl-chandler-az-85225-united-states/?share=twitter" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li>
-                              <li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-270" class="share-google-plus-1 sd-button share-icon no-text" href="https://demo.astoundify.com/listify/listing/8-s-san-marcos-pl-chandler-az-85225-united-states/?share=google-plus-1" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li>
-                              <li class="share-pinterest"><a rel="nofollow" data-shared="sharing-pinterest-270" class="share-pinterest sd-button share-icon no-text" href="https://demo.astoundify.com/listify/listing/8-s-san-marcos-pl-chandler-az-85225-united-states/?share=pinterest" target="_blank" title="Click to share on Pinterest"><span></span><span class="sharing-screen-reader-text">Click to share on Pinterest (Opens in new window)</span></a></li>
-                              <li class="share-email"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon no-text" href="https://demo.astoundify.com/listify/listing/8-s-san-marcos-pl-chandler-az-85225-united-states/?share=email" target="_blank" title="Click to email this to a friend"><span></span><span class="sharing-screen-reader-text">Click to email this to a friend (Opens in new window)</span></a></li>
-                              <li class="share-end"></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <a href="https://demo.astoundify.com/listify/claim-your-listing/?action=claim_listing&#038;listing_id=270&#038;claim_listing_nonce=6e5dcf482c" class="claim-listing"><i class="ion-thumbsup"></i> Claim Listing</a>
-                    <a href="#add-photo" class="popup-trigger"><i class="ion-ios-camera"></i> Add Photos</a>
-                    <div id="add-photo" class="popup">
-                      <h2 class="popup-title">Upload Images</h2>
-                      <div class="content-single-job_listing-upload-area">
-                        <form action="" method="post" class="listify-add-to-gallery" enctype= "multipart/form-data">
-                          <input type="file" multiple="true" name="listify_gallery_images[]" id="listify-new-gallery-images" value="" />
-                          <input type="submit" name="submit" value="Add Images to Gallery" />
-                          <input type="hidden" name="post_id" id="post_id" value="270" />
-                          <input type="hidden" name="redirect" id="gallery-redirect" value="https://demo.astoundify.com/listify/listing/8-s-san-marcos-pl-chandler-az-85225-united-states/gallery/" />
-                          <input type="hidden" name="listify_action" value="listify_add_to_gallery" />
-                          <input type="hidden" id="_wpnonce" name="_wpnonce" value="60d2b6ec6b" /><input type="hidden" name="_wp_http_referer" value="/listify/listing/8-s-san-marcos-pl-chandler-az-85225-united-states/" />
-                        </form>
-                      </div>
-                    </div>
-                  </div>
+
                   <a href="#respond" class="single-job_listing-respond button button-secondary">Submit a Review</a>
-                  <a href="#wc-bookings-booking-form" class="button">Book Now</a>
+                  <a href="#wc-bookings-booking-form" class="button">Bookmark</a>
                 </div>
               </div>
             </div>
@@ -98,13 +62,22 @@
                 <aside id="listify_widget_panel_listing_map-3" class="widget widget-job_listing listify_widget_panel_listing_map">
                   <div class="row">
                     <div class="col-md-6 col-sm-12">
-                      <a href="http://maps.google.com/maps?saddr=Current+Location&#038;daddr=33.303233%2C-111.842532" class="listing-contact-map-clickbox"></a>
+                      <a href="#" class="listing-contact-map-clickbox"></a>
                       <div id="listing-contact-map"></div>
                     </div>
                     <div class="col-md-6 col-sm-12">
                       <div class="listing-contact-overview">
                         <div class="listing-contact-overview-inner">
-                          <div class="job_listing-location job_listing-location-formatted"><a class="google_map_link" href="http://maps.google.com/maps?saddr=Current+Location&#038;daddr=33.303233%2C-111.842532" target="_blank"><span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span itemprop="streetAddress">8 South San Marcos Place</span><br/><span itemprop="addressLocality">Chandler</span>, AZ <span itemprop="postalCode">85225</span></span></a></div>
+                          <div class="job_listing-location job_listing-location-formatted">
+                            <a class="google_map_link" href="#">
+                              <span class="player-profile-header-text">
+                                <span>8 South San Marcos Place</span>
+                                <br/>
+                                <span>Chandler</span>, AZ
+                                <span>85225</span>
+                              </span>
+                            </a>
+                          </div>
                           <div class="job_listing-phone">
                             <span itemprop="telephone"><a href="tel:4809178700">(480) 917-8700</a></span>
                           </div>

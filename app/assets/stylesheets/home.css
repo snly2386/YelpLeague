@@ -19,5 +19,6 @@
 @import "home/home-styles";
 @import "home/login";
 @import "home/avatar-modal";
+@import "home/players-styles";
 @import "variables";
 

@@ -9,7 +9,7 @@
       <div class="modal-body">
         <div class="col-md-7 avatars-wrap">
           <div class="col-xs-3 avatar-wrap" ng-repeat="avatar in avatars">
-            <img ng-src="{{avatar.image}}" ng-class="{'active-border' : activeAvatar == avatar.image}" ng-click="setActiveAvatar(avatar.image)"/>
+            <img lazy-img="{{avatar.image}}" ng-class="{'active-border' : activeAvatar == avatar.image}" ng-click="setActiveAvatar(avatar.image)" src="/assets/default.gif"/>
           </div>
         </div>
         <div class="col-md-5">

@@ -22,5 +22,6 @@
 //= require classie
 //= require modernizr
 //= require notification
+//= require angular-lazy-img
 //= require_tree .
 
