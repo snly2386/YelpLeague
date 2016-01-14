@@ -1,7 +1,10 @@
 #avatar-modal{
   .modal-body{
-    height: 250px;
+    height: 235px;
     margin: 10px 0px;
+    input{
+      margin-bottom: 20px;
+    }
   }
   .avatars-wrap{
     overflow: scroll;

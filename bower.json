@@ -7,6 +7,6 @@
     "angular-resource": "",
     "angular-timeago": "~0.2.4",
     "angular-bootstrap" : "~0.14.3",
-    "angular-lazy-img": ""
+    "angular-lazy-image": ""
   }
 }

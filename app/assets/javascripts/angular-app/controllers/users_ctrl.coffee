@@ -3,11 +3,12 @@
 
   app.controller 'UsersCtrl',[
     '$scope'
+    '$rootScope'
     'UsersService'
     'ReportsByUserService'
     'AvatarService'
 
-    ($scope, UsersService, ReportsByUserService, AvatarService) ->
+    ($scope, $rootScope, UsersService, ReportsByUserService, AvatarService) ->
       $scope.userId = $("#user-id").text()
       $scope.providerAvatars = []
       $scope.activeTab = 'dashboard'

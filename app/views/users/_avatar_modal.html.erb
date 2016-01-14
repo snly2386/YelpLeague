@@ -7,9 +7,10 @@
         <h4 class="modal-title">Select Avatar</h4>
       </div>
       <div class="modal-body">
+        <div><input ng-model="avatarSearch.name" ng-change="refreshImage()" class="col-md-6"/></div>
         <div class="col-md-7 avatars-wrap">
-          <div class="col-xs-3 avatar-wrap" ng-repeat="avatar in avatars">
-            <img lazy-img="{{avatar.image}}" ng-class="{'active-border' : activeAvatar == avatar.image}" ng-click="setActiveAvatar(avatar.image)" src="/assets/default.gif"/>
+          <div class="col-xs-3 avatar-wrap" ng-repeat="avatar in avatars | filter:avatarSearch" afkl-lazy-image=="{{avatar.image}}">
+            <img src="{{avatar.image}}" ng-class="{'active-border' : activeAvatar == avatar.image}" ng-click="setActiveAvatar(avatar.image)"/>
           </div>
         </div>
         <div class="col-md-5">
