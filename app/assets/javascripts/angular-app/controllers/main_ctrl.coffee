@@ -10,7 +10,7 @@
 
       $scope.noticeAlert = (msg) ->
         notification = new NotificationFx(
-          message: "<div class='ns-thumb'><img src=#{$scope.avatar}/></div><div class='ns-content ns-notice'><p>#{msg}</p></div>"
+          message: "<div class='ns-thumb'><img src=#{$scope.avatar} /></div><div class='ns-content ns-notice'><p>#{msg}</p></div>"
           layout: 'other'
           effect: 'thumbslider'
           type: 'notice'
@@ -21,8 +21,14 @@
         #show the notification
         notification.show()
 
-      $scope.$on('updated-avatar', (event, data)->
+      $scope.$on('updated-avatar', (event, data) ->
         $scope.avatar = data
+        $scope.noticeAlert("Updated profile photo")
+      )
+
+      $scope.$on('editedReport', (event, data) ->
+        console.log 'hi'
+        $scope.noticeAlert("Successfully Edited Review")
       )
 
       angular.element(document).ready( ()->

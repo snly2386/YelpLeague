@@ -5,6 +5,10 @@ class Player < ActiveRecord::Base
 
   scope :most_recent, -> { order(created_at: :desc).limit(6) }
 
+  def report_count
+    reports.count
+  end
+
   def reported_by_user(userId)
     reports.map(&:user_id).include?(userId)
   end

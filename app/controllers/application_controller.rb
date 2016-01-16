@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    user_path(session[:fuck]) || stored_location_for(resource)
+    if session[:fuck]
+      user_path(session[:fuck])
+    else
+      stored_location_for(resource)
+    end
   end
 end

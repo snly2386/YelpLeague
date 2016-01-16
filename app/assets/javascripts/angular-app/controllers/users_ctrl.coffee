@@ -28,11 +28,7 @@
         AvatarService.get_all()
           .then(
             (response) ->
-              console.log response
-              if $scope.providerAvatars.length
-                 $scope.avatars = $scope.providerAvatars.concat response.data.avatars
-              else
-                $scope.avatars = response.data.avatars
+              $scope.avatars = response.data.avatars
           )
       )
   ]

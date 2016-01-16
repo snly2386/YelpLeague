@@ -3,4 +3,26 @@
   .player-profile-header-text{
     color: white !important;
   }
+  .player-page-icon{
+    border: 2px solid white;
+  }
 }
+
+#main{
+  background-color: #fff;
+}
+
+.choose-rating i{
+  font-size: 25px;
+}
+
+.review-options{
+  .edit-text{
+    text-decoration: underline;
+  }
+}
+
+.review-options:nth-child(1){
+  margin-top: 5px;
+}
+

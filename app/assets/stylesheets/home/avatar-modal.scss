@@ -1,14 +1,17 @@
 #avatar-modal{
   .modal-body{
-    height: 235px;
+    height: 300px;
     margin: 10px 0px;
     input{
       margin-bottom: 20px;
     }
+    p{
+      margin-top: 27px;
+    }
   }
   .avatars-wrap{
     overflow: scroll;
-    height: 250px;
+    height: 184px;
     .avatar-wrap{
       margin-bottom: 10px;
       img{

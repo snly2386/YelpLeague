@@ -12,6 +12,7 @@ app.directive 'userDashboard', [ "UsersService", (UsersService) ->
             scope.user.avatar = data.user.avatar
             $("#avatar-modal").modal('hide')
             scope.$emit('updated-avatar', data.user.avatar)
+
         )
 
       scope.setActiveAvatar = (image) ->

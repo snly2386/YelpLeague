@@ -7,11 +7,34 @@
         <h4 class="modal-title">Select Avatar</h4>
       </div>
       <div class="modal-body">
-        <div><input ng-model="avatarSearch.name" ng-change="refreshImage()" class="col-md-6"/></div>
-        <div class="col-md-7 avatars-wrap">
-          <div class="col-xs-3 avatar-wrap" ng-repeat="avatar in avatars | filter:avatarSearch" afkl-lazy-image=="{{avatar.image}}">
-            <img src="{{avatar.image}}" ng-class="{'active-border' : activeAvatar == avatar.image}" ng-click="setActiveAvatar(avatar.image)"/>
+        <ul class="nav nav-tabs" ng-init="activeAvatarTab = 'champions'">
+          <li ng-class="{'active' : activeAvatarTab == 'champions'}" ng-click="activeAvatarTab = 'champions'"><a>Champions</a></li>
+          <li ng-class="{'active' : activeAvatarTab == 'social'}" ng-click="activeAvatarTab = 'social'"><a>Social Profile</a></li>
+        </ul>
+        <div class="col-md-7">
+
+        <!-- champion avatars -->
+          <div id="championAvatars" class="tab-pane in active" ng-show="activeAvatarTab == 'champions'">
+            <div class="col-md-12">
+              <input ng-model="avatarSearch.name" ng-change="refreshImage()" class=""/>
+            </div>
+            <div class="avatars-wrap col-md-12">
+              <div class="col-xs-3 avatar-wrap" ng-repeat="avatar in avatars | filter:avatarSearch" afkl-lazy-image=="{{avatar.image}}">
+                <img src="{{avatar.image}}" ng-class="{'active-border' : activeAvatar == avatar.image}" ng-click="setActiveAvatar(avatar.image)"/>
+              </div>
+            </div>
           </div>
+
+          <!-- social avatars -->
+
+          <div id="socialAvatars" class="tab-pane" ng-show="activeAvatarTab == 'social'">
+            <div class="avatars-wrap col-md-12">
+              <div class="col-xs-3 avatar-wrap" ng-repeat="avatar in providerAvatars" afkl-lazy-image=="{{avatar.image}}">
+                <img src="{{avatar.image}}" ng-class="{'active-border' : activeAvatar == avatar.image}" ng-click="setActiveAvatar(avatar.image)"/>
+              </div>
+            </div>
+          </div>
+
         </div>
         <div class="col-md-5">
           <p>
