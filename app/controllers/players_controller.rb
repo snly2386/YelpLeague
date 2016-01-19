@@ -1,7 +1,8 @@
 class PlayersController < ApplicationController
-  layout 'member'
+  layout :set_layout
   before_action :get_player, only: [:show]
   before_action :get_player_for_bookmark, only: [:bookmark, :unbookmark]
+  # before_action :set_layout, only: :show
   respond_to :json, only: [:bookmark, :unbookmark]
 
   def index
@@ -43,12 +44,17 @@ class PlayersController < ApplicationController
   end
 
   def show
+    @user = current_user
     @playerSearch = Player.new
     @player = Player.find(params[:id])
-    @user = current_user
+    if current_user
+      @playerData = { player: @player, reported_by_user: @player.reported_by_user(current_user.id), average_rating: @player.average_rating, bookmarked: @player.bookmarked(current_user) }
+    else
+      @playerData = { player: @player, average_rating: @player.average_rating}
+    end
     respond_to do |format|
       format.html { render :show }
-      format.json { render json: { player: @player, reported_by_user: @player.reported_by_user(current_user.id), average_rating: @player.average_rating } }
+      format.json { render json: @playerData }
     end
   end
 
@@ -82,6 +88,13 @@ class PlayersController < ApplicationController
     end
   end
 
+  def set_layout
+    if current_user
+      'member'
+    else
+      'non_member'
+    end
+  end
   private
 
 

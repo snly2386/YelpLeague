@@ -10,7 +10,7 @@
 
                 <div class="main-nav-menu" style="display:table-cell; color: white; padding-top: 25px;">
                     <div >
-                      <%= form_for @playerSearch, class: 'navbar-form' do |f| %>
+                      <%= form_for Player.new, class: 'navbar-form' do |f| %>
                         <div class="col-xs-6 form-group">
                           <%= f.text_field :name, placeholder: 'Summoner Name', class: 'form-control col-xs-9' %>
                           <%= f.select :region, options_for_select(regions),{:include_blank => "Region"}, class: 'form-control col-xs-3' %>
@@ -28,30 +28,30 @@
                         <ul class="uib-dropdown-menu dropdown-menu">
                           <li>
                             <div class="col-xs-4">
-                              <% if current_user.avatar %>
-                                <%= image_tag "#{current_user.avatar}", class: 'dropdown-avatar-img' %>
+                              <% if @user.avatar %>
+                                <%= image_tag "#{@user.avatar}", class: 'dropdown-avatar-img' %>
                               <% else %>
                                 <img src="/assets/annie.png", class='dropdown-avatar-img'>
                               <% end %>
                             </div>
                             <div class="col-xs-8 nav-dropdown-username">
-                              <%= current_user.username %><br>
-                              <i class="fa fa-star"></i> <%= current_user.report_count %>
-                              <div><i class="fa fa-calendar-check-o"></i> <%=format_date(current_user.created_at)%></div>
+                              <%= @user.username %><br>
+                              <i class="fa fa-star"></i> <%= @user.report_count %>
+                              <div><i class="fa fa-calendar-check-o"></i> <%=format_date(@user.created_at)%></div>
                             </div>
                           </li>
                           <li>
                             <hr class="nav-separator"></hr>
                           </li>
                           <li>
-                            <%= link_to current_user do %>
+                            <%= link_to @user do %>
                               <i class="fa fa-user"></i> &nbsp;About Me
                             <% end %>
                           </li>
                           <li><i class="fa fa-cog"></i> Account Settings</li>
                           <li><hr class="nav-separator bottom"></hr></li>
                           <li>
-                            <% if !current_user %>
+                            <% if !@user %>
                               <%= link_to new_user_session_path, class: 'nav-menu-item ' do %>
                                 <i class="fa fa-sign-out"></i> Log In
                               <% end %>

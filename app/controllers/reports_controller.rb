@@ -1,6 +1,8 @@
 class ReportsController < ApplicationController
+  before_action :get_report, only: [:upvote, :downvote]
+  respond_to :json, only:[:upvote, :downvote]
   def index
-    @reports = Report.where(player_id: params[:player_id])
+    @reports = Report.with_upvote_data(params[:player_id], current_user)
     respond_to do |format|
       format.json { render json: @reports }
     end
@@ -35,6 +37,28 @@ class ReportsController < ApplicationController
         format.json { render json: @report.errors, status: :unprocessable_entity}
       end
     end
+  end
+
+  def upvote
+    if current_user
+      @report.upvote_by_user(current_user)
+      render json: true
+    else
+      render json: { message: 'You must sign in to upvote' }, status: 401
+    end
+  end
+
+  def downvote
+    if current_user
+      @report.downvote_by_user(current_user)
+      render json: true
+    else
+      render json: { message: 'You must sign in to downvote' }, status: 401
+    end
+  end
+
+  def get_report
+    @report = Report.find(params[:report_id])
   end
 
   private

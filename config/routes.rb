@@ -11,6 +11,11 @@ Rails.application.routes.draw do
     resources :reports, only: [:create, :index, :update]
   end
 
+  resources :reports, only: :index do
+    post '/upvote' => 'reports#upvote'
+    post '/downvote' => 'reports#downvote'
+  end
+
   get '/avatars' => "users#avatar_selection"
 
   # The priority is based upon order of creation: first created -> highest priority.
