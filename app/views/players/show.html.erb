@@ -64,7 +64,7 @@
                 </div>
                 <div class="content-single-job_listing-hero-actions col-md-5 col-sm-12">
 
-                  <a href="#" class="single-job_listing-respond button button-secondary">Submit a Review</a>
+                  <a class="single-job_listing-respond button button-secondary" ng-bind-template="{{reportedByUser ? 'Edit Review' : 'Submit a Review'}}" du-smooth-scroll="{{reportedByUser ? 'userReview' : 'respond'}}">Submit a Review</a>
                   <a class="button" ng-class="{'voted-up-background' : !bookmarked, 'voted-down-background' : bookmarked}" ng-click="bookmarked ? unbookmark() : bookmark()" ng-bind-template="{{bookmarked ? 'Bookmarked' : 'Bookmark'}}"></a>
                 </div>
               </div>
@@ -150,7 +150,7 @@
                     </select>
                   </form>
                   <ol class="commentlist">
-                    <li class="comment even thread-even depth-1" id="comment-26566" dir-paginate="report in reports | orderBy: (sortCategory == 'myReviewSort' ? [myReview, sortCategory] : sortCategory) | itemsPerPage: 15">
+                    <li class="comment even thread-even depth-1" dir-paginate="report in reports | orderBy: (sortCategory == 'myReviewSort' ? [myReview, sortCategory] : sortCategory) | itemsPerPage: 15" id="{{userReview(report.report.user_id)}}">
                       <article id="comment-26566" class="comment row">
                         <header class="comment-author vcard col-md-2 col-sm-3 col-xs-12">
                           <img alt='' ng-src="{{report.user.avatar}}" class='avatar avatar-100 photo' height='100' width='100' />

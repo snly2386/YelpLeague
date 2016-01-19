@@ -43,8 +43,11 @@
       )
 
       $scope.$on('editedReport', (event, data) ->
-        console.log 'hi'
         $scope.noticeAlert("Successfully Edited Review")
+      )
+
+      $scope.$on('submittedReport', (event, data) ->
+        $scope.noticeAlert(data)
       )
 
       angular.element(document).ready( ()->

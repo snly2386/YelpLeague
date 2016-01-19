@@ -97,6 +97,8 @@
             voted_by_user: false
           })
           $scope.report = { user_id : $scope.userId, player_id: playerId }
+          $scope.reportedByUser = true
+          $scope.$emit('submittedReport', 'Review Sucessfully Submitted')
         )
 
       $scope.upvoteTemplate = (report) ->
@@ -124,5 +126,8 @@
             (errorResponse) ->
               $scope.errorAlert(errorResponse.data.message)
           )
+
+      $scope.userReview = (reportId) ->
+        'userReview' if reportId == parseInt $scope.userId
   ]
 )()

@@ -24,5 +24,6 @@
 //= require notification
 //= require angular-lazy-img
 //= require angular-utils-pagination/dirPagination
+//= require angular-scroll
 //= require_tree .
 

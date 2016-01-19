@@ -10,6 +10,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def profile
+    @user = User.find(params[:id])
+  end
+
   def avatar_selection
     cs = ChampionsService.new
     avatars = cs.get_champions
