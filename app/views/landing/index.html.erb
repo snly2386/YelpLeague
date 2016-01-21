@@ -5,31 +5,31 @@
 <!-- <div id="page" class="hfeed site"> -->
 
 <div id="content" class="site-content">
-    <div style="background-image: url(https://s3-us-west-2.amazonaws.com/dynamicowlwendy/summoners_rift.jpg);" class="homepage-cover page-cover entry-cover has-image">
+    <div style="padding: 0; background-color: none;" class="homepage-cover page-cover entry-cover has-image">
+
+      <div style="position: fixed; width: 100%; height: 100%">
+         <video autoplay="" loop="" poster="" preload="auto">
+  				<source src="https://s3-us-west-2.amazonaws.com/assets.samepagehealth.com/videos/home4.mp4" type="video/mp4">
+			    </video>
+       </div>
         <div class="cover-wrapper container">
             <div class="listify_widget_search_listings">
                 <div class="home-widget-section-title">
-                    <h1 class="home-widget-title">Search for Summoner<h2 class="home-widget-description">
-
-Help inform and improve the community.</h2></h1>
+                    <h1 class="home-widget-title">g g r e p o r t e d <h2 class="home-widget-description">Real players. Real reviews. </h2></h1>
                 </div>
                 <a href="#" data-toggle=".job_filters" class="js-toggle-area-trigger">Toggle Filters</a>
 
                 <%= form_for @player, class: 'job_search_form' do |f| %>
 
                     <div class="search_jobs">
-
                         <div class="search_keywords">
                             <%= f.label :name %>
                             <%= f.text_field :name, placeholder: 'Summoner Name', class: 'name-input' %>
                         </div>
-
                         <div class="search_categories">
                              <%= f.label :region %>
                              <%= f.select :region, options_for_select(regions), :include_blank => "Select Region" %>
                         </div>
-
-
                         <div class="search-radius-wrapper in-use">
                             <div class="search-radius-label">
                                 <label for="use_search_radius">
@@ -37,9 +37,7 @@ Help inform and improve the community.</h2></h1>
                             <div class="search-radius-slider">
                                 <div id="search-radius"></div>
                             </div>
-
                         </div>
-
                         <div class="filter_wide filter_by_tag">Filter by tag: <span class="filter_by_tag_cloud"></span>
                         </div>
                         </div>
@@ -57,37 +55,22 @@ Help inform and improve the community.</h2></h1>
 
                         <a href="#" data-style="grid" class="archive-job_listing-layout button active"><span class="ion-grid"></span></a>
                         <a href="#" data-style="list" class="archive-job_listing-layout button"><span class="ion-navicon-round"></span></a>
-
                     </div>
-
                     <h3 class="archive-job_listing-found">
-            <span class="results-found">0</span> Results Found            </h3>
+                      <span class="results-found">0</span> Results Found
+                    </h3>
                 </div>
-
-
             </div>
         </div>
 
-        <div style="width: 750px; " class="wp-video">
-            <video class="wp-video-shortcode" id="video-6-1" width="750" height="422" loop="1" autoplay="1" preload="auto" controls="controls">
-                <source type="" src="https://player.vimeo.com/external/118518515.hd.mp4?s=e0741e40d2d8b5f1f1d12a2bcb0cedce&#038;_=1" />
-                <source type="video/webm" src="https://f6ca679df901af69ace6-d3d26a34307edc4f7eeb40d85a64c4a7.ssl.cf5.rackcdn.com/listify-loops-new.webm?_=1" />
-            </video>
-        </div>
-        <p>Listify helps you find out whats happening in your city, Let&#8217;s explore.</p>
+
     </div>
-
-
-
-
     <div class="container homepage-hero-style-video">
         <aside id="listify_widget_recent_listings-3" class="home-widget listify_widget_recent_listings">
             <div class="home-widget-section-title">
                 <h2 class="home-widget-title">Recent Listings<h2 class="home-widget-description">Discover Latest Player Listings</h2></h2>
             </div>
             <ul class="job_listings">
-
-
                 <li id="job_listing-685" class="job_listing post-685 type-job_listing status-publish has-post-thumbnail hentry job_listing_region-toronto job_listing_category-barbershop job_listing_tag-accepts-credit-cards job_listing_tag-good-for-kids job_listing_tag-wheelchair-accessible job_listing_tag-wifi claimed col-xs-12 col-sm-6 col-md-4 style-grid" data-grid-columns="col-xs-12 col-sm-6 col-md-4" ng-repeat="player in players" >
 
                     <div class="content-box">

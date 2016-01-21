@@ -4238,10 +4238,10 @@ tt,
 ul,
 var {
     border: 0;
-    font-family: inherit;
+    font-family: "Avenir";
     font-size: 100%;
     font-style: inherit;
-    font-weight: inherit;
+    font-weight: lighter!important;
     margin: 0;
     outline: 0;
     padding: 0;
@@ -4726,7 +4726,7 @@ img.aligncenter {
     padding: 5em 0 3em;
     background-size: cover;
     background-position: center;
-    position: relative
+    position: relative;
 }
 .list-cover {
     background-size: cover;
@@ -4752,22 +4752,14 @@ img.aligncenter {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(0, 0, 0, .5);
     z-index: 5
 }
-@media (min-width: 768px) {
-    .entry-cover.has-image:after,
-    .listing-cover.has-image:after {
-        overflow: hidden;
-        background: -webkit-linear-gradient(top, transparent 0, transparent 0, rgba(0, 0, 0, .65) 100%);
-        background: -moz-linear-gradient(top, transparent 0, transparent 0, rgba(0, 0, 0, .65) 100%);
-        background: linear-gradient(to bottom, transparent 0, transparent 0, rgba(0, 0, 0, .65) 100%)
-    }
-}
+
 .entry-cover .cover-wrapper,
 .listing-cover .cover-wrapper {
     position: relative;
-    z-index: 10
+    z-index: 10;
+    padding: 11em;
 }
 .entry-cover.has-image,
 .entry-cover.has-image a,
@@ -5770,27 +5762,7 @@ img.size-large {
     width: 100%;
     height: 75px
 }
-@media (min-width: 992px) {
-    .fixed-header {
-        padding-top: 75px
-    }
-    .fixed-header .primary-header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        z-index: 51
-    }
-    .admin-bar.fixed-header .primary-header {
-        top: 46px
-    }
-}
-@media (min-width: 992px) and (min-width: 768px) {
-    .admin-bar.fixed-header .primary-header {
-        top: 32px
-    }
-}
+
 .site-branding {
     display: table-cell;
     vertical-align: middle;
@@ -7977,9 +7949,6 @@ body.footer-light .site-footer:hover {
 @media (min-width: 768px) {
     .type-job_listing.style-grid .job_listing-entry-header-wrapper {
         position: absolute;
-        left: 2em;
-        right: 2em;
-        bottom: 2em
     }
 }
 .type-job_listing.style-grid .job_listing-entry-thumbnail,
@@ -8540,7 +8509,8 @@ span.page-numbers {
 }
 .homepage-cover.has-image .home-widget-description,
 .homepage-cover.has-image .home-widget-title {
-    color: #fff
+    color: rgba(255, 255, 255, 0.87);
+    text-transform: none;
 }
 .homepage-cover .job_filters .search_jobs>div.search_keywords input[type=text],
 .homepage-cover .job_filters .search_jobs>div.search_location input[type=text],
