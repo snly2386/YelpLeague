@@ -2,142 +2,143 @@
 <% if @player.errors.any? %>
   <%= @player.errors.full_messages %>
 <% end %>
-<!-- <div id="page" class="hfeed site"> -->
 
 <div id="content" class="site-content">
     <div style="padding: 0; background-color: none;" class="homepage-cover page-cover entry-cover has-image">
-
-      <div style="position: fixed; width: 100%; height: 100%">
-         <video autoplay="" loop="" poster="" preload="auto">
-  				<source src="https://s3-us-west-2.amazonaws.com/assets.samepagehealth.com/videos/home4.mp4" type="video/mp4">
-			    </video>
-       </div>
-        <div class="cover-wrapper container">
-            <div class="listify_widget_search_listings">
-                <div class="home-widget-section-title">
-                    <h1 class="home-widget-title">g g r e p o r t e d <h2 class="home-widget-description">Real players. Real reviews. </h2></h1>
-                </div>
-                <a href="#" data-toggle=".job_filters" class="js-toggle-area-trigger">Toggle Filters</a>
-
-                <%= form_for @player, class: 'job_search_form' do |f| %>
-
-                    <div class="search_jobs">
-                        <div class="search_keywords">
-                            <%= f.label :name %>
-                            <%= f.text_field :name, placeholder: 'Summoner Name', class: 'name-input' %>
-                        </div>
-                        <div class="search_categories">
-                             <%= f.label :region %>
-                             <%= f.select :region, options_for_select(regions), :include_blank => "Select Region" %>
-                        </div>
-                        <div class="search-radius-wrapper in-use">
-                            <div class="search-radius-label">
-                                <label for="use_search_radius">
-                            </div>
-                            <div class="search-radius-slider">
-                                <div id="search-radius"></div>
-                            </div>
-                        </div>
-                        <div class="filter_wide filter_by_tag">Filter by tag: <span class="filter_by_tag_cloud"></span>
-                        </div>
-                        </div>
-
-                    <p class="filter-by-type-label">Filter by type:</p>
-                    <ul class="job_types">
-                    </ul>
-                    <%=f.button 'Search Player', class: "update_results"%>
-                    <% end %>
-                    <div class="showing_jobs"></div>
-                </form>
-
-                <div class="archive-job_listing-filter-title">
-                    <div class="archive-job_listing-layout-wrapper">
-
-                        <a href="#" data-style="grid" class="archive-job_listing-layout button active"><span class="ion-grid"></span></a>
-                        <a href="#" data-style="list" class="archive-job_listing-layout button"><span class="ion-navicon-round"></span></a>
+      <!-- <div class="video-overlay animated fadeOut" style="position: fixed; width: 100%; height: 100%">
+      </div> -->
+      <q class="assembly">
+        <q class="tri"></q>
+        <q class="tri"></q>
+        <q class="tri"></q>
+        <q class="tri"></q>
+        <q class="tri"></q>
+        <q class="tri"></q>
+        <q class="tri"></q>
+        <q class="tri"></q>
+        <q class="tri"></q>
+        <q class="tri"></q>
+        <q class="tri"></q>
+        <q class="tri"></q>
+        <q class="tri"></q>
+        <q class="tri"></q>
+        <q class="tri"></q>
+        <q class="tri"></q>
+        <q class="tri"></q>
+        <q class="tri"></q>
+        <q class="hex"></q>
+      </q>
+      <div class="video-container">
+        <video autoplay loop preload="auto" muted >
+          <source src="https://s3-us-west-2.amazonaws.com/dynamicowlwendy/mind_virtuoso.mp4" type="video/mp4">
+          </video>
+      </div>
+      <div class="video-overlay"></div>
+      <header>
+        <div class="container">
+          <div class="homepage-cover page-cover">
+            <div class="cover-wrapper">
+                <div class="listify_widget_search_listings">
+                    <div class="home-widget-section-title">
+                      <h1 class="home-widget-title">g g r e p o r t e d </h1>
+                      <h2 class="home-widget-description">Real players. Real reviews.
+                      </h2>
                     </div>
-                    <h3 class="archive-job_listing-found">
-                      <span class="results-found">0</span> Results Found
-                    </h3>
+                    <a href="#" data-toggle=".job_filters" class="js-toggle-area-trigger">Toggle Filters</a>
+                    <%= form_for @player, class: 'job_search_form' do |f| %>
+                        <div class="search_jobs">
+                            <div class="search_keywords">
+                                <%= f.label :name %>
+                                <%= f.text_field :name, placeholder: 'Summoner Name', class: 'name-input' %>
+                            </div>
+                            <div class="search_categories">
+                                 <%= f.label :region %>
+                                 <%= f.select :region, options_for_select(regions), :include_blank => "Select Region" %>
+                            </div>
+                            <div class="search_button">
+                              <%=f.button 'Search', class: "update_results"%>
+                            </div>
+                          </div>
+                        </ul>
+                        <% end %>
+                    </form>
+
+                    <div class="archive-job_listing-filter-title">
+                        <div class="archive-job_listing-layout-wrapper">
+                            <a href="#" data-style="grid" class="archive-job_listing-layout button active"><span class="ion-grid"></span></a>
+                            <a href="#" data-style="list" class="archive-job_listing-layout button"><span class="ion-navicon-round"></span></a>
+                        </div>
+                        <h3 class="archive-job_listing-found">
+                          <span class="results-found">0</span> Results Found
+                        </h3>
+                    </div>
                 </div>
             </div>
-        </div>
-
-
+          </div>
+        </header>
+      </div>
     </div>
-    <div class="container homepage-hero-style-video">
-        <aside id="listify_widget_recent_listings-3" class="home-widget listify_widget_recent_listings">
+    <div class="container">
+        <aside id="listify_widget_recent_listings-3" class=" listify_widget_recent_listings recent-searches">
             <div class="home-widget-section-title">
-                <h2 class="home-widget-title">Recent Listings<h2 class="home-widget-description">Discover Latest Player Listings</h2></h2>
+                <h2 class="home-widget-title">
+                  <h2 class="home-widget-description" style="margin: -1em 0;">Check out lastest Summoner Searches</h2>
+                </h2>
             </div>
             <ul class="job_listings">
-                <li id="job_listing-685" class="job_listing post-685 type-job_listing status-publish has-post-thumbnail hentry job_listing_region-toronto job_listing_category-barbershop job_listing_tag-accepts-credit-cards job_listing_tag-good-for-kids job_listing_tag-wheelchair-accessible job_listing_tag-wifi claimed col-xs-12 col-sm-6 col-md-4 style-grid" data-grid-columns="col-xs-12 col-sm-6 col-md-4" ng-repeat="player in players" >
-
+                <li class="col-xs-12 col-sm-8 col-md-8 style-grid" data-grid-columns="col-xs-12 col-sm-6 col-md-4" ng-repeat="player in players" >
                     <div class="content-box">
-
-                        <header class="job_listing-entry-header listing-cover has-image">
+                        <header class="job_listing-entry-header listing-cover">
                             <div class="home-player-listing-container">
                               <img src="https://s3-us-west-2.amazonaws.com/dynamicowlwendy/profileicon/{{player.player.icon}}.png" class="home-player-listing center-block" />
-                            </div>
-                            <div class="job_listing-entry-header-wrapper cover-wrapper">
-
-                                <div class="job_listing-entry-thumbnail">
-                                    <div style="background-image: url(https://demo.astoundify.com/listify/wp-content/uploads/sites/39/job_listings/2014/11/Stocksy_txp782c31421CE000_Medium_85879-1024x682.jpg);" class="list-cover has-image"></div>
-                                </div>
+                              <div class="job_listing-entry-header-wrapper cover-wrapper">
                                 <div class="job_listing-entry-meta">
-                                    <a ng-href="/players/{{player.player.id}}">
-                                      <h1 itemprop="name" class="job_listing-title" ng-bind="player.player.display_name"></h1>
+                                  <a ng-href="/players/{{player.player.id}}">
+                                    <h1 itemprop="name" class="job_listing-title" ng-bind="player.player.display_name">
+                                      <i class="fa bookmark-icon" ng-class="{ 'fa-bookmark' : player.bookmarked, 'fa-heart-o' : !player.bookmarked }" ng-click="player.bookmarked ? unbookmarkPlayer(player.player.id, $index) : bookmarkPlayer(player.player.id, $index)"></i>
+                                    </h1>
                                     </a>
-                                    <div class="job_listing-location job_listing-location-formatted">
-                                      Region: <span ng-bind="player.player.region"></span>
-                                      <br/>
-                                      Summoner Level: <span ng-bind="player.player.level"></span>
+                                    <span class="division">Silver I, <span ng-bind="player.player.region"></span></span>
+                                    <div class='stars-rating'>
+                                      <i class="fa" ng-class="player.average_rating < 1 ? 'fa-star-o' : 'fa-star'"></i>
+                                      <i class="fa" ng-class="player.average_rating < 2 ? 'fa-star-o' : 'fa-star'"></i>
+                                      <i class="fa" ng-class="player.average_rating < 3 ? 'fa-star-o' : 'fa-star'"></i>
+                                      <i class="fa" ng-class="player.average_rating < 4 ? 'fa-star-o' : 'fa-star'"></i>
+                                      <i class="fa" ng-class="player.average_rating < 5 ? 'fa-star-o' : 'fa-star'"></i>
+                                      <span>8 hours ago</span>
                                     </div>
+
+                                  <div class="job_listing-location">
+                                    <ul>
+                                      <li>"Some of the worst mechanics I've ever seen..."</li>
+                                    </ul>
+                                    <!-- Summoner Level: <span ng-bind="player.player.level"></span> -->
+                                  </div>
                                 </div>
 
+                              </div>
                             </div>
 
                         </header>
                         <!-- .entry-header -->
 
-                        <footer class="job_listing-entry-footer">
+                        <!-- <footer class="job_listing-entry-footer">
 
                             <div itemprop="aggregateRating" class="rating-4 job_listing-rating-wrapper" title="4 Reviews">
                                 <span class="job_listing-rating-stars">
 
-                                  <span class='stars-rating'>
-
-                                    <span style="color:#77c04b"><i class="fa" ng-class="player.average_rating < 1 ? 'fa-star-o' : 'fa-star'"></i></span>
-
-                                    <span style="color:#77c04b"><i class="fa" ng-class="player.average_rating < 2 ? 'fa-star-o' : 'fa-star'"></i></span>
-
-
-
-                                    <span style="color:#77c04b"><i class="fa" ng-class="player.average_rating < 3 ? 'fa-star-o' : 'fa-star'"></i></span>
-
-
-
-                                    <span style="color:#77c04b"><i class="fa" ng-class="player.average_rating < 4 ? 'fa-star-o' : 'fa-star'"></i></span>
-
-
-
-                                    <span style="color:#77c04b"><i class="fa" ng-class="player.average_rating < 5 ? 'fa-star-o' : 'fa-star'"></i></span>
-
-
-                                </span>
                                 </span>
 
                                 <span class="job_listing-rating-average">
                                   <span ng-bind="player.average_rating || 'n/a' "></span>
                                 </span>
                                 <span class="job_listing-rating-count">
-    <span itemprop="reviewCount">4</span> Reviews </span>
+                                  <span itemprop="reviewCount">4</span> Reviews
+                                </span>
                             </div>
 
-                            <i class="fa bookmark-icon" ng-class="{ 'fa-bookmark' : player.bookmarked, 'fa-heart-o' : !player.bookmarked }" ng-click="player.bookmarked ? unbookmarkPlayer(player.player.id, $index) : bookmarkPlayer(player.player.id, $index)"></i>
-                        </footer>
+                        </footer> -->
                         <!-- .entry-footer -->
-
                     </div>
                 </li>
                 <!-- #post-## -->
@@ -145,92 +146,13 @@
 
         </aside>
     </div>
-
-    <aside id="listify_widget_feature_callout-4" class="home-widget listify_widget_feature_callout">
-        <div class="feature-callout text-left image-pull" style="background-color: #ffffff;">
-
-
-
-
-
-        </div>
-        <!-- #content -->
-
-        <div class="footer-wrapper">
-
-            <footer class="site-footer-widgets">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="footer-widget-column col-xs-12 col-sm-12 col-lg-5">
-                            <aside id="text-2" class="footer-widget widget_text">
-                                <div class="textwidget">
-                                    <embed src="https://demo.astoundify.com/listify/wp-content/uploads/sites/39/2014/11/copy-listify-footer-logo.svg" type="image/svg+xml" />
-                                    <p>
-                                        Keep the League Community Informed
-                                        <p>
-                                  </div>
-                            </aside>
-                        </div>
-
-                        <div class="footer-widget-column col-xs-12 col-sm-6 col-lg-3 col-lg-offset-1">
-                            <aside id="nav_menu-2" class="footer-widget widget_nav_menu">
-                                <h4 class="footer-widget-title">About League Yelp</h4>
-                                <div class="menu-need-help-menu-footer-container">
-                                    <ul id="menu-need-help-menu-footer" class="menu">
-                                        <li id="menu-item-248" class="ion-help-buoy menu-item menu-item-type-custom menu-item-object-custom menu-item-248"><a href="#">Help Center</a>
-                                        </li>
-                                        <li id="menu-item-249" class="ion-clipboard menu-item menu-item-type-custom menu-item-object-custom menu-item-249"><a href="https://demo.astoundify.com/listify/terms-of-service/">Terms of Use</a>
-                                        </li>
-                                        <li id="menu-item-250" class="ion-help-circled menu-item menu-item-type-custom menu-item-object-custom menu-item-250"><a href="https://demo.astoundify.com/listify/about-listify/">About Listify</a>
-                                        </li>
-                                        <li id="menu-item-251" class="ion-ios-chatbubble menu-item menu-item-type-custom menu-item-object-custom menu-item-251"><a href="https://demo.astoundify.com/listify/blog/">Listify Blog</a>
-                                        </li>
-                                        <li id="menu-item-252" class="ion-person menu-item menu-item-type-custom menu-item-object-custom menu-item-252"><a href="#">Careers</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </aside>
-                        </div>
-
-                        <div class="footer-widget-column col-xs-12 col-sm-6 col-lg-3">
-                            <aside id="nav_menu-3" class="footer-widget widget_nav_menu">
-                                <h4 class="footer-widget-title">Stay Connected</h4>
-                                <div class="menu-social-widget-menu-container">
-                                    <ul id="menu-social-widget-menu" class="menu">
-                                        <li id="menu-item-325" class="ion-social-twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-325"><a href="http://twitter.com/astoundify">Twitter</a>
-                                        </li>
-                                        <li id="menu-item-326" class="ion-social-facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-326"><a href="http://facebook.com/astoundify">Facebook</a>
-                                        </li>
-                                        <li id="menu-item-327" class="ion-social-googleplus menu-item menu-item-type-custom menu-item-object-custom menu-item-327"><a href="http://google.com">Google+</a>
-                                        </li>
-                                        <li id="menu-item-328" class="ion-social-instagram-outline menu-item menu-item-type-custom menu-item-object-custom menu-item-328"><a href="http://instagram.com">Instagram</a>
-                                        </li>
-                                        <li id="menu-item-329" class="ion-social-vimeo menu-item menu-item-type-custom menu-item-object-custom menu-item-329"><a href="http://vimeo.com/astoundify">Vimeo</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </aside>
-                        </div>
-
-                    </div>
-                </div>
-            </footer>
-
-
-
-            <footer id="colophon" class="site-footer" role="contentinfo">
-                <div class="container">
-
-                    <div class="site-info">
-                        League Yelp isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc. </div>
-                </div>
-            </footer>
-            <!-- #colophon -->
-
-        <!-- </div> -->
-
-
+    <footer id="colophon" class="site-footer" role="contentinfo">
+      <div class="container">
+          <div class="site-info">
+              League Yelp isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
+          </div>
+      </div>
+    </footer>
 </section>
 
 <div id="ajax-response"></div>

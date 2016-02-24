@@ -5,6 +5,10 @@ class Player < ActiveRecord::Base
 
   scope :most_recent, -> { order(created_at: :desc).limit(6) }
 
+  def last_review
+    reports.last if reports
+  end
+
   def report_count
     reports.count
   end

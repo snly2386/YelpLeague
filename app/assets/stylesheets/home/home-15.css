@@ -13,12 +13,7 @@ body .chosen-container-multi .chosen-choices li.search-field input[type=text],
 .entry-content div.mce-toolbar-grp {
     background-color: #f3f6f9;
 }
-.listing-cover,
-.entry-cover,
-.homepage-cover.page-cover,
-.list-cover {
-    background-color: #e6e9ec;
-}
+
 input,
 textarea,
 input[type="checkbox"],

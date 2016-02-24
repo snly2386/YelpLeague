@@ -4723,7 +4723,7 @@ img.aligncenter {
 }
 .entry-cover,
 .listing-cover {
-    padding: 5em 0 3em;
+    padding: 0em;
     background-size: cover;
     background-position: center;
     position: relative;
@@ -4734,11 +4734,11 @@ img.aligncenter {
     width: 60px;
     height: 60px
 }
-@media (min-width: 768px) {
+/*@media (min-width: 768px) {
     .listing-cover {
         padding: 8em 0 3em
     }
-}
+}*/
 @media (min-width: 992px) {
     .listing-cover.has-image {
         padding: 16em 0 5em
@@ -4757,9 +4757,9 @@ img.aligncenter {
 
 .entry-cover .cover-wrapper,
 .listing-cover .cover-wrapper {
-    position: relative;
+    /*position: absolute;*/
     z-index: 10;
-    padding: 11em;
+    /*top: 0;*/
 }
 .entry-cover.has-image,
 .entry-cover.has-image a,
@@ -5755,7 +5755,6 @@ img.size-large {
     text-align: right;
     color: #fff;
     width: 100%;
-    min-height: 75px
 }
 .primary-header .primary-header-inner {
     display: table;
@@ -6440,18 +6439,21 @@ ul.nav-menu li>a {
     background-color: transparent
 }
 .job_listing-title {
-    font-size: 26px;
+    font-size: 24px;
+    color: white;
     margin: 0;
     display: inline
 }
 @media (min-width: 768px) {
     .job_listing-title {
-        font-size: 30px
+        font-size: 20px;
+        color: white;
     }
 }
 @media (min-width: 992px) {
     .job_listing-title {
-        font-size: 34px
+        font-size: 24px;
+        color: white;
     }
 }
 .content-single-job_listing-hero-company>div:last-of-type {
@@ -8456,7 +8458,7 @@ span.page-numbers {
 }
 @media (min-width: 992px) {
     .homepage-cover {
-        padding: 11em 0 12em
+        padding: 11em 0 0em
     }
 }
 .homepage-cover {
@@ -8574,11 +8576,6 @@ span.page-numbers {
     width: 100%;
     padding-top: 11px;
     padding-bottom: 11px
-}
-@media (min-width: 992px) {
-    .template-home .homepage-cover:not(.has-map) .update_results {
-        width: 20%
-    }
 }
 .template-home .homepage-cover.has-map .job_listings-map-wrapper,
 .template-home .listify_widget_search_listings .job_listings-map-wrapper {
@@ -9521,47 +9518,7 @@ body.facetwp .locate-me {
     margin-bottom: 5px;
     display: inline-block
 }
-@media (min-width: 768px) {
-    .search_jobs>div {
-        width: 48.5%;
-        margin-right: 3%;
-        margin-bottom: 0;
-        float: left
-    }
-    .wp-job-manager-categories-enabled.wp-job-manager-categories-multi-enabled.home .search_jobs>div,
-    .wp-job-manager-categories-enabled:not(.wp-job-manager-categories-multi-enabled) .search_jobs>div {
-        width: 45%;
-        margin-right: 3%
-    }
-    .home .home-widget .search_jobs>div.filter_by_tag {
-        width: 100%;
-        margin-right: 0
-    }
-    .search_jobs>div:last-of-type,
-    .wp-job-manager-categories-enabled.wp-job-manager-categories-multi-enabled.home .search_jobs>.search_categories,
-    body.wp-job-manager-categories-enabled .search_jobs>div.search_categories,
-    body.wp-job-manager-categories-multi-enabled .search_jobs .search_location,
-    body.wp-job-manager-categories-multi-enabled .search_jobs .search_region,
-    body:not(.wp-job-manager-categories-enabled) .search_jobs .search_location,
-    body:not(.wp-job-manager-categories-enabled) .search_jobs .search_region {
-        margin-right: 0
-    }
-    body.wp-job-manager-categories-multi-enabled:not(.home) .search_jobs .search_categories {
-        clear: both;
-        width: 100%;
-        margin: 1.5em 0 1em
-    }
-    .job_filters .job_types {
-        margin: 1.5em 0 0;
-        padding: 0;
-        list-style: none;
-        clear: both
-    }
-    .job_filters .job_types li {
-        display: inline-block;
-        margin: 0 0 5px
-    }
-}
+
 .search_jobs label {
     display: none
 }

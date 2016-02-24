@@ -21,8 +21,10 @@
 //= require angular-bootstrap
 //= require classie
 //= require modernizr
+//= require transit
 //= require notification
+//= require lettering
+//= require textillate
 //= require angular-lazy-img
 //= require angular-utils-pagination/dirPagination
 //= require_tree .
-
