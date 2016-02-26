@@ -4744,11 +4744,6 @@ img.aligncenter {
     z-index: 5
 }
 
-.entry-cover .cover-wrapper,
-.listing-cover .cover-wrapper {
-    position: relative;
-    z-index: 10
-}
 .entry-cover.has-image,
 .entry-cover.has-image a,
 .listing-cover.has-image,
@@ -5706,16 +5701,6 @@ img.size-large {
     box-shadow: none;
     padding: 0
 }
-.container {
-    padding-left: 25px;
-    padding-right: 25px
-}
-@media (min-width: 768px) {
-    .container {
-        padding-left: 15px;
-        padding-right: 15px
-    }
-}
 .content-area,
 .post-type-archive-job_listing .content-area {
     margin-top: 1.5em;
@@ -5765,11 +5750,6 @@ img.size-large {
     /*.admin-bar.fixed-header .primary-header {
         top: 32px
     }*/
-}
-.site-branding {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: left
 }
 .site-title {
     margin: 0;

@@ -6,21 +6,12 @@
   <% end %>
     <div id="player-id" class="hidden"><%=@player.id%></div>
   <%= render 'edit_review_modal' %>
-
-
-
-
-
-
-
-
-
       <!-- #masthead -->
       <div id="content" class="site-content players-content">
         <div class="single_job_listing" itemscope itemtype="http://schema.org/LocalBusiness" data-grid-columns="col-xs-12 col-sm-6" data-id="270" data-link="https://demo.astoundify.com/listify/listing/8-s-san-marcos-pl-chandler-az-85225-united-states/" data-thumb="https://demo.astoundify.com/listify/wp-content/uploads/sites/39/2014/11/Stocksy_txpf3080aa3KME000_Medium_434948-150x150.jpg" data-title="SanTan Brewing" data-address="8 S San Marcos Pl Chandler, AZ 85225 United States" data-longitude="-111.842532" data-latitude="33.303233" data-color="#eb974e" data-icon="ion-beer" data-term="50" data-featured="">
-          <div style="background-image: url(https://s3-us-west-2.amazonaws.com/dynamicowlwendy/player_background.jpg);" class="listing-cover content-single-job_listing-hero has-image">
+          <div style="background-image: url(https://s3-us-west-2.amazonaws.com/dynamicowlwendy/player_background.jpg);height: 500px;" class="listing-cover content-single-job_listing-hero has-image">
             <div class="content-single-job_listing-hero-wrapper cover-wrapper container">
-              <div class="content-single-job_listing-hero-inner row">
+              <div class="content-single-job_listing-hero-inner col-md-12">
                 <div class="content-single-job_listing-hero-company col-md-7 col-sm-12">
                   <img src="https://s3-us-west-2.amazonaws.com/dynamicowlwendy/profileicon/{{player.icon}}.png" class="player-page-icon"/>
                   <h1 itemprop="name" class="job_listing-title" ng-bind="player.display_name">
@@ -63,9 +54,8 @@
                   </form>
                 </div>
                 <div class="content-single-job_listing-hero-actions col-md-5 col-sm-12">
-
                   <a href="#" class="single-job_listing-respond button button-secondary">Submit a Review</a>
-                  <a class="button" ng-class="{'voted-up-background' : !bookmarked, 'voted-down-background' : bookmarked}" ng-click="bookmarked ? unbookmark() : bookmark()" ng-bind-template="{{bookmarked ? 'Bookmarked' : 'Bookmark'}}"></a>
+                  <a class="button button-secondary" ng-class="{'voted-up-background' : !bookmarked, 'voted-down-background' : bookmarked}" ng-click="bookmarked ? unbookmark() : bookmark()" ng-bind-template="{{bookmarked ? 'Bookmarked' : 'Bookmark'}}"></a>
                 </div>
               </div>
             </div>
@@ -360,5 +350,3 @@
       </div>
         <!-- #colophon -->
 </div>
-
-

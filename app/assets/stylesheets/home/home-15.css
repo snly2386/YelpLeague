@@ -197,7 +197,7 @@ body .chosen-container-multi .chosen-choices li.search-field input[type=text],
 }
 a,
 .content-pagination .page-numbers.current {
-    color: #3396d1;
+    color: #FF0144;
 }
 a:active,
 a:hover,
@@ -205,7 +205,7 @@ a:hover,
     color: #1a7db8;
 }
 .job_position_featured .content-box {
-    box-shadow: 0 0 0 3px #3396d1;
+    box-shadow: 0 0 0 3px #FF0144;
 }
 #wpjmr-submit-ratings .star-rating .dashicons-star-filled,
 #wpjmr-list-reviews .star-rating .dashicons-star-filled,
@@ -226,10 +226,10 @@ a:hover,
 .type-product .onsale,
 .type-product .price ins,
 .job-package-tag {
-    background-color: #3396d1;
+    background-color: #FF0144;
 }
 .woocommerce-tabs .tabs .active a {
-    color: #3396d1;
+    color: #FF0144;
 }
 .as-seen-on {
     background-color: #3396d1;
@@ -342,7 +342,7 @@ input[type="button"].facetwp-reset:focus,
 .tabbed-listings-tabs a:hover,
 .tabbed-listings-tabs a.active,
 .archive-job_listing-toggle.active {
-    color: #549d28;
+    color: #FF0144;
 }
 button:not([role="presentation"]),
 input[type="button"],
@@ -404,12 +404,12 @@ input[type=checkbox]:checked:before,
 .filter_by_tag a:after,
 .search-choice-close:after,
 .claimed-ribbon span:before {
-    color: #3396d1;
+    color: #FF0144;
 }
 .button-secondary,
 input[type="button"].facetwp-reset,
 .job_listing-author-info-more a:last-child {
-    background-color: #3396d1;
+    background-color: #FF0144;
 }
 .button-secondary:hover,
 .button-secondary:focus,
@@ -418,7 +418,7 @@ input[type="button"].facetwp-reset:focus {
     background-color: #2e91cc;
 }
 .upload-images:hover {
-    border-color: #3396d1;
+    border-color: #FF0144;
 }
 .site-footer-widgets {
     background-color: #2f3339;
@@ -441,6 +441,6 @@ input[type="button"].facetwp-reset:focus {
     }
     .primary.nav-menu .current-cart .current-cart-count {
         background-color: #77c04b;
-        border-color: #3396d1;
+        border-color: #FF0144;
     }
 }

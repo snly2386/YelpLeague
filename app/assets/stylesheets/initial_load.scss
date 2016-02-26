@@ -1,15 +1,15 @@
-q, :before {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  color: #FF0144;
-}
 
 .assembly {
   -webkit-filter: drop-shadow(0 0 1px currentColor);
           filter: drop-shadow(0 0 1px currentColor);
   -webkit-animation: down 2s linear infinite;
           animation: down 2s linear infinite;
+  q, :before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #FF0144;
+  }
 }
 
 @-webkit-keyframes down {
