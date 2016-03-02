@@ -8,10 +8,11 @@
   <%= render 'edit_review_modal' %>
       <!-- #masthead -->
       <div id="content" class="site-content players-content">
-        <div class="single_job_listing" itemscope itemtype="http://schema.org/LocalBusiness" data-grid-columns="col-xs-12 col-sm-6" data-id="270" data-link="https://demo.astoundify.com/listify/listing/8-s-san-marcos-pl-chandler-az-85225-united-states/" data-thumb="https://demo.astoundify.com/listify/wp-content/uploads/sites/39/2014/11/Stocksy_txpf3080aa3KME000_Medium_434948-150x150.jpg" data-title="SanTan Brewing" data-address="8 S San Marcos Pl Chandler, AZ 85225 United States" data-longitude="-111.842532" data-latitude="33.303233" data-color="#eb974e" data-icon="ion-beer" data-term="50" data-featured="">
-          <div style="background-image: url(https://s3-us-west-2.amazonaws.com/dynamicowlwendy/player_background.jpg);height: 500px;" class="listing-cover content-single-job_listing-hero">
+        <div class="single_job_listing">
+          <div style="background-image: url(https://s3-us-west-2.amazonaws.com/dynamicowlwendy/player_background.jpg)" class="listing-cover content-single-user-hero">
+            <div class="single-user-overlay"></div>
             <div class="content-single-job_listing-hero-wrapper cover-wrapper container">
-              <div class="content-single-job_listing-hero-inner col-md-12">
+              <div class="content-single-user-hero-inner col-md-12">
                 <div class="content-single-job_listing-hero-company col-md-7 col-sm-12">
                   <img src="https://s3-us-west-2.amazonaws.com/dynamicowlwendy/profileicon/{{player.icon}}.png" class="player-page-icon"/>
                   <h1 itemprop="name" class="job_listing-title" ng-bind="player.display_name">
@@ -53,7 +54,7 @@
                     </div>
                   </form>
                 </div>
-                <div class="content-single-job_listing-hero-actions col-md-5 col-sm-12">
+                <div class="content-single-user-hero-actions col-md-5 col-sm-12">
                   <a href="#" class="single-job_listing-respond button button-secondary">Submit a Review</a>
                   <a class="button button-secondary" ng-class="{'voted-up-background' : !bookmarked, 'voted-down-background' : bookmarked}" ng-click="bookmarked ? unbookmark() : bookmark()" ng-bind-template="{{bookmarked ? 'Bookmarked' : 'Bookmark'}}"></a>
                 </div>
@@ -72,8 +73,8 @@
                 </div>
                 <div id="respond" class="comment-respond" ng-show="!reportedByUser && userId">
                     <h3 id="reply-title" class="comment-reply-title">
-                    <i class="fa fa-pencil"></i> Write A Review <small></h3>
-
+                      <i class="fa fa-pencil"></i> Write A Review <small>
+                    </h3>
                     <form class="comment-form">
                       <div id='wpjmr-submit-ratings' class='review-form-stars'>
                         <div class='star-ratings'>
@@ -88,7 +89,7 @@
                               <i class="fa" ng-class="hoverRating < 5 && report.rating < 5 ? 'fa-star-o' : 'fa-star' " ng-mouseover="hoverRating = 5" ng-mouseleave="hoverRating = 0" ng-click="report.rating = 5"></i>
                             </div>
                           </div>
-                          <!-- <div class='rating-row'>
+                          <div class='rating-row'>
                             <label for='1'>Service
                             </label>
                             <div class='choose-rating' data-rating-category='1'>
@@ -110,7 +111,7 @@
                               <span data-star-rating='1' class="star dashicons dashicons-star-empty"></span>
                               <input type='hidden' class='required' name='star-rating-2' value=''>
                             </div>
-                          </div> -->
+                          </div>
                         </div>
                       </div>
                       <% if current_user %>
@@ -147,14 +148,14 @@
                             <i class="fa fa-pencil"></i>
                             <span class="edit-text">Edit Review<span>
                           </div>
-                          <div class="review-options">
+                          <!-- <div class="review-options">
                             <i class="fa fa-trophy"></i>
                             <span class="edit-text">Compliment<span>
-                          </div>
-                          <div class="review-options">
+                          </div> -->
+                          <!-- <div class="review-options">
                             <i class="fa fa-share"></i>
                             <span class="edit-text">Share Review<span>
-                          </div>
+                          </div> -->
 
                         </header>
                         <!-- .comment-meta -->
