@@ -1,4 +1,35 @@
-<header id="masthead" class="site-header landing" role="banner">
+<nav class="navbar-top navbar-dark">
+  <div class="nav-wrapper">
+    <!-- Logo -->
+    <a href="index.html" class="brand-logo">
+      <%= image_tag "ggreported_logo.png" %>
+    </a><!-- /Logo -->
+    <!-- Menu -->
+    <ul>
+      <li><a href="#!" class="demo-toggle"><i class="fa fa-cog"></i></a></li>
+      <li><a href="#!" class="search-bar-toggle"><i class="mdi-action-search"></i></a></li>
+      <li class="user">
+        <a class="dropdown-button" data-activates="user-dropdown" href="#!">
+          <% if current_user.avatar %>
+              <%= image_tag "#{current_user.avatar}", class: "circle" %>
+              <%= current_user.username %>
+              <i class="mdi-navigation-expand-more right"></i>
+          <% else %>
+              <img src="/assets/annie.png", class="circle" >
+          <% end %>
+        </a>
+          <ul id="user-dropdown" class="dropdown-content">
+            <li><a href="page-profile.html"><i class="fa fa-user"></i> Profile</a></li>
+            <li><a href="mail-inbox.html"><i class="fa fa-envelope"></i> Messages <span class="badge new">2 new</span></a></li>
+            <li><a href="#!"><i class="fa fa-cogs"></i> Settings</a></li>
+            <li class="divider"></li>
+            <li><a href="page-sign-in.html"><i class="fa fa-sign-out"></i> Logout</a></li>
+          </ul>
+        </li>
+      </ul><!-- /Menu -->
+   </div>
+</nav>
+<!-- <header id="masthead" class="site-header landing" role="banner">
     <div class="primary-header">
         <div class="primary-header-inner">
             <div class="main-nav-menu" style="display:table-cell; color: white; padding-top: 25px;">
@@ -58,6 +89,6 @@
             </div>
         </div>
     </div>
-</header>
+</header> -->
 
 <%= render template: 'layouts/application' %>

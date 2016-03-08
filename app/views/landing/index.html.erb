@@ -1,9 +1,107 @@
-<section ng-controller="HomeCtrl">
+<div ng-controller="HomeCtrl">
 <% if @player.errors.any? %>
   <%= @player.errors.full_messages %>
 <% end %>
+<section style="position:relative;">
+    <div class="vid-container" >
+      <video autoplay loop preload="auto" muted style="position:relative; z-index:0">
+        <source src="https://s3-us-west-2.amazonaws.com/dynamicowlwendy/mind_virtuoso.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="video-overlay">
+      <div class="col s12 m9 l10 text">
+        <h1 class="light">g g r e p o r t e d</h1>
+        <h4 class="light">Real players. Real reviews.</h4>
+        <%= form_for @player, class: 'job_search_form' do |f| %>
+          <div class="search_jobs">
+              <div class="search_keywords input-field">
+                <%= f.text_field :name, class: 'input-name' %>
+                <%= f.label :summoner_name, class: 'input-name' %>
+              </div>
+              <div class="search_categories">
+                <%= f.select :region, options_for_select(regions), :include_blank => "Select Region" %>
+              </div>
+              <div class="search_button">
+                <%=f.button 'Search', class: 'btn waves-effect waves-light'%>
+              </div>
+            </div>
+          </ul>
+        <% end %>
+        </form>
+      </div>
+    </div>
+  </section>
+  <section class="recent-searches">
+    <h4>Check out lastest Summoner Searches</h4>
+    <ul class="collection">
+      <li class="collection-item avatar" ng-repeat="player in players">
+        <img src="https://s3-us-west-2.amazonaws.com/dynamicowlwendy/profileicon/{{player.player.icon}}.png" alt="" class="circle">
+        <span class="title">
+          <a ng-href="/players/{{player.player.id}}">
+            <h1 class="light" ng-bind="player.player.display_name">
+            </h1>
+          </a>
+        </span>
+        <span class='stars-rating'>
+          <i class="fa" ng-class="player.average_rating < 1 ? 'fa-star-o' : 'fa-star'"></i>
+          <i class="fa" ng-class="player.average_rating < 2 ? 'fa-star-o' : 'fa-star'"></i>
+          <i class="fa" ng-class="player.average_rating < 3 ? 'fa-star-o' : 'fa-star'"></i>
+          <i class="fa" ng-class="player.average_rating < 4 ? 'fa-star-o' : 'fa-star'"></i>
+          <i class="fa" ng-class="player.average_rating < 5 ? 'fa-star-o' : 'fa-star'"></i>
+        </span>
+        <p>Level <span ng-bind="player.player.level"></span>, <span class="region" ng-bind="player.player.region"></span><br>
 
-<div id="content" class="site-content">
+        </p>
+
+        <a href="#!" class="secondary-content">
+          <i class="fa bookmark-icon" ng-class="{ 'fa-bookmark' : player.bookmarked, 'fa-heart-o' : !player.bookmarked }" ng-click="player.bookmarked ? unbookmarkPlayer(player.player.id, $index) : bookmarkPlayer(player.player.id, $index)"></i>
+        </a>
+      </li>
+    </ul>
+    <ul class="job_listings">
+      <li class="col-xs-12 col-sm-8 col-md-8 style-grid" data-grid-columns="col-xs-12 col-sm-6 col-md-4" ng-repeat="player in players" >
+          <div class="content-box">
+              <header class="job_listing-entry-header listing-cover">
+                  <div class="home-player-listing-container">
+                    <img src="https://s3-us-west-2.amazonaws.com/dynamicowlwendy/profileicon/{{player.player.icon}}.png" class="home-player-listing center-block" />
+                    <div class="job_listing-entry-header-wrapper cover-wrapper">
+                      <div class="job_listing-entry-meta">
+                        <a ng-href="/players/{{player.player.id}}">
+                          <h1 itemprop="name" class="job_listing-title" ng-bind="player.player.display_name">
+                            <i class="fa bookmark-icon" ng-class="{ 'fa-bookmark' : player.bookmarked, 'fa-heart-o' : !player.bookmarked }" ng-click="player.bookmarked ? unbookmarkPlayer(player.player.id, $index) : bookmarkPlayer(player.player.id, $index)"></i>
+                          </h1>
+                          </a>
+                          <span class="division">Silver I, <span ng-bind="player.player.region"></span></span>
+                          <div class='stars-rating'>
+                            <i class="fa" ng-class="player.average_rating < 1 ? 'fa-star-o' : 'fa-star'"></i>
+                            <i class="fa" ng-class="player.average_rating < 2 ? 'fa-star-o' : 'fa-star'"></i>
+                            <i class="fa" ng-class="player.average_rating < 3 ? 'fa-star-o' : 'fa-star'"></i>
+                            <i class="fa" ng-class="player.average_rating < 4 ? 'fa-star-o' : 'fa-star'"></i>
+                            <i class="fa" ng-class="player.average_rating < 5 ? 'fa-star-o' : 'fa-star'"></i>
+                            <span>8 hours ago</span>
+                          </div>
+
+                        <div class="job_listing-location">
+                          <ul>
+                            <li>"Some of the worst mechanics I've ever seen..."</li>
+                          </ul>
+                          Summoner Level: <span ng-bind="player.player.level"></span>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+              </header>
+          </div>
+      </li>
+    </ul>
+  </section>
+  <footer>
+    League Yelp isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
+  </footer>
+</div>
+<!-- <div id="content" class="site-content">
     <div style="padding: 0; background-color: none;" class="homepage-cover page-cover entry-cover has-image">
       <q class="assembly">
         <q class="tri"></q>
@@ -26,12 +124,6 @@
         <q class="tri"></q>
         <q class="hex"></q>
       </q>
-      <div class="video-container">
-        <video autoplay loop preload="auto" muted >
-          <source src="https://s3-us-west-2.amazonaws.com/dynamicowlwendy/mind_virtuoso.mp4" type="video/mp4">
-          </video>
-      </div>
-      <div class="video-overlay"></div>
       <header>
         <div class="container">
           <div class="homepage-cover page-cover">
@@ -110,7 +202,7 @@
                                     <ul>
                                       <li>"Some of the worst mechanics I've ever seen..."</li>
                                     </ul>
-                                    <!-- Summoner Level: <span ng-bind="player.player.level"></span> -->
+                                    Summoner Level: <span ng-bind="player.player.level"></span>
                                   </div>
                                 </div>
 
@@ -118,40 +210,12 @@
                             </div>
 
                         </header>
-                        <!-- .entry-header -->
-
-                        <!-- <footer class="job_listing-entry-footer">
-
-                            <div itemprop="aggregateRating" class="rating-4 job_listing-rating-wrapper" title="4 Reviews">
-                                <span class="job_listing-rating-stars">
-
-                                </span>
-
-                                <span class="job_listing-rating-average">
-                                  <span ng-bind="player.average_rating || 'n/a' "></span>
-                                </span>
-                                <span class="job_listing-rating-count">
-                                  <span itemprop="reviewCount">4</span> Reviews
-                                </span>
-                            </div>
-
-                        </footer> -->
-                        <!-- .entry-footer -->
                     </div>
                 </li>
-                <!-- #post-## -->
             </ul>
-
         </aside>
     </div>
-    <footer id="colophon" class="site-footer" role="contentinfo">
-      <div class="container">
-          <div class="site-info">
-              League Yelp isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
-          </div>
-      </div>
-    </footer>
-</section>
+
+</div> -->
 
 <div id="ajax-response"></div>
-<%= javascript_include_tag 'home' %>

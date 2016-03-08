@@ -1,19 +1,33 @@
+@import 'variables.scss';
+
 video {
-  z-index: 0
+  z-index: 0;
+  margin-top: -269px;
 }
 
-.video-container {
-  height: 70%;
-  display: block;
-  overflow: hidden;
+.vid-container {
+  height: 450px;
 }
 
 .video-overlay {
   background-color: rgba(0, 0, 0, 0.70);
   position: absolute;
   top: 0;
+  left: 0;
+  z-index: 1;
   width: 100%;
   height: 100%;
+  .text {
+    margin: 11em 5em;
+    color: white;
+    form {
+      margin-top: 30px;
+    }
+  }
+}
+
+.navbar-top.navbar-dark {
+  background-color: rgba(0, 0, 0, 0.89);
 }
 
 header {
@@ -30,18 +44,58 @@ header {
 }
 
 .search_jobs {
+  .search_keywords,
   .search_categories,
   .search_button {
-    width: 23%!important;
+    display: inline-block;
+    margin-right: 1em;
+    width: 20%;
   }
   .search_button {
     margin-left: 1%;
+  }
+  .select-wrapper span.caret {
+    color: white;
   }
 }
 
 .home-widget-section-title {
   h2 {
     text-align: left;
+  }
+}
+
+.recent-searches {
+  background: $bg;
+  h4 {
+    margin-top: 0;
+    margin-bottom: 32px;
+    padding-top: 35px;
+    margin-left: 3em;
+    color: $pink;
+  }
+}
+
+.collection {
+  width: 50%;
+  margin-left: 4em;
+  .title h1 {
+    font-size: 1em;
+    margin: 0;
+    color: $pink;
+  }
+  .stars-rating {
+    span {
+      float: right;
+    }
+    i {
+      position: relative;
+      font-size: 20px;
+      color: $pink;
+    }
+  }
+  .region {
+    text-transform: uppercase;
   }
 }
 
@@ -66,16 +120,6 @@ header {
         ul {
           list-style: none;
           margin-left: 0;
-        }
-      }
-      .stars-rating {
-        span {
-          float: right;
-        }
-        i {
-          position: relative;
-          font-size: 20px;
-          color: #FF0144;
         }
       }
     }

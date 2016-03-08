@@ -2,18 +2,15 @@
 <html>
 <head>
   <title>YelpLeague</title>
-  <%= stylesheet_link_tag    "application", media: 'all' %>
-  <%= stylesheet_link_tag    "#{@theme || 'home'}", media: 'all' %>
+  <%= stylesheet_link_tag "application", media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
-<body ng-app="yelpleague" ng-controller="MainCtrl"<% if @theme == 'home' %> class="home page page-id-6 page-template page-template-page-templates page-template-template-home page-template-page-templatestemplate-home-php template-home fixed-header directory-fields color-scheme-default footer- listify listify-120 wp-job-manager wp-job-manager-bookmarks wp-job-manager-wc-paid-listings wp-job-manager-tags wp-job-manager-field-editor wp-job-manager-regions wp-job-manager-reviews wp-job-manager-products wp-job-manager-claim-listing woocommerce-social-login woocommerce woocommerce-bookings jetpack ratings listify-child wp-job-manager-categories-enabled wp-job-manager-categories-only" <% end %> >
+<body ng-app="yelpleague" ng-controller="MainCtrl" class="yay-hide">
   <p class="notice hidden" id="notice"><%= notice %></p>
   <!-- <p class="alert hidden" id="alert"><%= alert %></p> -->
-  <div id="page" class="hfeed site">
-    <%= yield %>
-  </div>
+  <%= yield %>
 <!-- #page -->
 
 </body>

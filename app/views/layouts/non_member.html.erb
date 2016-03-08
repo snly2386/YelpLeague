@@ -1,37 +1,17 @@
-<header id="masthead" class="site-header" role="banner">
-    <div class="primary-header">
-        <div class="container">
-            <div class="primary-header-inner">
-                <div class="main-nav-menu" style="display:table-cell; color: white; padding-top: 25px;">
-                    <div >
-                      <ul>
-                        <li class="nav-menu-item">
-                        <% if !current_user %>
-                          <%= link_to 'Log In', new_user_session_path, class: 'nav-menu-item' %>
-                        <% else %>
-                          <%= link_to 'Log Out', destroy_user_session_path, class: 'nav-menu-item', method: 'delete' %>
-                        <% end %>
-                        </li>
-                      </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div id="search-header" class="search-overlay">
-                <div class="container">
-
-                    <form role="search" method="get" class="search-form" action="https://demo.astoundify.com/listify/listings/">
-                        <label>
-                            <span class="screen-reader-text">Search for:</span>
-                            <input type="search" class="search-field" placeholder="Search" value="" name="search_keywords" title="Search for:" />
-                        </label>
-                        <button type="submit" class="search-submit"></button>
-                    </form>
-                    <a href="#search-header" data-toggle="#search-header" class="ion-close search-overlay-toggle"></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
+<nav class="navbar-top navbar-dark">
+  <div class="nav-wrapper"><!-- Sidebar toggle -->
+    <a href="index.html" class="brand-logo">
+      <%= image_tag "ggreported_logo.png" %><!-- /Logo --><!-- Menu -->
+      <ul>
+       <li class="user">
+         <% if !current_user %>
+           <%= link_to 'Log In', new_user_session_path %>
+         <% else %>
+           <%= link_to 'Log Out', destroy_user_session_path, method: 'delete' %>
+         <% end %>
+       </li>
+   </ul><!-- /Menu -->
+ </div>
+</nav>
+<aside class="yarbar yay-hide"></aside>
 <%= render template: 'layouts/application' %>
