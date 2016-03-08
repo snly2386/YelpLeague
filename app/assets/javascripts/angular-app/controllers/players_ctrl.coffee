@@ -26,7 +26,8 @@
         $scope.player = data.player
         $scope.reportedByUser = data.reported_by_user
         $scope.bookmarked = data.bookmarked
-        console.log data
+        console.log $scope.player
+        console.log 'hello im here'
       )
 
       $scope.$on('editedReport', (event, data) ->

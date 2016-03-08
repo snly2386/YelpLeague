@@ -50,7 +50,7 @@ class Player < ActiveRecord::Base
 
   def self.most_recent_serialized
     most_recent.reduce([]) do |arr, player|
-      arr.push({player: player, average_rating: player.average_rating })
+      arr.push({player: player, average_rating: player.average_rating, last_review: player.last_review })
       arr
     end
   end

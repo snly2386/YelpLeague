@@ -67,6 +67,7 @@ header {
 
 .recent-searches {
   background: $bg;
+  padding-bottom: 33px;
   h4 {
     margin-top: 0;
     margin-bottom: 32px;
@@ -83,6 +84,12 @@ header {
     font-size: 1em;
     margin: 0;
     color: $pink;
+    width: 60%;
+  }
+  .secondary-content {
+    i {
+      font-size: 20px;
+    }
   }
   .stars-rating {
     span {
@@ -94,34 +101,32 @@ header {
       color: $pink;
     }
   }
-  .region {
+  .region,
+  .badge.new {
     text-transform: uppercase;
+    font-weight: bold;
+  }
+  .collection-item.avatar {
+    padding-left: 11em;
+    p {
+      margin: 1.5em 0;
+    }
+    .circle {
+      width: 100px;
+      height: 100px;
+      top: 25px;
+    }
+    .elapsed {
+      font-size: 14px;
+      margin-top: -8px;
+      color: grey;
+    }
   }
 }
 
-.job_listings .content-box {
-  padding: 0;
-  .job_listing-entry-header-wrapper {
-    width: 100%;
-    .job_listing-entry-meta {
-      padding: 1em;
-      padding-left: 9em;
-      h1 {
-        font-size: 20px;
-      }
-      .division {
-        float: right;
-        background: #555;
-        color: white;
-        border-radius: 8px;
-        padding: 0px 3px;
-      }
-      .job_listing-location {
-        ul {
-          list-style: none;
-          margin-left: 0;
-        }
-      }
-    }
-  }
+footer {
+  background-color: rgba(0, 0, 0, 0.89);
+  color: #9A9A9A;
+  font-size: 10px;
+  padding: 3em;
 }

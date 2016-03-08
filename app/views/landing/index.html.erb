@@ -41,6 +41,7 @@
             <h1 class="light" ng-bind="player.player.display_name">
             </h1>
           </a>
+          <div class="elapsed" ng-bind="player.last_review.created_at | elapsed"></div>
         </span>
         <span class='stars-rating'>
           <i class="fa" ng-class="player.average_rating < 1 ? 'fa-star-o' : 'fa-star'"></i>
@@ -49,51 +50,13 @@
           <i class="fa" ng-class="player.average_rating < 4 ? 'fa-star-o' : 'fa-star'"></i>
           <i class="fa" ng-class="player.average_rating < 5 ? 'fa-star-o' : 'fa-star'"></i>
         </span>
-        <p>Level <span ng-bind="player.player.level"></span>, <span class="region" ng-bind="player.player.region"></span><br>
-
+        <span class="new badge">{{player.player.region}}, Level {{player.player.level}}</span>
+        <p>
+          <q ng-bind="player.last_review.message"></q>
         </p>
-
         <a href="#!" class="secondary-content">
           <i class="fa bookmark-icon" ng-class="{ 'fa-bookmark' : player.bookmarked, 'fa-heart-o' : !player.bookmarked }" ng-click="player.bookmarked ? unbookmarkPlayer(player.player.id, $index) : bookmarkPlayer(player.player.id, $index)"></i>
         </a>
-      </li>
-    </ul>
-    <ul class="job_listings">
-      <li class="col-xs-12 col-sm-8 col-md-8 style-grid" data-grid-columns="col-xs-12 col-sm-6 col-md-4" ng-repeat="player in players" >
-          <div class="content-box">
-              <header class="job_listing-entry-header listing-cover">
-                  <div class="home-player-listing-container">
-                    <img src="https://s3-us-west-2.amazonaws.com/dynamicowlwendy/profileicon/{{player.player.icon}}.png" class="home-player-listing center-block" />
-                    <div class="job_listing-entry-header-wrapper cover-wrapper">
-                      <div class="job_listing-entry-meta">
-                        <a ng-href="/players/{{player.player.id}}">
-                          <h1 itemprop="name" class="job_listing-title" ng-bind="player.player.display_name">
-                            <i class="fa bookmark-icon" ng-class="{ 'fa-bookmark' : player.bookmarked, 'fa-heart-o' : !player.bookmarked }" ng-click="player.bookmarked ? unbookmarkPlayer(player.player.id, $index) : bookmarkPlayer(player.player.id, $index)"></i>
-                          </h1>
-                          </a>
-                          <span class="division">Silver I, <span ng-bind="player.player.region"></span></span>
-                          <div class='stars-rating'>
-                            <i class="fa" ng-class="player.average_rating < 1 ? 'fa-star-o' : 'fa-star'"></i>
-                            <i class="fa" ng-class="player.average_rating < 2 ? 'fa-star-o' : 'fa-star'"></i>
-                            <i class="fa" ng-class="player.average_rating < 3 ? 'fa-star-o' : 'fa-star'"></i>
-                            <i class="fa" ng-class="player.average_rating < 4 ? 'fa-star-o' : 'fa-star'"></i>
-                            <i class="fa" ng-class="player.average_rating < 5 ? 'fa-star-o' : 'fa-star'"></i>
-                            <span>8 hours ago</span>
-                          </div>
-
-                        <div class="job_listing-location">
-                          <ul>
-                            <li>"Some of the worst mechanics I've ever seen..."</li>
-                          </ul>
-                          Summoner Level: <span ng-bind="player.player.level"></span>
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
-
-              </header>
-          </div>
       </li>
     </ul>
   </section>
@@ -124,98 +87,7 @@
         <q class="tri"></q>
         <q class="hex"></q>
       </q>
-      <header>
-        <div class="container">
-          <div class="homepage-cover page-cover">
-            <div class="cover-wrapper">
-                <div class="listify_widget_search_listings">
-                    <div class="home-widget-section-title">
-                      <h1 class="home-widget-title">g g r e p o r t e d </h1>
-                      <h2 class="home-widget-description">Real players. Real reviews.
-                      </h2>
-                    </div>
-                    <a href="#" data-toggle=".job_filters" class="js-toggle-area-trigger">Toggle Filters</a>
-                    <%= form_for @player, class: 'job_search_form' do |f| %>
-                        <div class="search_jobs">
-                            <div class="search_keywords">
-                                <%= f.label :name %>
-                                <%= f.text_field :name, placeholder: 'Summoner Name', class: 'name-input' %>
-                            </div>
-                            <div class="search_categories">
-                                 <%= f.label :region %>
-                                 <%= f.select :region, options_for_select(regions), :include_blank => "Select Region" %>
-                            </div>
-                            <div class="search_button">
-                              <%=f.button 'Search', class: "update_results"%>
-                            </div>
-                          </div>
-                        </ul>
-                        <% end %>
-                    </form>
-
-                    <div class="archive-job_listing-filter-title">
-                        <div class="archive-job_listing-layout-wrapper">
-                            <a href="#" data-style="grid" class="archive-job_listing-layout button active"><span class="ion-grid"></span></a>
-                            <a href="#" data-style="list" class="archive-job_listing-layout button"><span class="ion-navicon-round"></span></a>
-                        </div>
-                        <h3 class="archive-job_listing-found">
-                          <span class="results-found">0</span> Results Found
-                        </h3>
-                    </div>
-                </div>
-            </div>
-          </div>
-        </header>
-      </div>
     </div>
-    <div class="container">
-        <aside id="listify_widget_recent_listings-3" class=" listify_widget_recent_listings recent-searches">
-            <div class="home-widget-section-title">
-                <h2 class="home-widget-title">
-                  <h2 class="home-widget-description" style="margin: -1em 0;">Check out lastest Summoner Searches</h2>
-                </h2>
-            </div>
-            <ul class="job_listings">
-                <li class="col-xs-12 col-sm-8 col-md-8 style-grid" data-grid-columns="col-xs-12 col-sm-6 col-md-4" ng-repeat="player in players" >
-                    <div class="content-box">
-                        <header class="job_listing-entry-header listing-cover">
-                            <div class="home-player-listing-container">
-                              <img src="https://s3-us-west-2.amazonaws.com/dynamicowlwendy/profileicon/{{player.player.icon}}.png" class="home-player-listing center-block" />
-                              <div class="job_listing-entry-header-wrapper cover-wrapper">
-                                <div class="job_listing-entry-meta">
-                                  <a ng-href="/players/{{player.player.id}}">
-                                    <h1 itemprop="name" class="job_listing-title" ng-bind="player.player.display_name">
-                                      <i class="fa bookmark-icon" ng-class="{ 'fa-bookmark' : player.bookmarked, 'fa-heart-o' : !player.bookmarked }" ng-click="player.bookmarked ? unbookmarkPlayer(player.player.id, $index) : bookmarkPlayer(player.player.id, $index)"></i>
-                                    </h1>
-                                    </a>
-                                    <span class="division">Silver I, <span ng-bind="player.player.region"></span></span>
-                                    <div class='stars-rating'>
-                                      <i class="fa" ng-class="player.average_rating < 1 ? 'fa-star-o' : 'fa-star'"></i>
-                                      <i class="fa" ng-class="player.average_rating < 2 ? 'fa-star-o' : 'fa-star'"></i>
-                                      <i class="fa" ng-class="player.average_rating < 3 ? 'fa-star-o' : 'fa-star'"></i>
-                                      <i class="fa" ng-class="player.average_rating < 4 ? 'fa-star-o' : 'fa-star'"></i>
-                                      <i class="fa" ng-class="player.average_rating < 5 ? 'fa-star-o' : 'fa-star'"></i>
-                                      <span>8 hours ago</span>
-                                    </div>
-
-                                  <div class="job_listing-location">
-                                    <ul>
-                                      <li>"Some of the worst mechanics I've ever seen..."</li>
-                                    </ul>
-                                    Summoner Level: <span ng-bind="player.player.level"></span>
-                                  </div>
-                                </div>
-
-                              </div>
-                            </div>
-
-                        </header>
-                    </div>
-                </li>
-            </ul>
-        </aside>
-    </div>
-
 </div> -->
 
 <div id="ajax-response"></div>
