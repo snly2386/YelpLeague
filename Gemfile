@@ -39,7 +39,8 @@ gem 'sprockets', '2.12.3'
 gem 'active_model_serializers'
 gem 'acts_as_votable', '~> 0.10.0'
 
-
+#authorization
+gem 'cancan'
 
 # omniauth
 gem 'activerecord-session_store'

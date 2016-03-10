@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions', :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users, only: [:show, :update] do
     get '/reports' => "reports#by_user"
+    get '/profile' => "users#profile"
   end
   resources :players, only: [:show, :create, :index] do
     post '/bookmark' => 'players#bookmark'
