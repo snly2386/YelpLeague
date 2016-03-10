@@ -1,5 +1,9 @@
 @import 'variables.scss';
 
+.hidden {
+  display: none;
+}
+
 video {
   z-index: 0;
   margin-top: -269px;
@@ -66,20 +70,25 @@ header {
 }
 
 .recent-searches {
-  background: $bg;
+  background: rgb(125,126,125);
+  background: -moz-radial-gradient(center, ellipse cover, rgba(125,126,125,1) 0%, rgba(14,14,14,1) 69%);
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 69%);
+  background: radial-gradient(ellipse at center, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 69%);
   padding-bottom: 33px;
   h4 {
     margin-top: 0;
     margin-bottom: 32px;
     padding-top: 35px;
-    margin-left: 3em;
-    color: $pink;
+    color: rgba(255, 255, 255, 0.74);
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+  .social-media {
+    padding-top: 88px;
   }
 }
-
 .collection {
-  width: 50%;
-  margin-left: 4em;
+  border: none;
   .title h1 {
     font-size: 1em;
     margin: 0;
@@ -107,9 +116,12 @@ header {
     font-weight: bold;
   }
   .collection-item.avatar {
+    background-color: rgba(255, 255, 255, 0.13);
     padding-left: 11em;
+    border: none;
     p {
       margin: 1.5em 0;
+      color: white;
     }
     .circle {
       width: 100px;
@@ -126,7 +138,14 @@ header {
 
 footer {
   background-color: rgba(0, 0, 0, 0.89);
+  height: auto;
   color: #9A9A9A;
   font-size: 10px;
   padding: 3em;
 }
+
+// @media only screen and (max-width: 767px) {
+//     .recent-searches .social-media {
+//       padding-top: 5px;
+//     }
+// }

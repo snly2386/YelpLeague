@@ -6,128 +6,146 @@
   <% end %>
     <div id="player-id" class="hidden"><%=@player.id%></div>
   <%= render 'edit_review_modal' %>
-      <!-- #masthead -->
-      <div id="content" class="site-content players-content">
-        <div class="single_job_listing">
-          <div style="background-image: url(https://s3-us-west-2.amazonaws.com/dynamicowlwendy/player_background.jpg)" class="listing-cover content-single-user-hero">
-            <div class="single-user-overlay"></div>
-            <div class="content-single-job_listing-hero-wrapper cover-wrapper container">
-              <div class="content-single-user-hero-inner col-md-12">
-                <div class="content-single-job_listing-hero-company col-md-7 col-sm-12">
-                  <img src="https://s3-us-west-2.amazonaws.com/dynamicowlwendy/profileicon/{{player.icon}}.png" class="player-page-icon"/>
-                  <h1 itemprop="name" class="job_listing-title" ng-bind="player.display_name">
-                  </h1>
-                  <div class="job_listing-location job_listing-location-formatted">
-                    <a class="google_map_link" >
-                      <span class="player-profile-header-text">
-                        <span itemprop="streetAddress" ng-bind-template="Region: {{player.region}}"></span>
-                        <br/>
-                        <span itemprop="addressLocality" ng-bind-template="Summoner Level: {{player.level}}"></span>
-                      </span>
-                    </a>
-                  </div>
-                  <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="rating-4 job_listing-rating-wrapper" title="4 Reviews">
-                    <span class="job_listing-rating-stars">
-                      <span class='stars-rating'>
-                        <span style="color:white"><i class="fa" ng-class="avgRating < 1 ? 'fa-star-o' : 'fa-star'"></i></span>
-                        <span style="color:white"><i class="fa" ng-class="avgRating < 2 ? 'fa-star-o' : 'fa-star'"></i></span>
-                        <span style="color:white"><i class="fa" ng-class="avgRating < 3 ? 'fa-star-o' : 'fa-star'"></i></span>
-                        <span style="color:white"><i class="fa" ng-class="avgRating < 4 ? 'fa-star-o' : 'fa-star'"></i></span>
-                        <span style="color:white"><i class="fa" ng-class="avgRating < 5 ? 'fa-star-o' : 'fa-star'"></i></span>
-                      </span>
-                    </span>
-                    <span class="job_listing-rating-average">
-                    <span itemprop="ratingValue">4.3</span>
-                    </span>
-                    <span class="job_listing-rating-count">
-                    <span itemprop="reviewCount"><span ng-bind="reports.length"></span>
-                    </span> Reviews     </span>
-                  </div>
-                  <form method="post" action="https://demo.astoundify.com/listify/listing/8-s-san-marcos-pl-chandler-az-85225-united-states?job_listing=8-s-san-marcos-pl-chandler-az-85225-united-states&#038;post_type=job_listing&#038;name=8-s-san-marcos-pl-chandler-az-85225-united-states" class="job-manager-form wp-job-manager-bookmarks-form">
-                    <div></div>
-                    <div class="bookmark-details">
-                      <p><label for="bookmark_notes">Notes:</label><textarea name="bookmark_notes" id="bookmark_notes" cols="25" rows="3"></textarea></p>
-                      <p>
-                        <input type="hidden" id="_wpnonce" name="_wpnonce" value="39d9cff3b3" /><input type="hidden" name="_wp_http_referer" value="/listify/listing/8-s-san-marcos-pl-chandler-az-85225-united-states/" />     <input type="hidden" name="bookmark_post_id" value="270" />
-                        <input type="submit" name="submit_bookmark" value="Add Bookmark" />
-                      </p>
-                    </div>
-                  </form>
-                </div>
-                <div class="content-single-user-hero-actions col-md-5 col-sm-12">
-                  <a href="#" class="single-job_listing-respond button button-secondary">Submit a Review</a>
-                  <a class="button button-secondary" ng-class="{'voted-up-background' : !bookmarked, 'voted-down-background' : bookmarked}" ng-click="bookmarked ? unbookmark() : bookmark()" ng-bind-template="{{bookmarked ? 'Bookmarked' : 'Bookmark'}}"></a>
+  <section class="content-wrap profile"><!-- Breadcrumb -->
+    <div class="card-panel">
+      <table class="profile-info">
+        <tbody>
+          <tr>
+            <td class="photo">
+              <img  src="https://s3-us-west-2.amazonaws.com/dynamicowlwendy/profileicon/{{player.icon}}.png">
+            </td>
+            <td><!-- Name -->
+              <h2 ng-bind="player.display_name" class="light"></h2>
+              <!-- /Name -->
+              <!-- Status Message -->
+              <div class="rating-content">
+                <span class='stars-rating'>
+                  <i class="fa" ng-class="avgRating < 1 ? 'fa-star-o' : 'fa-star'"></i>
+                  <i class="fa" ng-class="avgRating < 2 ? 'fa-star-o' : 'fa-star'"></i>
+                  <i class="fa" ng-class="avgRating < 3 ? 'fa-star-o' : 'fa-star'"></i>
+                  <i class="fa" ng-class="avgRating < 4 ? 'fa-star-o' : 'fa-star'"></i>
+                  <i class="fa" ng-class="avgRating < 5 ? 'fa-star-o' : 'fa-star'"></i>
+                </span>
+                <span class="light"> <%= @player.reports.length %> Reviews </span>
+              </div>
+              <div class="contacts">
+                <span>{{player.region}}</span>, Level {{player.level}}
+                <!-- buttons or badges could go here -->
+                <!-- <a href="#!" class="blue darken-3 white-text waves-effect"><i class="fa fa-facebook"></i></a>
+                <a href="#!" class="blue lighten-2 white-text waves-effect"><i class="fa fa-twitter"></i></a> -->
+              </div>
+              <!-- /Status Message -->
+              <a class="btn btn-small secondary-content"><i class="fa bookmark-icon" ng-class="{ 'fa-bookmark' : player.bookmarked, 'fa-heart-o' : !player.bookmarked }" ng-click="player.bookmarked ? unbookmarkPlayer(player.id, $index) : bookmarkPlayer(player.id, $index)"></i><strong>Add to Favorites</strong></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      <div class="col s12 l9">
+        <!-- About -->
+        <div>
+          <div class="reviews card row ml-0 mr-0">
+            <div class="title text-uppercase">
+              <h5>Reviews for Summoner</h5>
+              <form action="#comments" method="get" class="w-240">
+                <select name="sort-comments" ng-model="sortCategory" ng-init="sortCategory = '-report.created_at'">
+                  <option value="-report.created_at" selected>Newest First</option>
+                  <option value="report.created_at" >Oldest First</option>
+                  <option value="-report.rating" >Rating (High-Low)</option>
+                  <option value="report.rating" >Rating (Low-High)</option>
+                </select>
+              </form>
+            </div>
+            <!-- Individual review -->
+            <div class="content" dir-paginate="report in reports | orderBy: (sortCategory == 'myReviewSort' ? [myReview, sortCategory] : sortCategory) | itemsPerPage: 15">
+              <div class="col s12 l4 center-align">
+                <img ng-src="{{report.user.avatar}}" alt="" class="circle">
+                <a ng-href="/players/{{player.player.id}}">
+                  <h5 ng-bind="report.user.username"></h5>
+                </a>
+              </div>
+              <div class="col s12 l8">
+                <span class='stars-rating'>
+                  <i class="fa" ng-class="report.report.rating < 1 ? 'fa-star-o' : 'fa-star'"></i>
+                  <i class="fa" ng-class="report.report.rating < 2 ? 'fa-star-o' : 'fa-star'"></i>
+                  <i class="fa" ng-class="report.report.rating < 3 ? 'fa-star-o' : 'fa-star'"></i>
+                  <i class="fa" ng-class="report.report.rating < 4 ? 'fa-star-o' : 'fa-star'"></i>
+                  <i class="fa" ng-class="report.report.rating < 5 ? 'fa-star-o' : 'fa-star'"></i>
+                </span>
+                <span class="elapsed" ng-bind="report.report.created_at | date:'MM/dd/yyyy'"></span>
+                <p ng-bind="report.report.message"></p>
+                <div class="player-upvote-section">
+                  <span class="upvote vote" ng-class="{'voted-up-background' : report.upvoted_by_user}" ng-click="report.upvoted_by_user ? false : upvoteReview(report, $index)"><i class="fa" ng-class="{'fa-thumbs-up' :report.upvoted_by_user, 'fa-thumbs-o-up' : !report.upvoted_by_user}"></i></span>
+                  <span class="downvote vote" ng-class="{'voted-down-background' : report.downvoted_by_user}" ng-click="report.downvoted_by_user ? false : downvoteReview(report, $index)"><i class="fa" ng-class="{'fa-thumbs-down' :report.downvoted_by_user, 'fa-thumbs-o-down' : !report.downvoted_by_user}"></i></span>
+                  <span ng-bind-template="{{report.total_upvotes - report.total_downvotes == 0 ? '0 points': upvoteTemplate(report)}}"></span>
                 </div>
               </div>
             </div>
+            <!-- End Individual Review -->
+            <dir-pagination-controls></dir-pagination-controls>
           </div>
-          <div id="primary" class="container">
-            <div class="row content-area">
-              <main id="main" class="site-main col-md-8 col-sm-7 col-xs-12" role="main">
-                <div class="comment-respond" ng-show="!userId">
-                    <h3 id="reply-title" class="comment-reply-title">
-                      <%= link_to new_user_session_path do %>
-                        <i class="fa fa-sign-in"></i> Sign in to Write A Review
-                      <% end %>
-                    </h3>
-                </div>
-                <div id="respond" class="comment-respond" ng-show="!reportedByUser && userId">
-                    <h3 id="reply-title" class="comment-reply-title">
-                      <i class="fa fa-pencil"></i> Write A Review <small>
-                    </h3>
-                    <form class="comment-form">
-                      <div id='wpjmr-submit-ratings' class='review-form-stars'>
-                        <div class='star-ratings'>
-                          <div class='rating-row'>
-                            <label for='0'>Rating
-                            </label>
-                            <div class='choose-rating' ng-init="hoverRating = 0; report.rating = 0">
-                              <i class="fa" ng-class="hoverRating < 1 && report.rating < 1 ? 'fa-star-o' : 'fa-star' " ng-mouseover="hoverRating = 1" ng-mouseleave="hoverRating = 0" ng-click="report.rating = 1"></i>
-                              <i class="fa" ng-class="hoverRating < 2 && report.rating < 2? 'fa-star-o' : 'fa-star' " ng-mouseover="hoverRating = 2" ng-mouseleave="hoverRating = 0" ng-click="report.rating = 2"></i>
-                              <i class="fa" ng-class="hoverRating < 3 && report.rating < 3 ? 'fa-star-o' : 'fa-star' " ng-mouseover="hoverRating = 3" ng-mouseleave="hoverRating = 0" ng-click="report.rating = 3"></i>
-                              <i class="fa" ng-class="hoverRating < 4 && report.rating < 4? 'fa-star-o' : 'fa-star' " ng-mouseover="hoverRating = 4" ng-mouseleave="hoverRating = 0" ng-click="report.rating = 4"></i>
-                              <i class="fa" ng-class="hoverRating < 5 && report.rating < 5 ? 'fa-star-o' : 'fa-star' " ng-mouseover="hoverRating = 5" ng-mouseleave="hoverRating = 0" ng-click="report.rating = 5"></i>
-                            </div>
-                          </div>
-                          <div class='rating-row'>
-                            <label for='1'>Service
-                            </label>
-                            <div class='choose-rating' data-rating-category='1'>
-                              <span data-star-rating='5' class="star dashicons dashicons-star-empty"></span>
-                              <span data-star-rating='4' class="star dashicons dashicons-star-empty"></span>
-                              <span data-star-rating='3' class="star dashicons dashicons-star-empty"></span>
-                              <span data-star-rating='2' class="star dashicons dashicons-star-empty"></span>
-                              <span data-star-rating='1' class="star dashicons dashicons-star-empty"></span>
-                              <input type='hidden' class='required' name='star-rating-1' value=''>
-                            </div>
-                          </div>
-                          <div class='rating-row'>
-                            <label for='2'>Value</label>
-                            <div class='choose-rating' data-rating-category='2'>
-                              <span data-star-rating='5' class="star dashicons dashicons-star-empty"></span>
-                              <span data-star-rating='4' class="star dashicons dashicons-star-empty"></span>
-                              <span data-star-rating='3' class="star dashicons dashicons-star-empty"></span>
-                              <span data-star-rating='2' class="star dashicons dashicons-star-empty"></span>
-                              <span data-star-rating='1' class="star dashicons dashicons-star-empty"></span>
-                              <input type='hidden' class='required' name='star-rating-2' value=''>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <% if current_user %>
-                        <p class="logged-in-as">
-                          <%=link_to "Logged in as #{current_user.username}", user_path %> &nbsp;
-                          <%=link_to "Log out?", destroy_user_session_path %>
-                        </p>
-                      <% end %>
-                      <p class="comment-form-comment"><label for="comment">Comment</label> <textarea ng-model="report.message" id="comment" name="comment" cols="45" rows="8"  aria-required="true" required="required"></textarea></p>
-                      <p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Publish Review" ng-click="submitReport()"/>
-
-                      </p>
-                    </form>
-                  </div>
-
-                  <!-- comments -->
+        </div>
+        <!-- /About -->
+      </div>
+      <div class="col s12 l3">
+        <!-- Statistics -->
+        <div class="card profile-skills">
+          <div class="title">
+            <h5><i class="fa fa-bar-chart"></i>Overall</h5>
+            <a class="close" href="#"><i class="mdi-content-clear"></i></a>
+            <a class="minimize" href="#"><i class="mdi-navigation-expand-less"></i></a>
+          </div>
+          <div class="content">
+            <div class="row center-align" style="margin-top: 0">
+              <div class="col m6 s12"><strong>87</strong><h5>Positive</h5>
+              </div>
+              <div class="col m6 s12"><strong>12</strong>
+                <h5>Negative</h5>
+              </div>
+            </div>
+          </div>
+        </div><!-- /Statistics -->
+        <!-- <p></p> -->
+        <!-- Skills -->
+        <!-- <div class="card profile-skills">
+          <div class="title">
+            <h5><i class="fa fa-trophy"></i> Skills</h5>
+          </div>
+          <div class="content">
+            <a href="#!" class="skill">JavaScript</a>
+            <a href="#!" class="skill">CSS3</a>
+            <a href="#!" class="skill">HTML5</a>
+            <a href="#!" class="skill">jQuery</a>
+            <a href="#!" class="skill">AngularJS</a>
+            <a href="#!" class="skill">Bootstrap</a>
+            <a href="#!" class="skill">PHP</a>
+            <a href="#!" class="skill">MySQL</a>
+          </div>
+        </div> -->
+        <!-- /Skills -->
+        <!-- <p></p> -->
+        <!-- Send Message -->
+        <!-- <div class="card">
+          <div class="title">
+            <h5><i class="fa fa-user"></i> Send Message</h5>
+            <a class="close" href="#"><i class="mdi-content-clear"></i></a>
+            <a class="minimize" href="#"><i class="mdi-navigation-expand-less"></i></a>
+          </div>
+          <div class="content">
+            <form action="#!">
+              <div class="input-field">
+                <textarea id="textarea1" class="materialize-textarea" name="message"></textarea>
+                <label for="textarea1">Send me message</label>
+              </div>
+              <button class="btn">Send</button>
+            </form>
+          </div>
+        </div> -->
+        <!-- /Send Message -->
+      </div>
+    </div>
+  </section>
 
                 <div id="comments" class="comments-area widget widget-job_listing">
                   <h3 class="comment-sorting">Sort By</h3>
@@ -186,16 +204,7 @@
 
 
                                     <span style="color:#77c04b"><i class="fa" ng-class="report.report.rating < 5 ? 'fa-star-o' : 'fa-star'"></i></span>
-
                               </div>
-<!--                               <div class='star-rating'>
-                                <div class='star-rating-title'>Service</div>
-                                <p>                                         <span class="dashicons dashicons-star-filled"></span>                                         <span class="dashicons dashicons-star-filled"></span>                                         <span class="dashicons dashicons-star-filled"></span>                                         <span class="dashicons dashicons-star-filled"></span>                                         <span class="dashicons dashicons-star-filled"></span>
-                              </div>
-                              <div class='star-rating'>
-                                <div class='star-rating-title'>Value</div>
-                                <p>                                         <span class="dashicons dashicons-star-filled"></span>                                         <span class="dashicons dashicons-star-filled"></span>                                         <span class="dashicons dashicons-star-filled"></span>                                         <span class="dashicons dashicons-star-filled"></span>                                         <span class="dashicons dashicons-star-filled"></span>
-                              </div> -->
                               </p>
                             </div>
                             <p ng-bind="report.report.message"></p>
@@ -223,130 +232,11 @@
                 </div>
                 <!-- #comments -->
               </main>
-              <div id="secondary" class="widget-area col-md-4 col-sm-5 col-xs-12" role="complementary">
-                <aside id="listify_widget_panel_listing_auhtor-2" class="widget widget-job_listing listify_widget_panel_listing_auhtor">
-                  <div class="job_listing-author">
-                    <div class="job_listing-author-avatar">
-                      <img alt='' src='https://secure.gravatar.com/avatar/d5e3962bae7e0ee1196f9f234a664221?s=210&#038;r=g' srcset='https://secure.gravatar.com/avatar/d5e3962bae7e0ee1196f9f234a664221?s=420&amp;r=g 2x' class='avatar avatar-210 photo' height='210' width='210' />
-                    </div>
-                    <div class="job_listing-author-info">
-                      Astoundify
-                      <small class="job_listing-author-descriptor">Listing Owner</small>
-                      <div class="job_listing-author-info-more">
-                        <a href="#job_listing-author-apply" data-mfp-src=".job_application" class="popup-trigger"><span class="ion-email"></span></a>
-                        <div class="job_application application">
-                          <input type="button" class="application_button button" value="Contact Listing" />
-                          <div class="application_details">
-                            <div role="form" class="wpcf7" id="wpcf7-f97-p270-o1" lang="en-US" dir="ltr">
-                              <div class="screen-reader-response"></div>
-                              <form action="/listify/listing/8-s-san-marcos-pl-chandler-az-85225-united-states/#wpcf7-f97-p270-o1" method="post" class="wpcf7-form" novalidate="novalidate">
-                                <div style="display: none;">
-                                  <input type="hidden" name="_wpcf7" value="97" />
-                                  <input type="hidden" name="_wpcf7_version" value="4.3.1" />
-                                  <input type="hidden" name="_wpcf7_locale" value="en_US" />
-                                  <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f97-p270-o1" />
-                                  <input type="hidden" name="_wpnonce" value="ae0cf87a9d" />
-                                </div>
-                                <p>Your Name (required)<br />
-                                  <span class="wpcf7-form-control-wrap your-name"><input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span>
-                                </p>
-                                <p>Your Email (required)<br />
-                                  <span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" /></span>
-                                </p>
-                                <p>Your Message<br />
-                                  <span class="wpcf7-form-control-wrap your-message"><textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"></textarea></span>
-                                </p>
-                                <p><input type="submit" value="Send" class="wpcf7-form-control wpcf7-submit" /></p>
-                                <div class="wpcf7-response-output wpcf7-display-none"></div>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                        <a href="https://demo.astoundify.com/listify/author/appthemer/"><span class="ion-information-circled"></span></a>
-                      </div>
-                    </div>
-                    <div class="job_listing-author-biography">
-                      Astoundify brings over 10 years of WordPress development experience and consulting expertise to fortune 500 companies and large agencies.
-                    </div>
-                  </div>
-                </aside>
-
-
-
-
-
-              </div>
-              <!-- #secondary -->
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- #content -->
-        <footer class="site-footer-widgets">
-          <div class="container">
-            <div class="row">
-              <div class="footer-widget-column col-xs-12 col-sm-12 col-lg-5">
-                <aside id="text-2" class="footer-widget widget_text">
-                  <div class="textwidget">
-                    <embed src="https://demo.astoundify.com/listify/wp-content/uploads/sites/39/2014/11/copy-listify-footer-logo.svg" type="image/svg+xml" />
-                    <p>
-                      At Listify our purpose is to help people find great local businesses like dentists, hair stylists and mechanics. Go Explore!
-                    <p>
-                      Proudly Made in Canada & USA
-                  </div>
-                </aside>
-              </div>
-              <div class="footer-widget-column col-xs-12 col-sm-6 col-lg-3 col-lg-offset-1">
-                <aside id="nav_menu-2" class="footer-widget widget_nav_menu">
-                  <h4 class="footer-widget-title">About Listify</h4>
-                  <div class="menu-need-help-menu-footer-container">
-                    <ul id="menu-need-help-menu-footer" class="menu">
-                      <li id="menu-item-248" class="ion-help-buoy menu-item menu-item-type-custom menu-item-object-custom menu-item-248"><a href="#">Help Center</a></li>
-                      <li id="menu-item-249" class="ion-clipboard menu-item menu-item-type-custom menu-item-object-custom menu-item-249"><a href="https://demo.astoundify.com/listify/terms-of-service/">Terms of Use</a></li>
-                      <li id="menu-item-250" class="ion-help-circled menu-item menu-item-type-custom menu-item-object-custom menu-item-250"><a href="https://demo.astoundify.com/listify/about-listify/">About Listify</a></li>
-                      <li id="menu-item-251" class="ion-ios-chatbubble menu-item menu-item-type-custom menu-item-object-custom menu-item-251"><a href="https://demo.astoundify.com/listify/blog/">Listify Blog</a></li>
-                      <li id="menu-item-252" class="ion-person menu-item menu-item-type-custom menu-item-object-custom menu-item-252"><a href="#">Careers</a></li>
-                    </ul>
-                  </div>
-                </aside>
-              </div>
-              <div class="footer-widget-column col-xs-12 col-sm-6 col-lg-3">
-                <aside id="nav_menu-3" class="footer-widget widget_nav_menu">
-                  <h4 class="footer-widget-title">Stay Connected</h4>
-                  <div class="menu-social-widget-menu-container">
-                    <ul id="menu-social-widget-menu" class="menu">
-                      <li id="menu-item-325" class="ion-social-twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-325"><a href="http://twitter.com/astoundify">Twitter</a></li>
-                      <li id="menu-item-326" class="ion-social-facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-326"><a href="http://facebook.com/astoundify">Facebook</a></li>
-                      <li id="menu-item-327" class="ion-social-googleplus menu-item menu-item-type-custom menu-item-object-custom menu-item-327"><a href="http://google.com">Google+</a></li>
-                      <li id="menu-item-328" class="ion-social-instagram-outline menu-item menu-item-type-custom menu-item-object-custom menu-item-328"><a href="http://instagram.com">Instagram</a></li>
-                      <li id="menu-item-329" class="ion-social-vimeo menu-item menu-item-type-custom menu-item-object-custom menu-item-329"><a href="http://vimeo.com/astoundify">Vimeo</a></li>
-                    </ul>
-                  </div>
-                </aside>
-              </div>
-            </div>
-          </div>
-        </footer>
-        <footer id="colophon" class="site-footer" role="contentinfo">
-          <div class="container">
-            <div class="site-info">
-              Copyright Astoundify © 2015. All Rights Reserved
-            </div>
-            <!-- .site-info -->
-            <div class="site-social">
-              <div class="menu-social-container">
-                <ul id="menu-social" class="nav-menu-social">
-                  <li id="menu-item-240" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-240"><a href="http://facebook.com/astoundify">facebook</a></li>
-                  <li id="menu-item-241" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-241"><a href="http://twitter.com/astoundify">twitter</a></li>
-                  <li id="menu-item-242" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-242"><a href="https://plus.google.com/">google</a></li>
-                  <li id="menu-item-244" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-244"><a href="http://instagram.com/">instagram</a></li>
-                  <li id="menu-item-246" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-246"><a href="https://vimeo.com/astoundify">vimeo</a></li>
-                  <li id="menu-item-8176" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8176"><a href="http://tumblr.com">tumblr</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </footer>
       </div>
         <!-- #colophon -->
 </div>

@@ -1,0 +1,129 @@
+@import 'variables.scss';
+
+section.profile {
+  background: rgb(125,126,125);
+  background: -moz-radial-gradient(center, ellipse cover, rgba(125,126,125,1) 0%, rgba(14,14,14,1) 69%);
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 69%);
+  background: radial-gradient(ellipse at center, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 69%);
+  color: white;
+  .profile-info {
+    color: white;
+  }
+  .card-panel,
+  .card {
+    background-color: rgba(255, 255, 255, 0.13);
+  }
+
+  .reviews {
+    .circle {
+      width: 100px;
+      height: 100px;
+    }
+    .caret {
+      color: white;
+    }
+    h5 {
+      float: initial;
+    }
+    .content {
+      h5 {
+        color: $pink;
+      }
+    }
+  }
+  .stars-rating {
+    margin-right: 10px;
+    i {
+      color: $pink;
+      font-size: 25px;
+    }
+  }
+  .contacts {
+    color: $light-grey;
+    float: left;
+    span {
+      text-transform: uppercase;
+    }
+  }
+  .btn i {
+    margin-right: 15px
+  }
+}
+
+.players-content{
+  .player-profile-header-text{
+    color: white !important;
+  }
+  .player-page-icon{
+    border: 2px solid white;
+  }
+}
+
+.choose-rating i{
+  font-size: 25px;
+}
+
+.review-options{
+  .edit-text{
+    text-decoration: underline;
+  }
+}
+
+.review-options:nth-child(1){
+  margin-top: 5px;
+}
+
+.player-upvote-section{
+  margin-top: 10px;
+  .vote{
+    display: inline-block;
+    padding: 5px 15px;
+    margin-right: 10px;
+    border-radius: 5px;
+  }
+  .upvote{
+    border: 1px solid $thumbs-up;
+
+  }
+  .downvote{
+    border: 1px solid $thumbs-down;
+  }
+  i{
+    font-size: 16px;
+  }
+  .fa-thumbs-o-up{
+    color: $thumbs-up;
+  }
+  .fa-thumbs-up{
+    color: #fff;
+  }
+  .fa-thumbs-o-down{
+    color: $thumbs-down;
+  }
+  .fa-thumbs-down{
+    color: #fff;
+  }
+}
+
+.single-user-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.voted-up-background{
+  background-color: $thumbs-up !important;
+}
+
+.voted-down-background{
+  background-color: $thumbs-down !important;
+}
+
+.listing-cover.content-single-user-hero {
+  padding-top: 167px;
+  .content-single-user-hero-inner {
+    padding-bottom: 30px;
+  }
+}

@@ -1,8 +1,9 @@
 <nav class="navbar-top navbar-dark">
   <div class="nav-wrapper"><!-- Sidebar toggle -->
     <a href="index.html" class="brand-logo">
-      <%= image_tag "ggreported_logo.png" %><!-- /Logo --><!-- Menu -->
-      <ul>
+      <%= image_tag "ggreported_logo.png" %>
+    </a>
+    <ul>
        <li class="user">
          <% if !current_user %>
            <%= link_to 'Log In', new_user_session_path %>
@@ -10,7 +11,7 @@
            <%= link_to 'Log Out', destroy_user_session_path, method: 'delete' %>
          <% end %>
        </li>
-   </ul><!-- /Menu -->
+    </ul>
  </div>
 </nav>
 <aside class="yarbar yay-hide"></aside>

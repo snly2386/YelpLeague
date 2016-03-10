@@ -43,7 +43,7 @@ class Player < ActiveRecord::Base
 
   def self.most_recent_with_bookmark_data(user)
     most_recent.reduce([]) do |arr, player|
-      arr.push({player: player, bookmarked: player.bookmarked(user), average_rating: player.average_rating })
+      arr.push({player: player, bookmarked: player.bookmarked(user), average_rating: player.average_rating, last_review: player.last_review })
       arr
     end
   end

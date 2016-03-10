@@ -26,7 +26,7 @@
         $scope.player = data.player
         $scope.reportedByUser = data.reported_by_user
         $scope.bookmarked = data.bookmarked
-        console.log $scope.player
+        console.log $scope.avgRating
         console.log 'hello im here'
       )
 
