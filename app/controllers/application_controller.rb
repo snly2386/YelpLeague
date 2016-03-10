@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :notice => exception.message
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation) }
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:username, :email, :password) }
@@ -22,4 +26,5 @@ class ApplicationController < ActionController::Base
       stored_location_for(resource)
     end
   end
+
 end

@@ -19,14 +19,14 @@
                       <td colspan="6">You currently have no reviews.</td>
                     </tr>
                     <tr ng-repeat="report in reports">
-                      <td ng-bind="report.player_name"></td>
-                      <td ng-bind="report.message"></td>
+                      <td ng-bind="report.player.display_name"></td>
+                      <td ng-bind="report.report.message"></td>
                       <td>
-                        <span style="color:#77c04b"><i class="fa" ng-class="report.rating < 1 ? 'fa-star-o' : 'fa-star'"></i></span>
-                        <span style="color:#77c04b"><i class="fa" ng-class="report.rating < 2 ? 'fa-star-o' : 'fa-star'"></i></span>
-                        <span style="color:#77c04b"><i class="fa" ng-class="report.rating < 3 ? 'fa-star-o' : 'fa-star'"></i></span>
-                        <span style="color:#77c04b"><i class="fa" ng-class="report.rating < 4 ? 'fa-star-o' : 'fa-star'"></i></span>
-                        <span style="color:#77c04b"><i class="fa" ng-class="report.rating < 5 ? 'fa-star-o' : 'fa-star'"></i></span>
+                        <span style="color:#77c04b"><i class="fa" ng-class="report.report.rating < 1 ? 'fa-star-o' : 'fa-star'"></i></span>
+                        <span style="color:#77c04b"><i class="fa" ng-class="report.report.rating < 2 ? 'fa-star-o' : 'fa-star'"></i></span>
+                        <span style="color:#77c04b"><i class="fa" ng-class="report.report.rating < 3 ? 'fa-star-o' : 'fa-star'"></i></span>
+                        <span style="color:#77c04b"><i class="fa" ng-class="report.report.rating < 4 ? 'fa-star-o' : 'fa-star'"></i></span>
+                        <span style="color:#77c04b"><i class="fa" ng-class="report.report.rating < 5 ? 'fa-star-o' : 'fa-star'"></i></span>
                       </td>
                     </tr>
                   </tbody>

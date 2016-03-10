@@ -43,4 +43,8 @@ class User < ActiveRecord::Base
   def add_omniauth(auth)
     providers.create(name: auth.provider, uid: auth.uid, username: auth.info.name, email: auth.info.email || '', image: auth.info.image)
   end
+
+  def upvotes_received
+    reports.inject(0){|sum, report| sum + report.get_vote_difference }
+  end
 end

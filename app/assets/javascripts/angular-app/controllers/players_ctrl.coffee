@@ -36,36 +36,6 @@
               report.report[k] = data[k]
       )
 
-      $scope.upvoteReview = (review, index) ->
-        UpvoteService.upvote(review.report.id)
-          .then(
-            (response) ->
-              for report in $scope.reports
-                if report.report.id == review.report.id
-                  report.upvoted_by_user = response.data
-                  report.total_upvotes += 1
-                  report.total_downvotes -= 1 if report.voted_by_user
-                  report.downvoted_by_user = false
-            (errorResponse) ->
-              $scope.$emit('upvoteError', errorResponse.data.message)
-          )
-
-
-
-      $scope.downvoteReview = (review, index) ->
-        UpvoteService.downvote(review.report.id)
-          .then(
-            (response) ->
-              for report in $scope.reports
-                if report.report.id == review.report.id
-                  report.downvoted_by_user = response.data
-                  report.total_downvotes += 1
-                  report.total_upvotes -= 1 if report.voted_by_user
-                  report.upvoted_by_user = false
-            (errorResponse) ->
-              $scope.$emit('upvoteError', errorResponse.data.message)
-          )
-
       $scope.initializeUpdateReport = (report, index) ->
         $scope.oldReport = report
         $scope.updateReport = angular.copy(report)
@@ -129,5 +99,22 @@
 
       $scope.userReview = (reportId) ->
         'userReview' if reportId == parseInt $scope.userId
+
+      $scope.shareReview = (user, playerId, report) ->
+        FB.ui(
+            {
+              method: 'share'
+              href: "http://www.yelpleague.com:3000/players/#{playerId}"
+              picture: "https://s3-us-west-2.amazonaws.com/dynamicowlwendy/profileicon/#{$scope.player.icon}.png"
+              title: "Player Review",
+              description: "#{user.username}'s review of #{$scope.player.display_name}",
+              caption: "#{report.message.substring(1, 10)}"
+            },
+            (response) ->
+              if (response && !response.error_message)
+                alert('Posting completed.');
+              else
+                alert('Error while posting.');
+          )
   ]
 )()

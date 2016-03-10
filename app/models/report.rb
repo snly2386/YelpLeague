@@ -4,6 +4,7 @@ class Report < ActiveRecord::Base
   validates_presence_of :message, :rating, :user_id, :player_id
   acts_as_votable
   scope :by_player_id, -> (playerId){ where("player_id = ?", playerId) }
+  scope :by_user_id, -> (userId){ where("user_id = ?", userId) }
 
 
   def user_report_count
@@ -44,6 +45,31 @@ class Report < ActiveRecord::Base
 
   def player_name
     player.display_name
+  end
+
+  def self.by_user_with_upvote_data(userId, user)
+    by_user_id(userId).reduce([]) do |arr, report|
+      if user
+        arr << {
+          report: report,
+          upvoted_by_user: report.upvoted_by_user(user),
+          downvoted_by_user: report.downvoted_by_user(user),
+          voted_by_user: report.voted_by_user(user),
+          total_downvotes: report.get_all_downvotes.count,
+          total_upvotes: report.get_all_upvotes.count,
+          vote_difference: report.get_vote_difference,
+          player: report.player
+        }
+      else
+        arr << {
+          report: report,
+          total_downvotes: report.get_all_downvotes.count,
+          total_upvotes: report.get_all_upvotes.count,
+          vote_difference: report.get_vote_difference,
+          player: report.player
+        }
+      end
+    end
   end
 
   def self.with_upvote_data(playerId, user)

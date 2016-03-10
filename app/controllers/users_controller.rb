@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-  layout 'member'
+  layout :set_layout
   def show
     @playerSearch = Player.new
     @user = User.find(params[:id])
+    authorize! :read, @user
 
     respond_to do |format|
       format.html { render :show}
@@ -11,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def profile
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
   end
 
   def avatar_selection
@@ -33,6 +34,10 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity}
       end
     end
+  end
+
+  def set_layout
+    current_user ? 'member' : 'non_member'
   end
 
   private

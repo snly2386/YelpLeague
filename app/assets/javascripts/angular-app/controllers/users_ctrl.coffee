@@ -22,6 +22,7 @@
 
       ReportsByUserService.get({id: $scope.userId}, (data) ->
         $scope.reports = data.reports
+        console.log $scope.reports
       )
 
       $scope.$on('userFound', ()->

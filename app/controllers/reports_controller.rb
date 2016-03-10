@@ -9,7 +9,7 @@ class ReportsController < ApplicationController
   end
 
   def by_user
-    @reports = Report.where(user_id: params[:user_id])
+    @reports = Report.by_user_with_upvote_data(params[:user_id], current_user)
     respond_to do |format|
       format.json { render json: @reports }
     end
