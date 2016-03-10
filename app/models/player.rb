@@ -5,6 +5,10 @@ class Player < ActiveRecord::Base
 
   scope :most_recent, -> { order(created_at: :desc).limit(6) }
 
+  def last_review
+    reports.last if reports
+  end
+
   def report_count
     reports.count
   end
@@ -39,14 +43,14 @@ class Player < ActiveRecord::Base
 
   def self.most_recent_with_bookmark_data(user)
     most_recent.reduce([]) do |arr, player|
-      arr.push({player: player, bookmarked: player.bookmarked(user), average_rating: player.average_rating })
+      arr.push({player: player, bookmarked: player.bookmarked(user), average_rating: player.average_rating, last_review: player.last_review })
       arr
     end
   end
 
   def self.most_recent_serialized
     most_recent.reduce([]) do |arr, player|
-      arr.push({player: player, average_rating: player.average_rating })
+      arr.push({player: player, average_rating: player.average_rating, last_review: player.last_review })
       arr
     end
   end

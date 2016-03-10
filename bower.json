@@ -9,6 +9,16 @@
     "angular-bootstrap" : "~0.14.3",
     "angular-lazy-image": "",
     "angular-utils-pagination" : "",
-    "angular-scroll" : ""
+    "angular-scroll" : "",
+    "angular-lazy-img": "",
+    "angular-utils-pagination" : "",
+    "angular-nanoscroller" : "",
+    "components-font-awesome" : "",
+    "material-design-icons" :"",
+    "ionicons": "",
+    "jquery-requestAnimationFrame": "",
+    "materialize": "",
+    "sortable": "",
+    "code-prettify": ""
   }
 }

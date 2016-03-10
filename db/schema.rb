@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160115235603) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "icon"
+    t.string   "summoner_id"
     t.string   "level"
   end
 

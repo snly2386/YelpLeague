@@ -1,87 +1,100 @@
-<header id="masthead" class="site-header" role="banner">
+<nav class="navbar-top navbar-dark">
+  <div class="nav-wrapper">
+    <!-- Logo -->
+    <a href="index.html" class="brand-logo">
+      <%= image_tag "ggreported_logo.png" %>
+    </a><!-- /Logo -->
+    <!-- Menu -->
+    <ul>
+      <li><a href="#!" class="demo-toggle"><i class="fa fa-cog"></i></a></li>
+      <li><a href="#!" class="search-bar-toggle"><i class="mdi-action-search"></i></a></li>
+      <li class="user">
+        <a class="dropdown-button" data-activates="user-dropdown" href="#!">
+          <% if current_user.avatar %>
+              <%= image_tag "#{current_user.avatar}", class: "circle" %>
+              <%= current_user.username %>
+              <i class="mdi-navigation-expand-more right"></i>
+          <% else %>
+              <img src="/assets/annie.png", class="circle" >
+          <% end %>
+        </a>
+          <ul id="user-dropdown" class="dropdown-content">
+            <li><a href="page-profile.html"><i class="fa fa-user"></i> Profile</a></li>
+            <li><a href="mail-inbox.html"><i class="fa fa-envelope"></i> Messages <span class="badge new">2 new</span></a></li>
+            <li><a href="#!"><i class="fa fa-cogs"></i> Settings</a></li>
+            <li class="divider"></li>
+            <li><a href="page-sign-in.html"><i class="fa fa-sign-out"></i> Logout</a></li>
+          </ul>
+        </li>
+      </ul><!-- /Menu -->
+   </div>
+</nav>
+<!-- <header id="masthead landing" class="site-header" role="banner">
     <div class="primary-header">
-        <div class="container">
-            <div class="primary-header-inner">
-                <div class="site-branding">
-                    <a href="https://demo.astoundify.com/listify/" title="Listify" rel="home" class="custom-header"><img src="https://demo.astoundify.com/listify/wp-content/uploads/sites/39/2014/11/copy-listify-footer-logo.svg" alt="">
-                    </a>
-                    <h2 class="site-description">The last directory theme you will ever buy.</h2>
-                </div>
 
-                <div class="main-nav-menu" style="display:table-cell; color: white; padding-top: 25px;">
-                    <div >
-                      <%= form_for Player.new, class: 'navbar-form' do |f| %>
-                        <div class="col-xs-6 form-group">
-                          <%= f.text_field :name, placeholder: 'Summoner Name', class: 'form-control col-xs-9' %>
-                          <%= f.select :region, options_for_select(regions),{:include_blank => "Region"}, class: 'form-control col-xs-3' %>
-                        </div>
-                      <% end %>
-                      <div uib-dropdown class="pull-right navmenu-container col-xs-3">
-                        <span uib-dropdown-toggle class="navmenu-toggle-container">
-                          <div class="navmenu-avatar">
-                            <img ng-src="{{avatar}}">
-                          </div>
-                          <div class="navmenu-toggle">
-                            <i class="fa fa-caret-down navmenu-toggle-icon" ></i>
-                          </div>
-                        </span>
-                        <ul class="uib-dropdown-menu dropdown-menu">
-                          <li>
-                            <div class="col-xs-4">
-                              <% if current_user.avatar %>
-                                <%= image_tag "#{current_user.avatar}", class: 'dropdown-avatar-img' %>
-                              <% else %>
-                                <img src="/assets/annie.png", class='dropdown-avatar-img'>
-                              <% end %>
-                            </div>
-                            <div class="col-xs-8 nav-dropdown-username">
-                              <%= current_user.username %><br>
-                              <i class="fa fa-star"></i> <%= current_user.report_count %>
-                              <div><i class="fa fa-calendar-check-o"></i> <%=format_date(current_user.created_at)%></div>
-                            </div>
-                          </li>
-                          <li>
-                            <hr class="nav-separator"></hr>
-                          </li>
-                          <li>
-                            <%= link_to current_user do %>
-                              <i class="fa fa-user"></i> &nbsp;About Me
-                            <% end %>
-                          </li>
-                          <li><i class="fa fa-cog"></i> Account Settings</li>
-                          <li><hr class="nav-separator bottom"></hr></li>
-                          <li>
-                            <% if !current_user %>
-                              <%= link_to new_user_session_path, class: 'nav-menu-item ' do %>
-                                <i class="fa fa-sign-out"></i> Log In
-                              <% end %>
-                            <% else %>
-                              <%= link_to destroy_user_session_path, class: 'nav-menu-item ', method: 'delete' do  %>
-                                <i class="fa fa-sign-in"></i> Log Out
-                              <% end %>
-                            <% end %>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                </div>
+        <div class="primary-header-inner">
+            <div class="site-branding">
+              <a href="#"><img src="/assets/ggreported_logo.png" alt="" /></a>
             </div>
-
-            <div id="search-header" class="search-overlay">
-                <div class="container">
-
-                    <form role="search" method="get" class="search-form" action="https://demo.astoundify.com/listify/listings/">
-                        <label>
-                            <span class="screen-reader-text">Search for:</span>
-                            <input type="search" class="search-field" placeholder="Search" value="" name="search_keywords" title="Search for:" />
-                        </label>
-                        <button type="submit" class="search-submit"></button>
-                    </form>
-                    <a href="#search-header" data-toggle="#search-header" class="ion-close search-overlay-toggle"></a>
+            <div class="main-nav-menu" style="display:table-cell; color: white; padding-top: 25px;">
+                <div >
+                  <%= form_for Player.new, class: 'navbar-form' do |f| %>
+                    <div class="col-xs-6 form-group">
+                      <%= f.text_field :name, placeholder: 'Summoner Name', class: 'form-control col-xs-9' %>
+                      <%= f.select :region, options_for_select(regions),{:include_blank => "Region"}, class: 'form-control col-xs-3' %>
+                    </div>
+                  <% end %>
+                  <div uib-dropdown class="pull-right navmenu-container col-xs-3">
+                    <span uib-dropdown-toggle class="navmenu-toggle-container">
+                      <div class="navmenu-avatar">
+                        <img ng-src="{{avatar}}">
+                      </div>
+                      <div class="navmenu-toggle">
+                        <i class="fa fa-caret-down navmenu-toggle-icon" ></i>
+                      </div>
+                    </span>
+                    <ul class="uib-dropdown-menu dropdown-menu">
+                      <li>
+                        <div class="col-xs-4">
+                          <% if @user.avatar %>
+                            <%= image_tag "#{@user.avatar}", class: 'dropdown-avatar-img' %>
+                          <% else %>
+                            <img src="/assets/annie.png", class='dropdown-avatar-img'>
+                          <% end %>
+                        </div>
+                        <div class="col-xs-8 nav-dropdown-username">
+                          <%= @user.username %><br>
+                          <i class="fa fa-star"></i> <%= @user.report_count %>
+                          <div><i class="fa fa-calendar-check-o"></i> <%=format_date(@user.created_at)%></div>
+                        </div>
+                      </li>
+                      <li>
+                        <hr class="nav-separator"></hr>
+                      </li>
+                      <li>
+                        <%= link_to @user do %>
+                          <i class="fa fa-user"></i> &nbsp;About Me
+                        <% end %>
+                      </li>
+                      <li><i class="fa fa-cog"></i> Account Settings</li>
+                      <li><hr class="nav-separator bottom"></hr></li>
+                      <li>
+                        <% if !@user %>
+                          <%= link_to new_user_session_path, class: 'nav-menu-item ' do %>
+                            <i class="fa fa-sign-out"></i> Log In
+                          <% end %>
+                        <% else %>
+                          <%= link_to destroy_user_session_path, class: 'nav-menu-item ', method: 'delete' do  %>
+                            <i class="fa fa-sign-in"></i> Log Out
+                          <% end %>
+                        <% end %>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
             </div>
         </div>
     </div>
-</header>
+</header> -->
 
 <%= render template: 'layouts/application' %>

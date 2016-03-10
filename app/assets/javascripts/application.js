@@ -21,9 +21,16 @@
 //= require angular-bootstrap
 //= require classie
 //= require modernizr
+//= require transit
 //= require notification
+//= require lettering
+//= require textillate
 //= require angular-lazy-img
 //= require angular-utils-pagination/dirPagination
-//= require angular-scroll
+//= require jquery-requestAnimationFrame/dist/jquery.requestAnimationFrame
+//= require nanoscroller/bin/javascripts/jquery.nanoscroller
+//= require materialize/bin/materialize
+//= require sortable/js/sortable
+//= require base.min
+//= require code-prettify/src/prettify
 //= require_tree .
-

@@ -1,0 +1,151 @@
+@import 'variables.scss';
+
+.hidden {
+  display: none;
+}
+
+video {
+  z-index: 0;
+  margin-top: -269px;
+}
+
+.vid-container {
+  height: 450px;
+}
+
+.video-overlay {
+  background-color: rgba(0, 0, 0, 0.70);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  .text {
+    margin: 11em 5em;
+    color: white;
+    form {
+      margin-top: 30px;
+    }
+  }
+}
+
+.navbar-top.navbar-dark {
+  background-color: rgba(0, 0, 0, 0.89);
+}
+
+header {
+  .homepage-cover {
+    position: absolute;
+    top: 0;
+    background-color: transparent!important;
+    width: 100%;
+  }
+  h1.home-widget-title,
+  h2.home-widget-description {
+    text-align: left;
+  }
+}
+
+.search_jobs {
+  .search_keywords,
+  .search_categories,
+  .search_button {
+    display: inline-block;
+    margin-right: 1em;
+    width: 20%;
+  }
+  .search_button {
+    margin-left: 1%;
+  }
+  .select-wrapper span.caret {
+    color: white;
+  }
+}
+
+.home-widget-section-title {
+  h2 {
+    text-align: left;
+  }
+}
+
+.recent-searches {
+  background: rgb(125,126,125);
+  background: -moz-radial-gradient(center, ellipse cover, rgba(125,126,125,1) 0%, rgba(14,14,14,1) 69%);
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 69%);
+  background: radial-gradient(ellipse at center, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 69%);
+  padding-bottom: 33px;
+  h4 {
+    margin-top: 0;
+    margin-bottom: 32px;
+    padding-top: 35px;
+    color: rgba(255, 255, 255, 0.74);
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+  .social-media {
+    padding-top: 88px;
+  }
+}
+.collection {
+  border: none;
+  .title h1 {
+    font-size: 1em;
+    margin: 0;
+    color: $pink;
+    width: 60%;
+  }
+  .secondary-content {
+    i {
+      font-size: 20px;
+    }
+  }
+  .stars-rating {
+    span {
+      float: right;
+    }
+    i {
+      position: relative;
+      font-size: 20px;
+      color: $pink;
+    }
+  }
+  .region,
+  .badge.new {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .collection-item.avatar {
+    background-color: rgba(255, 255, 255, 0.13);
+    padding-left: 11em;
+    border: none;
+    p {
+      margin: 1.5em 0;
+      color: white;
+    }
+    .circle {
+      width: 100px;
+      height: 100px;
+      top: 25px;
+    }
+    .elapsed {
+      font-size: 14px;
+      margin-top: -8px;
+      color: grey;
+    }
+  }
+}
+
+footer {
+  background-color: rgba(0, 0, 0, 0.89);
+  height: auto;
+  color: #9A9A9A;
+  font-size: 10px;
+  padding: 3em;
+}
+
+// @media only screen and (max-width: 767px) {
+//     .recent-searches .social-media {
+//       padding-top: 5px;
+//     }
+// }
