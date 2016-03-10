@@ -4,7 +4,7 @@
 <% end %>
 <section class="landing" style="position:relative;">
     <div class="vid-container" >
-      <video autoplay loop preload="auto" muted style="position:relative; z-index:0">
+      <video autoplay loop preload="auto" muted>
         <source src="https://s3-us-west-2.amazonaws.com/dynamicowlwendy/mind_virtuoso.mp4" type="video/mp4">
       </video>
     </div>
@@ -61,22 +61,29 @@
         </li>
       </ul>
     </div>
-    <div class="col s12 l4 social-media hide-on-small-only">
-      <div class="card profile-skills">
+    <div class="col s12 l4 profile-info hide-on-small-only">
+      <h4>Contact Us</h4>
+      <!-- Send Message -->
+      <div class="card">
         <div class="title">
-          <h5><i class="fa fa-bar-chart"></i>Overall</h5>
-          <a class="close" href="#"><i class="mdi-content-clear"></i></a>
-          <a class="minimize" href="#"><i class="mdi-navigation-expand-less"></i></a>
+          <h5><i class="fa fa-user"></i> Your Feedback </h5>
         </div>
         <div class="content">
-          <div class="row center-align" style="margin-top: 0">
-            <div class="col m6 s12"><strong>87</strong><h5>Positive</h5>
+          <form action="#!">
+            <div class="input-field">
+              <textarea id="textarea1" class="materialize-textarea" name="message"></textarea>
+              <label for="textarea1">send us a message</label>
             </div>
-            <div class="col m6 s12"><strong>12</strong>
-              <h5>Negative</h5>
-            </div>
-          </div>
+            <button class="btn">Send</button>
+          </form>
         </div>
+      </div>
+      <!-- /Send Message -->
+      <div class="contacts">
+        <a href="#!" class="blue darken-3 white-text waves-effect"><i class="fa fa-facebook"></i>
+        </a>
+        <a href="#!" class="blue lighten-2 white-text waves-effect"><i class="fa fa-twitter"></i>
+        </a>
       </div>
     </div>
   </section>
