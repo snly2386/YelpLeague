@@ -14,7 +14,7 @@
           layout: 'other'
           effect: 'thumbslider'
           type: 'notice'
-          ttl: 11111116000
+          ttl: 10000
           onClose: ->
             true
         )
@@ -27,7 +27,7 @@
           layout: 'other'
           effect: 'thumbslider'
           type: 'notice'
-          ttl: 111116000
+          ttl: 10000
           onClose: ->
             true
         )

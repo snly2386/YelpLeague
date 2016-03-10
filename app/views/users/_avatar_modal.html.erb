@@ -1,51 +1,36 @@
 
-<div class="modal fade" tabindex="-1" role="dialog" id="avatar-modal">
-  <div class="modal-dialog col-md-8 col-md-offset-2">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Select Avatar</h4>
-      </div>
-      <div class="modal-body">
-        <ul class="nav nav-tabs" ng-init="activeAvatarTab = 'champions'">
-          <li ng-class="{'active' : activeAvatarTab == 'champions'}" ng-click="activeAvatarTab = 'champions'"><a>Champions</a></li>
-          <li ng-class="{'active' : activeAvatarTab == 'social'}" ng-click="activeAvatarTab = 'social'"><a>Social Profile</a></li>
-        </ul>
-        <div class="col-md-7">
+<div id="avatar-modal" class="modal modal-fixed-footer">
+  <div class="modal-content flow-text">
+    <h4>Select Avatar</h4>
+    <div class="modal-body">
+      <ul class="tabs">
+        <li class="tab"><a href="#championAvatars" class="active">Champions</a></li>
+        <li class="tab"><a href="#socialAvatars">Social Profile</a></li>
+      </ul>
 
-        <!-- champion avatars -->
-          <div id="championAvatars" class="tab-pane in active" ng-show="activeAvatarTab == 'champions'">
-            <div class="col-md-12">
-              <input ng-model="avatarSearch.name" ng-change="refreshImage()" class=""/>
-            </div>
-            <div class="avatars-wrap col-md-12">
-              <div class="col-xs-3 avatar-wrap" ng-repeat="avatar in avatars | filter:avatarSearch" afkl-lazy-image=="{{avatar.image}}">
-                <img src="{{avatar.image}}" ng-class="{'active-border' : activeAvatar == avatar.image}" ng-click="setActiveAvatar(avatar.image)"/>
-              </div>
+        <div id="championAvatars">
+          <div class="input-field">
+            <input ng-model="avatarSearch.name" ng-change="refreshImage()"  placeholder="Champion Name" class="validate">
+          </div>
+          <div class="row">
+            <div class="col s6 m3 avatar-wrap" ng-repeat="avatar in avatars | filter:avatarSearch" afkl-lazy-image=="{{avatar.image}}">
+              <img src="{{avatar.image}}" ng-class="{'active-border' : activeAvatar == avatar.image}" ng-click="setActiveAvatar(avatar.image)"/>
             </div>
           </div>
+        </div>
 
-          <!-- social avatars -->
 
-          <div id="socialAvatars" class="tab-pane" ng-show="activeAvatarTab == 'social'">
-            <div class="avatars-wrap col-md-12">
-              <div class="col-xs-3 avatar-wrap" ng-repeat="avatar in providerAvatars" afkl-lazy-image=="{{avatar.image}}">
-                <img src="{{avatar.image}}" ng-class="{'active-border' : activeAvatar == avatar.image}" ng-click="setActiveAvatar(avatar.image)"/>
-              </div>
+        <div id="socialAvatars">
+          <div class="col m-12">
+            <div class="col s6 m3 avatar-wrap" ng-repeat="avatar in providerAvatars" afkl-lazy-image=="{{avatar.image}}">
+              <img src="{{avatar.image}}" ng-class="{'active-border' : activeAvatar == avatar.image}" ng-click="setActiveAvatar(avatar.image)"/>
             </div>
           </div>
-
         </div>
-        <div class="col-md-5">
-          <p>
-            This avatar will be used to represent you in reports.  You may change it anytime in your account dashboard.
-          </p>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" ng-click="setAvatar()">Save changes</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat ">Disagree</a>
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat " ng-click="setAvatar()">Agree</a>
+  </div>
+</div>

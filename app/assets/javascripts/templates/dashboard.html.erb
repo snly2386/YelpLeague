@@ -1,4 +1,36 @@
-<div id="primary" class="container">
+<div class="card-panel">
+  <table class="profile-info">
+    <tbody>
+      <tr>
+        <td class="photo"><a href="#avatar-modal" class="modal-trigger"><img ng-src="{{user.avatar || '/assets/default-avatar.jpg'}}"/></a></td>
+        <td>
+          <h3 ng-bind="user.username"></h3>
+          <span>Hello <strong ng-bind="user.username"></strong> (not <span ng-bind="user.username"></span>? <a href="/users/sign_out" data-method="delete">Sign Out</a>).</span>
+          <br>
+          <span>From your account dashboard you can view your reviews, manage your account and edit your password and account details</a></span>
+          <div class="contacts"><a href="#!" class="blue darken-3 white-text waves-effect"><i class="fa fa-facebook"></i></a> <a href="#!" class="blue lighten-2 white-text waves-effect"><i class="fa fa-twitter"></i></a> <a href="#!" class="red white-text waves-effect"><i class="fa fa-google-plus"></i></a> <a href="#!" class="blue lighten-1 white-text waves-effect"><i class="fa fa-skype"></i></a> <a href="#!" class="pink lighten-2 white-text waves-effect"><i class="fa fa-dribbble"></i></a> <a href="#!" class="grey darken-3 white-text waves-effect"><i class="fa fa-github"></i></a></div>
+          <!-- /Contact Buttons -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div id="primary" class="container">
     <div class="content-area">
       <main id="main" class="site-main" role="main">
         <article id="post-4479" class="post-4479 page type-page status-publish has-post-thumbnail hentry not-claimed content-box content-box-wrapper">
@@ -62,7 +94,6 @@
             </div>
           </div>
         </article>
-        <!-- #post-## -->
       </main>
     </div>
   </div>

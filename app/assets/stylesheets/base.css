@@ -5658,7 +5658,7 @@ footer.page-footer .footer-copyright {
     overflow-x: auto;
     overflow-y: hidden;
     height: 48px;
-    background-color: #fff;
+    background-color: transparent;
     margin: 0 auto;
     width: 100%
 }
@@ -11858,7 +11858,7 @@ table.dataTable.no-footer {
     width: 160px
 }
 .profile-info .photo img {
-    max-width: 100%
+    max-width: 90%
 }
 .profile-info .contacts {
     margin-top: .8rem

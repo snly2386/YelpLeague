@@ -1,35 +1,25 @@
-<section class="content-wrap">
+<section class="content-wrap" ng-controller="UsersCtrl">
+  <div class="hidden" id="avatar"><%=@user.avatar%></div>
+  <div class="hidden" id="user-id"><%=@user.id%></div>
   <!-- Breadcrumb -->
   <div class="page-title">
     <div class="row">
       <div class="col s12 m9 l10">
         <h1>Profile</h1>
+        <td ng-bind="user.username"></td>
+        <td ng-bind="user.email || 'none'"></td>
+        <td ng-bind="user.created_at | date:'MM/dd/yyyy'"></td>
         <ul>
-          <li><a href="#"><i class="fa fa-home"></i> Home</a> /</li>
-          <li><a href="#">Category</a> /</li>
-          <li><a href="page-profile.html">Profile</a></li>
+          <li><span ng-bind="user.username"></span> </li> |
+          <li><span ng-bind="user.email || 'none'"></span></li> |
+          <li><span ng-bind-template="Member since {{user.created_at | date:'MM/dd/yyyy'}}"></span></li>
         </ul>
       </div>
       <div class="col s12 m3 l2 right-align"><a href="#!" class="btn grey lighten-3 grey-text z-depth-0 chat-toggle"><i class="fa fa-comments"></i></a></div>
     </div>
   </div>
-  <!-- /Breadcrumb -->
-  <div class="card-panel">
-    <table class="profile-info">
-      <tbody>
-        <tr>
-          <td class="photo"><img src="assets/_con/images/user.jpg" alt="Jogh Doe"></td>
-          <td>
-            <!-- Name -->
-            <h3>John Doe</h3>
-            <!-- /Name --><!-- Status Message --><span>Cras vel risus ac massa varius tempus. Suspendisse sed risus at mi egestas rutrum nec et velit.</span><!-- /Status Message --><!-- Contact Buttons -->
-            <div class="contacts"><a href="#!" class="blue darken-3 white-text waves-effect"><i class="fa fa-facebook"></i></a> <a href="#!" class="blue lighten-2 white-text waves-effect"><i class="fa fa-twitter"></i></a> <a href="#!" class="red white-text waves-effect"><i class="fa fa-google-plus"></i></a> <a href="#!" class="blue lighten-1 white-text waves-effect"><i class="fa fa-skype"></i></a> <a href="#!" class="pink lighten-2 white-text waves-effect"><i class="fa fa-dribbble"></i></a> <a href="#!" class="grey darken-3 white-text waves-effect"><i class="fa fa-github"></i></a></div>
-            <!-- /Contact Buttons -->
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <!-- userDashboard-->
+  <user-dashboard></user-dashboard>
   <div class="row">
     <div class="col s12 l9">
       <!-- About -->
@@ -90,6 +80,7 @@
       <!-- /Send Message -->
     </div>
   </div>
+  <%= render "avatar_modal" %>
 </section>
 
 
