@@ -79,16 +79,13 @@
                 <div class="row">
                   <div class="col s12 l4">
                     <%=image_tag current_user.avatar, class:'circle' %>
-                    <h5><%=current_user.username %></h5>
+                    <h5 class="ml-20"><%=current_user.username %></h5>
                   </div>
                   <div class="col s12 l8">
-                    <h6><i class="fa fa-pencil"></i> Write A Review</h6>
                     <form class="comment-form">
                       <div class='review-form-stars'>
                         <div class='star-ratings'>
                           <div class='rating-row'>
-                            <label for='0'>Rating
-                            </label>
                             <div class='choose-rating' ng-init="hoverRating = 0; report.rating = 0">
                               <i class="fa" ng-class="hoverRating < 1 && report.rating < 1 ? 'fa-star-o' : 'fa-star' " ng-mouseover="hoverRating = 1" ng-mouseleave="hoverRating = 0" ng-click="report.rating = 1"></i>
                               <i class="fa" ng-class="hoverRating < 2 && report.rating < 2? 'fa-star-o' : 'fa-star' " ng-mouseover="hoverRating = 2" ng-mouseleave="hoverRating = 0" ng-click="report.rating = 2"></i>
@@ -99,28 +96,33 @@
                           </div>
                         </div>
                       </div>
-                      <% if current_user %>
+                      <!-- <% if current_user %>
                       <p class="logged-in-as">
                         <%=link_to "Logged in as #{current_user.username}", user_path %> &nbsp;
                         <%=link_to "Log out?", destroy_user_session_path %>
                       </p>
-                      <% end %>
-                      <p class="comment-form-comment"><label for="comment">Comment</label> <textarea ng-model="report.message" id="comment" name="comment" cols="45" rows="8"  aria-required="true" required="required"></textarea></p>
-                      <p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Publish Review" ng-click="submitReport()"/>
+                      <% end %> -->
+                      <div class="input-field">
+                        <i class="fa fa-pencil prefix active"></i>
+                        <textarea ng-model="report.message" class="materialize-textarea" placeholder="Write a new review" required="required"></textarea>
+                      </div>
+                      <!-- <a class="btn btn-small"><i class="fa fa-pencil"></i><strong>Write a Review </strong>
+                      </a> -->
+                      <p class="form-submit right">
+                        <input name="submit" type="submit" class="btn btn-small" value="Publish Review" ng-click="submitReport()"/>
                       </p>
                     </form>
                   </div>
                 </div>
                 <!-- End add new review -->
-
                 <!-- Individual review -->
-                <div dir-paginate="report in reports | orderBy: (sortCategory == 'myReviewSort' ? [myReview, sortCategory] : sortCategory) | itemsPerPage: 15">
+                <div dir-paginate="report in reports | orderBy: (sortCategory == 'myReviewSort' ? [myReview, sortCategory] : sortCategory) | itemsPerPage: 15" class="single-review">
                   <!-- Start Row -->
                   <div class="row">
                     <div class="col s12 l4">
                       <img ng-src="{{report.user.avatar}}" alt="" class="circle">
-                      <h5 ng-bind="report.user.username"></h5>
-                      <div class="review-options" ng-if="report.user.id == userId" data-toggle="modal" data-target="#editReviewModal" ng-click="initializeUpdateReport(report.report, $index)">
+                      <h5 class="ml-20" ng-bind="report.user.username"></h5>
+                      <div class="ml-20" ng-if="report.user.id == userId" data-toggle="modal" data-target="#editReviewModal" ng-click="initializeUpdateReport(report.report, $index)">
                         <i class="fa fa-pencil"></i>
                         <span class="edit-text">Edit Review<span>
                       </div>
