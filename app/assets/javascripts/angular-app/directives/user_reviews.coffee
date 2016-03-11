@@ -8,8 +8,19 @@ app.directive 'userReviews', ['ReportsService', (ReportsService) ->
 
       scope.setEditedReview = (review) ->
         scope.editedReview = review
-        console.log review
 
+      scope.setDeletedReview = (report, review) ->
+        scope.deletedReviewObject = report
+        scope.deletedReviewPlayer = report.player.display_name
+        scope.deletedReview = review
+
+      scope.deleteReview = () ->
+        ReportsService.remove(scope.deletedReview, (data)->
+          scope.$emit('reviewDeletedNotice', 'Review Successfully Deleted')
+          index = scope.reports.indexOf(scope.deletedReviewObject)
+          scope.reports.splice(index, 1)
+          $('#delete-review-modal').modal('hide')
+        )
 
       scope.updateReview = () ->
         if scope.editReviewForm.$valid
