@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :players, only: [:show, :create, :index] do
     post '/bookmark' => 'players#bookmark'
     post '/unbookmark' => 'players#unbookmark'
-    resources :reports, only: [:create, :index, :update]
+    resources :reports, only: [:create, :index, :update, :destroy]
   end
 
   resources :reports, only: :index do

@@ -61,6 +61,15 @@ class ReportsController < ApplicationController
     @report = Report.find(params[:report_id])
   end
 
+  def destroy
+    @report = Report.find(params[:id])
+    @report.destroy
+
+    respond_to do |format|
+      format.json { render json: @report }
+    end
+  end
+
   private
 
   def report_params

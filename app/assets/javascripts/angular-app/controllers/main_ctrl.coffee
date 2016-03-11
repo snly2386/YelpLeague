@@ -9,6 +9,7 @@
       $scope.avatar = $('#avatar').text() || '/assets/default_avatar.jpg'
 
       $scope.noticeAlert = (msg) ->
+        $('.ns-box').hide()
         notification = new NotificationFx(
           message: "<div class='ns-thumb'><img src=#{$scope.avatar} /></div><div class='ns-content ns-notice'><p>#{msg}</p></div>"
           layout: 'other'
@@ -22,6 +23,7 @@
         notification.show()
 
       $scope.errorAlert = (msg) ->
+        $('.ns-box').hide()
         notification = new NotificationFx(
           message: "<div class='ns-thumb'><img src='/assets/teemo.png'/></div><div class='ns-content ns-error'><p>#{msg}</p></div>"
           layout: 'other'
@@ -55,6 +57,10 @@
       )
 
       $scope.$on("updateReviewNotice", (event, data) ->
+        $scope.noticeAlert(data)
+      )
+
+      $scope.$on("reviewDeletedNotice", (event, data) ->
         $scope.noticeAlert(data)
       )
 

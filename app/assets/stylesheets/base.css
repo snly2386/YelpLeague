@@ -10026,7 +10026,8 @@ html.rtl .yaybar.yay-light .nano-content>ul>li>ul>li>ul>li>ul>li>a {
     bottom: 0;
     height: 100%;
     overflow: hidden;
-    z-index: 2000
+    z-index: 2000;
+    background: #fff;
 }
 .search-bar>.layer-overlay {
     background: #fff;
@@ -15200,6 +15201,8 @@ html.rtl ol.linenums {
   background-color: #ee578a;
   color: white;
   border-radius: 5px;
+  z-index: 800;
+  position: relative;
 }
 
 .bootstrap-modal{
@@ -15208,4 +15211,9 @@ html.rtl ol.linenums {
 
 .m-r-10{
   margin-right: 10px !important;
+}
+
+#championAvatars{
+  height: 270px;
+  overflow: auto;
 }
