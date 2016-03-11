@@ -17,6 +17,7 @@
           .then(
             (response) ->
               $scope.players[index].bookmarked = response.data
+              $scope.$emit('bookmarkNotice', 'Player Successfully Bookmarked')
             (errorResponse) ->
               $scope.errorAlert(errorResponse.data.message)
           )
@@ -27,6 +28,7 @@
           .then(
             (response) ->
               $scope.players[index].bookmarked = response.data
+              $scope.$emit('unbookmarkNotice', 'Player Successfully Unbookmarked')
             (errorResponse) ->
               $scope.errorAlert(errorResponse.data.message)
           )

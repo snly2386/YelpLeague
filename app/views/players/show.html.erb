@@ -36,9 +36,9 @@
                   <a href="#!" class="blue lighten-2 white-text waves-effect"><i class="fa fa-twitter"></i></a> -->
                 </div>
                 <!-- /Status Message -->
-                <a class="btn btn-small secondary-content"><i class="fa bookmark-icon" ng-class="{ 'fa-bookmark' : player.bookmarked, 'fa-heart-o' : !player.bookmarked }" ng-click="player.bookmarked ? unbookmarkPlayer(player.id, $index) : bookmarkPlayer(player.id, $index)"></i><strong>Add to Favorites</strong>
-                </a>
-                <a ng-show="!reportedByUser && userId" class="btn btn-small secondary-content"><i class="fa fa-pencil"></i><strong>Write a Review </strong>
+                <a class="btn btn-small secondary-content" ng-class="{'voted-up-background' : !bookmarked, 'voted-down-background' : bookmarked}" ng-click="bookmarked ? unbookmark() : bookmark()">
+                  <i class="fa bookmark-icon" ng-class="{ 'fa-bookmark' : bookmarked, 'fa-heart-o' : !bookmarked }"></i>
+                  <strong ng-bind-template="{{bookmarked ? 'Bookmarked' : 'Bookmark'}}"></strong>
                 </a>
                 <!-- <a ng-show="!userId" class="btn btn-small secondary-content">
                   <%= link_to new_user_session_path do %>
@@ -76,7 +76,7 @@
                     <% end %>
                   </h3>
                 </div>
-                <div class="row">
+                <div class="row" ng-if="!reportedByUser && userId">
                   <div class="col s12 l4">
                     <%=image_tag current_user.avatar, class:'circle' %>
                     <h5 class="ml-20"><%=current_user.username %></h5>
@@ -102,12 +102,10 @@
                         <%=link_to "Log out?", destroy_user_session_path %>
                       </p>
                       <% end %> -->
-                      <div class="input-field">
+                      <div class="input-field" >
                         <i class="fa fa-pencil prefix active"></i>
                         <textarea ng-model="report.message" class="materialize-textarea" placeholder="Write a new review" required="required"></textarea>
                       </div>
-                      <!-- <a class="btn btn-small"><i class="fa fa-pencil"></i><strong>Write a Review </strong>
-                      </a> -->
                       <p class="form-submit right">
                         <input name="submit" type="submit" class="btn btn-small" value="Publish Review" ng-click="submitReport()"/>
                       </p>
@@ -122,7 +120,7 @@
                     <div class="col s12 l4">
                       <img ng-src="{{report.user.avatar}}" alt="" class="circle">
                       <h5 class="ml-20" ng-bind="report.user.username"></h5>
-                      <div class="ml-20" ng-if="report.user.id == userId" data-toggle="modal" data-target="#editReviewModal" ng-click="initializeUpdateReport(report.report, $index)">
+                      <div class="ml-20 cursor" ng-if="report.user.id == userId" data-toggle="modal" data-target="#editReviewModal" ng-click="initializeUpdateReport(report.report, $index)">
                         <i class="fa fa-pencil"></i>
                         <span class="edit-text">Edit Review<span>
                       </div>
@@ -137,12 +135,7 @@
                       </span>
                       <span class="elapsed" ng-bind="report.report.created_at | date:'MM/dd/yyyy'"></span>
                       <p ng-bind="report.report.message"></p>
-                      <div class="player-upvote-section">
-                        <span class="upvote vote" ng-class="{'voted-up-background' : report.upvoted_by_user}" ng-click="report.upvoted_by_user ? false : upvoteReview(report, $index)"><i class="fa" ng-class="{'fa-thumbs-up' :report.upvoted_by_user, 'fa-thumbs-o-up' : !report.upvoted_by_user}"></i></span>
-                        <span class="downvote vote" ng-class="{'voted-down-background' : report.downvoted_by_user}" ng-click="report.downvoted_by_user ? false : downvoteReview(report, $index)"><i class="fa" ng-class="{'fa-thumbs-down' :report.downvoted_by_user, 'fa-thumbs-o-down' : !report.downvoted_by_user}"></i></span>
-                        <span ng-bind-template="{{report.total_upvotes - report.total_downvotes == 0 ? '0 points': upvoteTemplate(report)}}"></span>
-
-                      </div>
+                      <upvote-tool></upvote-tool>
                     </div>
                   </div>
                   <!-- End Individual Review -->

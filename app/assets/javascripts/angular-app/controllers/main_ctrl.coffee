@@ -64,6 +64,14 @@
         $scope.noticeAlert(data)
       )
 
+      $scope.$on("bookmarkNotice", (event, data) ->
+        $scope.noticeAlert(data)
+      )
+
+      $scope.$on("unbookmarkNotice", (event, data) ->
+        $scope.noticeAlert(data)
+      )
+
       angular.element(document).ready( ()->
           console.log $scope.noticeMsg
           $scope.noticeAlert($scope.noticeMsg) if $scope.noticeMsg
