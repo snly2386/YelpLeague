@@ -7,237 +7,209 @@
     <div id="player-id" class="hidden"><%=@player.id%></div>
   <%= render 'edit_review_modal' %>
 
-  <section class="content-wrap profile"><!-- Breadcrumb -->
-    <div class="card-panel">
-      <table class="profile-info">
-        <tbody>
-          <tr>
-            <td class="photo">
-              <img  src="https://s3-us-west-2.amazonaws.com/dynamicowlwendy/profileicon/{{player.icon}}.png">
-            </td>
-            <td><!-- Name -->
-              <h2 ng-bind="player.display_name" class="light"></h2>
-              <!-- /Name -->
-              <!-- Status Message -->
-              <div class="rating-content">
-                <span class='stars-rating'>
-                  <i class="fa" ng-class="avgRating < 1 ? 'fa-star-o' : 'fa-star'"></i>
-                  <i class="fa" ng-class="avgRating < 2 ? 'fa-star-o' : 'fa-star'"></i>
-                  <i class="fa" ng-class="avgRating < 3 ? 'fa-star-o' : 'fa-star'"></i>
-                  <i class="fa" ng-class="avgRating < 4 ? 'fa-star-o' : 'fa-star'"></i>
-                  <i class="fa" ng-class="avgRating < 5 ? 'fa-star-o' : 'fa-star'"></i>
-                </span>
-                <span class="light"> <%= @player.reports.length %> Reviews </span>
+    <section class="content-wrap profile">
+      <div class="card-panel">
+        <table class="profile-info">
+          <tbody>
+            <tr>
+              <td class="photo">
+                <img  src="https://s3-us-west-2.amazonaws.com/dynamicowlwendy/profileicon/{{player.icon}}.png">
+              </td>
+              <td><!-- Name -->
+                <h2 ng-bind="player.display_name" class="light"></h2>
+                <!-- /Name -->
+                <!-- Status Message -->
+                <div class="rating-content">
+                  <span class='stars-rating'>
+                    <i class="fa" ng-class="avgRating < 1 ? 'fa-star-o' : 'fa-star'"></i>
+                    <i class="fa" ng-class="avgRating < 2 ? 'fa-star-o' : 'fa-star'"></i>
+                    <i class="fa" ng-class="avgRating < 3 ? 'fa-star-o' : 'fa-star'"></i>
+                    <i class="fa" ng-class="avgRating < 4 ? 'fa-star-o' : 'fa-star'"></i>
+                    <i class="fa" ng-class="avgRating < 5 ? 'fa-star-o' : 'fa-star'"></i>
+                  </span>
+                  <span class="light"> <%= @player.reports.length %> Reviews </span>
+                </div>
+                <div class="contacts">
+                  <span>{{player.region}}</span>, Level {{player.level}}
+                  <!-- buttons or badges could go here -->
+                  <!-- <a href="#!" class="blue darken-3 white-text waves-effect"><i class="fa fa-facebook"></i></a>
+                  <a href="#!" class="blue lighten-2 white-text waves-effect"><i class="fa fa-twitter"></i></a> -->
+                </div>
+                <!-- /Status Message -->
+                <a class="btn btn-small secondary-content"><i class="fa bookmark-icon" ng-class="{ 'fa-bookmark' : player.bookmarked, 'fa-heart-o' : !player.bookmarked }" ng-click="player.bookmarked ? unbookmarkPlayer(player.id, $index) : bookmarkPlayer(player.id, $index)"></i><strong>Add to Favorites</strong>
+                </a>
+                <a ng-show="!reportedByUser && userId" class="btn btn-small secondary-content"><i class="fa fa-pencil"></i><strong>Write a Review </strong>
+                </a>
+                <!-- <a ng-show="!userId" class="btn btn-small secondary-content">
+                  <%= link_to new_user_session_path do %>
+                    <i class="fa fa-sign-in"></i> <strong>Sign in to Write A Review </strong>
+                  <% end %>
+                </a> -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="row">
+        <div class="col s12 l9">
+          <!-- About -->
+          <div>
+            <div class="reviews card row ml-0 mr-0">
+              <div class="title text-uppercase">
+                <h5>Reviews for Summoner</h5>
+                <form action="#comments" method="get" class="w-240">
+                  <select name="sort-comments" ng-model="sortCategory" ng-init="sortCategory = '-report.created_at'">
+                    <option value="-report.created_at" selected>Newest First</option>
+                    <option value="report.created_at" >Oldest First</option>
+                    <option value="-report.rating" >Rating (High-Low)</option>
+                    <option value="report.rating" >Rating (Low-High)</option>
+                  </select>
+                </form>
               </div>
-              <div class="contacts">
-                <span>{{player.region}}</span>, Level {{player.level}}
-                <!-- buttons or badges could go here -->
-                <!-- <a href="#!" class="blue darken-3 white-text waves-effect"><i class="fa fa-facebook"></i></a>
-                <a href="#!" class="blue lighten-2 white-text waves-effect"><i class="fa fa-twitter"></i></a> -->
+              <!-- Content Container -->
+              <div class="content">
+                <!-- Add new review -->
+                <div ng-show="!userId">
+                  <h3 id="reply-title" class="comment-reply-title">
+                    <%= link_to new_user_session_path do %>
+                      <i class="fa fa-sign-in"></i> Sign in to Write A Review
+                    <% end %>
+                  </h3>
+                </div>
+                <div class="row">
+                  <div class="col s12 l4">
+                    <%=image_tag current_user.avatar, class:'circle' %>
+                    <h5><%=current_user.username %></h5>
+                  </div>
+                  <div class="col s12 l8">
+                    <h6><i class="fa fa-pencil"></i> Write A Review</h6>
+                    <form class="comment-form">
+                      <div class='review-form-stars'>
+                        <div class='star-ratings'>
+                          <div class='rating-row'>
+                            <label for='0'>Rating
+                            </label>
+                            <div class='choose-rating' ng-init="hoverRating = 0; report.rating = 0">
+                              <i class="fa" ng-class="hoverRating < 1 && report.rating < 1 ? 'fa-star-o' : 'fa-star' " ng-mouseover="hoverRating = 1" ng-mouseleave="hoverRating = 0" ng-click="report.rating = 1"></i>
+                              <i class="fa" ng-class="hoverRating < 2 && report.rating < 2? 'fa-star-o' : 'fa-star' " ng-mouseover="hoverRating = 2" ng-mouseleave="hoverRating = 0" ng-click="report.rating = 2"></i>
+                              <i class="fa" ng-class="hoverRating < 3 && report.rating < 3 ? 'fa-star-o' : 'fa-star' " ng-mouseover="hoverRating = 3" ng-mouseleave="hoverRating = 0" ng-click="report.rating = 3"></i>
+                              <i class="fa" ng-class="hoverRating < 4 && report.rating < 4? 'fa-star-o' : 'fa-star' " ng-mouseover="hoverRating = 4" ng-mouseleave="hoverRating = 0" ng-click="report.rating = 4"></i>
+                              <i class="fa" ng-class="hoverRating < 5 && report.rating < 5 ? 'fa-star-o' : 'fa-star' " ng-mouseover="hoverRating = 5" ng-mouseleave="hoverRating = 0" ng-click="report.rating = 5"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <% if current_user %>
+                      <p class="logged-in-as">
+                        <%=link_to "Logged in as #{current_user.username}", user_path %> &nbsp;
+                        <%=link_to "Log out?", destroy_user_session_path %>
+                      </p>
+                      <% end %>
+                      <p class="comment-form-comment"><label for="comment">Comment</label> <textarea ng-model="report.message" id="comment" name="comment" cols="45" rows="8"  aria-required="true" required="required"></textarea></p>
+                      <p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Publish Review" ng-click="submitReport()"/>
+                      </p>
+                    </form>
+                  </div>
+                </div>
+                <!-- End add new review -->
+
+                <!-- Individual review -->
+                <div dir-paginate="report in reports | orderBy: (sortCategory == 'myReviewSort' ? [myReview, sortCategory] : sortCategory) | itemsPerPage: 15">
+                  <!-- Start Row -->
+                  <div class="row">
+                    <div class="col s12 l4">
+                      <img ng-src="{{report.user.avatar}}" alt="" class="circle">
+                      <h5 ng-bind="report.user.username"></h5>
+                      <div class="review-options" ng-if="report.user.id == userId" data-toggle="modal" data-target="#editReviewModal" ng-click="initializeUpdateReport(report.report, $index)">
+                        <i class="fa fa-pencil"></i>
+                        <span class="edit-text">Edit Review<span>
+                      </div>
+                    </div>
+                    <div class="col s12 l8">
+                      <span class='stars-rating'>
+                        <i class="fa" ng-class="report.report.rating < 1 ? 'fa-star-o' : 'fa-star'"></i>
+                        <i class="fa" ng-class="report.report.rating < 2 ? 'fa-star-o' : 'fa-star'"></i>
+                        <i class="fa" ng-class="report.report.rating < 3 ? 'fa-star-o' : 'fa-star'"></i>
+                        <i class="fa" ng-class="report.report.rating < 4 ? 'fa-star-o' : 'fa-star'"></i>
+                        <i class="fa" ng-class="report.report.rating < 5 ? 'fa-star-o' : 'fa-star'"></i>
+                      </span>
+                      <span class="elapsed" ng-bind="report.report.created_at | date:'MM/dd/yyyy'"></span>
+                      <p ng-bind="report.report.message"></p>
+                      <div class="player-upvote-section">
+                        <span class="upvote vote" ng-class="{'voted-up-background' : report.upvoted_by_user}" ng-click="report.upvoted_by_user ? false : upvoteReview(report, $index)"><i class="fa" ng-class="{'fa-thumbs-up' :report.upvoted_by_user, 'fa-thumbs-o-up' : !report.upvoted_by_user}"></i></span>
+                        <span class="downvote vote" ng-class="{'voted-down-background' : report.downvoted_by_user}" ng-click="report.downvoted_by_user ? false : downvoteReview(report, $index)"><i class="fa" ng-class="{'fa-thumbs-down' :report.downvoted_by_user, 'fa-thumbs-o-down' : !report.downvoted_by_user}"></i></span>
+                        <span ng-bind-template="{{report.total_upvotes - report.total_downvotes == 0 ? '0 points': upvoteTemplate(report)}}"></span>
+
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Individual Review -->
+                  <dir-pagination-controls></dir-pagination-controls>
+                </div>
+                <!-- End Row -->
               </div>
-              <!-- /Status Message -->
-              <a class="btn btn-small secondary-content"><i class="fa bookmark-icon" ng-class="{ 'fa-bookmark' : player.bookmarked, 'fa-heart-o' : !player.bookmarked }" ng-click="player.bookmarked ? unbookmarkPlayer(player.id, $index) : bookmarkPlayer(player.id, $index)"></i><strong>Add to Favorites</strong></a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="row">
-      <div class="col s12 l9">
-        <!-- About -->
-        <div>
-          <div class="reviews card row ml-0 mr-0">
-            <div class="title text-uppercase">
-              <h5>Reviews for Summoner</h5>
-              <form action="#comments" method="get" class="w-240">
-                <select name="sort-comments" ng-model="sortCategory" ng-init="sortCategory = '-report.created_at'">
-                  <option value="-report.created_at" selected>Newest First</option>
-                  <option value="report.created_at" >Oldest First</option>
-                  <option value="-report.rating" >Rating (High-Low)</option>
-                  <option value="report.rating" >Rating (Low-High)</option>
-                </select>
+              <!-- End Content Container -->
+            </div>
+          </div>
+          <!-- /About -->
+        </div>
+        <div class="col s12 l3">
+          <!-- Statistics -->
+          <div class="card profile-skills">
+            <div class="title">
+              <h5><i class="fa fa-bar-chart"></i>Overall</h5>
+              <a class="close" href="#"><i class="mdi-content-clear"></i></a>
+              <a class="minimize" href="#"><i class="mdi-navigation-expand-less"></i></a>
+            </div>
+            <div class="content">
+              <div class="row center-align" style="margin-top: 0">
+                <div class="col m6 s12"><strong>87</strong><h5>Positive</h5>
+                </div>
+                <div class="col m6 s12"><strong>12</strong>
+                  <h5>Negative</h5>
+                </div>
+              </div>
+            </div>
+          </div><!-- /Statistics -->
+          <!-- <p></p> -->
+          <!-- Skills -->
+          <!-- <div class="card profile-skills">
+            <div class="title">
+              <h5><i class="fa fa-trophy"></i> Skills</h5>
+            </div>
+            <div class="content">
+              <a href="#!" class="skill">JavaScript</a>
+              <a href="#!" class="skill">CSS3</a>
+              <a href="#!" class="skill">HTML5</a>
+              <a href="#!" class="skill">jQuery</a>
+              <a href="#!" class="skill">AngularJS</a>
+              <a href="#!" class="skill">Bootstrap</a>
+              <a href="#!" class="skill">PHP</a>
+              <a href="#!" class="skill">MySQL</a>
+            </div>
+          </div> -->
+          <!-- /Skills -->
+          <!-- <p></p> -->
+          <!-- Send Message -->
+          <!-- <div class="card">
+            <div class="title">
+              <h5><i class="fa fa-user"></i> Send Message</h5>
+              <a class="close" href="#"><i class="mdi-content-clear"></i></a>
+              <a class="minimize" href="#"><i class="mdi-navigation-expand-less"></i></a>
+            </div>
+            <div class="content">
+              <form action="#!">
+                <div class="input-field">
+                  <textarea id="textarea1" class="materialize-textarea" name="message"></textarea>
+                  <label for="textarea1">Send me message</label>
+                </div>
+                <button class="btn">Send</button>
               </form>
             </div>
-            <!-- Individual review -->
-            <div class="content" dir-paginate="report in reports | orderBy: (sortCategory == 'myReviewSort' ? [myReview, sortCategory] : sortCategory) | itemsPerPage: 15">
-              <div class="col s12 l4 center-align">
-                <img ng-src="{{report.user.avatar}}" alt="" class="circle">
-                <a ng-href="/players/{{player.player.id}}">
-                  <h5 ng-bind="report.user.username"></h5>
-                </a>
-              </div>
-              <div class="col s12 l8">
-                <span class='stars-rating'>
-                  <i class="fa" ng-class="report.report.rating < 1 ? 'fa-star-o' : 'fa-star'"></i>
-                  <i class="fa" ng-class="report.report.rating < 2 ? 'fa-star-o' : 'fa-star'"></i>
-                  <i class="fa" ng-class="report.report.rating < 3 ? 'fa-star-o' : 'fa-star'"></i>
-                  <i class="fa" ng-class="report.report.rating < 4 ? 'fa-star-o' : 'fa-star'"></i>
-                  <i class="fa" ng-class="report.report.rating < 5 ? 'fa-star-o' : 'fa-star'"></i>
-                </span>
-                <span class="elapsed" ng-bind="report.report.created_at | date:'MM/dd/yyyy'"></span>
-                <p ng-bind="report.report.message"></p>
-                <div class="player-upvote-section">
-                  <span class="upvote vote" ng-class="{'voted-up-background' : report.upvoted_by_user}" ng-click="report.upvoted_by_user ? false : upvoteReview(report, $index)"><i class="fa" ng-class="{'fa-thumbs-up' :report.upvoted_by_user, 'fa-thumbs-o-up' : !report.upvoted_by_user}"></i></span>
-                  <span class="downvote vote" ng-class="{'voted-down-background' : report.downvoted_by_user}" ng-click="report.downvoted_by_user ? false : downvoteReview(report, $index)"><i class="fa" ng-class="{'fa-thumbs-down' :report.downvoted_by_user, 'fa-thumbs-o-down' : !report.downvoted_by_user}"></i></span>
-                  <span ng-bind-template="{{report.total_upvotes - report.total_downvotes == 0 ? '0 points': upvoteTemplate(report)}}"></span>
-                </div>
-              </div>
-            </div>
-            <!-- End Individual Review -->
-            <dir-pagination-controls></dir-pagination-controls>
-          </div>
+          </div> -->
+          <!-- /Send Message -->
         </div>
-        <!-- /About -->
       </div>
-      <div class="col s12 l3">
-        <!-- Statistics -->
-        <div class="card profile-skills">
-          <div class="title">
-            <h5><i class="fa fa-bar-chart"></i>Overall</h5>
-            <a class="close" href="#"><i class="mdi-content-clear"></i></a>
-            <a class="minimize" href="#"><i class="mdi-navigation-expand-less"></i></a>
-          </div>
-          <div class="content">
-            <div class="row center-align" style="margin-top: 0">
-              <div class="col m6 s12"><strong>87</strong><h5>Positive</h5>
-              </div>
-              <div class="col m6 s12"><strong>12</strong>
-                <h5>Negative</h5>
-              </div>
-            </div>
-          </div>
-        </div><!-- /Statistics -->
-        <!-- <p></p> -->
-        <!-- Skills -->
-        <!-- <div class="card profile-skills">
-          <div class="title">
-            <h5><i class="fa fa-trophy"></i> Skills</h5>
-          </div>
-          <div class="content">
-            <a href="#!" class="skill">JavaScript</a>
-            <a href="#!" class="skill">CSS3</a>
-            <a href="#!" class="skill">HTML5</a>
-            <a href="#!" class="skill">jQuery</a>
-            <a href="#!" class="skill">AngularJS</a>
-            <a href="#!" class="skill">Bootstrap</a>
-            <a href="#!" class="skill">PHP</a>
-            <a href="#!" class="skill">MySQL</a>
-          </div>
-        </div> -->
-        <!-- /Skills -->
-        <!-- <p></p> -->
-        <!-- Send Message -->
-        <!-- <div class="card">
-          <div class="title">
-            <h5><i class="fa fa-user"></i> Send Message</h5>
-            <a class="close" href="#"><i class="mdi-content-clear"></i></a>
-            <a class="minimize" href="#"><i class="mdi-navigation-expand-less"></i></a>
-          </div>
-          <div class="content">
-            <form action="#!">
-              <div class="input-field">
-                <textarea id="textarea1" class="materialize-textarea" name="message"></textarea>
-                <label for="textarea1">Send me message</label>
-              </div>
-              <button class="btn">Send</button>
-            </form>
-          </div>
-        </div> -->
-        <!-- /Send Message -->
-      </div>
-    </div>
-  </section>
-
-                <div id="comments" class="comments-area widget widget-job_listing">
-                  <h3 class="comment-sorting">Sort By</h3>
-                  <form action="#comments" method="get" class="comment-sorting-filter-form">
-                    <select name="sort-comments" class="comment-sorting-filter" ng-model="sortCategory" ng-init="sortCategory = '-report.created_at'">
-                      <option value="-report.created_at" selected>Newest First</option>
-                      <option value="report.created_at" >Oldest First</option>
-                      <option value="-report.rating" >Rating (High-Low)</option>
-                      <option value="report.rating" >Rating (Low-High)</option>
-                    </select>
-                  </form>
-                  <ol class="commentlist">
-                    <li class="comment even thread-even depth-1" dir-paginate="report in reports | orderBy: (sortCategory == 'myReviewSort' ? [myReview, sortCategory] : sortCategory) | itemsPerPage: 15" id="{{userReview(report.report.user_id)}}">
-                      <article id="comment-26566" class="comment row">
-                        <header class="comment-author vcard col-md-2 col-sm-3 col-xs-12">
-                          <img alt='' ng-src="{{report.user.avatar}}" class='avatar avatar-100 photo' height='100' width='100' />
-                          <div class="review-options" ng-if="report.user.id == userId" data-toggle="modal" data-target="#editReviewModal" ng-click="initializeUpdateReport(report.report, $index)">
-                            <i class="fa fa-pencil"></i>
-                            <span class="edit-text">Edit Review<span>
-                          </div>
-                          <!-- <div class="review-options">
-                            <i class="fa fa-trophy"></i>
-                            <span class="edit-text">Compliment<span>
-                          </div> -->
-                          <!-- <div class="review-options">
-                            <i class="fa fa-share"></i>
-                            <span class="edit-text" ng-click="shareReview(report.user, report.player.id, report.report)">Share Review<span>
-                          </div>
-
-
-                        </header>
-                        <!-- .comment-meta -->
-                        <section class="comment-content comment col-md-10 col-sm-9 col-xs-12">
-                          <cite itemprop="author" itemscope itemtype="http://schema.org/Person">
-                            <a href="/users/{{report.report.user_id}}/profile">
-                              <b class="fn" ng-bind="report.user.username"></b>
-                            </a>
-                          </cite>
-                          <div class="comment-meta">
-                          </div>
-
-                          <div itemprop="reviewBody">
-                            <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" class="comment-rating">
-                              <span ng-bind="report.report.rating">5.0</span>
-                            </div>
-                            <div id='wpjmr-list-reviews'>
-                              <div class='star-rating'>
-                                <div class='star-rating-title'>Rating</div>
-                                    <span style="color:#77c04b"><i class="fa" ng-class="report.report.rating < 1 ? 'fa-star-o' : 'fa-star'"></i></span>
-
-                                    <span style="color:#77c04b"><i class="fa" ng-class="report.report.rating < 2 ? 'fa-star-o' : 'fa-star'"></i></span>
-
-
-
-                                    <span style="color:#77c04b"><i class="fa" ng-class="report.report.rating < 3 ? 'fa-star-o' : 'fa-star'"></i></span>
-
-
-
-                                    <span style="color:#77c04b"><i class="fa" ng-class="report.report.rating < 4 ? 'fa-star-o' : 'fa-star'"></i></span>
-
-
-
-                                    <span style="color:#77c04b"><i class="fa" ng-class="report.report.rating < 5 ? 'fa-star-o' : 'fa-star'"></i></span>
-                              </div>
-                              </p>
-                            </div>
-                            <p ng-bind="report.report.message"></p>
-                          </div>
-                          <a href="https://demo.astoundify.com/listify/listing/8-s-san-marcos-pl-chandler-az-85225-united-states/#comment-26566" class="comment-ago"><time datetime="2016-01-12T04:24:10+00:00" itemprop="datePublished" ng-bind="report.report.created_at | date:'MM/dd/yyyy'"></time></a>
-                          <upvote-tool></upvote-tool>
-                        </section>
-                        <!-- .comment-content -->
-                      </article>
-                      <!-- #comment-## -->
-                    </li>
-                    <!-- #comment-## -->
-
-                    <!-- #comment-## -->
-                  </ol>
-                  <dir-pagination-controls></dir-pagination-controls>
-                  <!-- .commentlist -->
-
-                  <!-- #respond -->
-                </div>
-                <!-- #comments -->
-              </main>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      <!-- #content -->
-      </div>
-        <!-- #colophon -->
+    </section>
+  </div>
 </div>

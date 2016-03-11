@@ -127,3 +127,16 @@ section.profile {
     padding-bottom: 30px;
   }
 }
+
+// Edit Review Modal
+#editReviewModal {
+  z-index: 9999;
+  .modal-content {
+    .close {
+      color: black;
+    }
+    .fa {
+      color: $pink;
+    }
+  }
+}
