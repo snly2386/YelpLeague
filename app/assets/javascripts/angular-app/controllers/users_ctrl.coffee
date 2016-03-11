@@ -14,6 +14,10 @@
       $scope.activeTab = 'dashboard'
       UsersService.get({id: $scope.userId}, (data)->
         $scope.user = data.user
+        console.log $scope.user
+        $scope.providerNames = $.map($scope.user.providers, (val, i) ->
+          val.name
+        )
         $scope.$broadcast('userFound', $scope.user)
         $scope.activeAvatar = $scope.user.avatar
         $scope.providers = $scope.user.providers
@@ -22,8 +26,13 @@
 
       ReportsByUserService.get({id: $scope.userId}, (data) ->
         $scope.reports = data.reports
-        console.log $scope.reports
       )
+
+      $scope.providerAvailable = (provider) ->
+        if $scope.providerNames
+          $scope.providerNames.indexOf(provider) == -1
+        else
+          false
 
       $scope.$on('userFound', ()->
         AvatarService.get_all()

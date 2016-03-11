@@ -6,9 +6,6 @@
     <div class="row">
       <div class="col s12 m9 l10">
         <h1>Profile</h1>
-        <td ng-bind="user.username"></td>
-        <td ng-bind="user.email || 'none'"></td>
-        <td ng-bind="user.created_at | date:'MM/dd/yyyy'"></td>
         <ul>
           <li><span ng-bind="user.username"></span> </li> |
           <li><span ng-bind="user.email || 'none'"></span></li> |
@@ -21,66 +18,35 @@
   <!-- userDashboard-->
   <user-dashboard></user-dashboard>
   <div class="row">
-    <div class="col s12 l9">
+    <div class="col s12 l6">
       <!-- About -->
       <div class="card">
         <div class="title">
-          <h5><i class="fa fa-user"></i> About</h5>
+          <h5><i class="fa fa-user"></i>Social Accounts</h5>
           <a class="close" href="#"><i class="mdi-content-clear"></i></a> <a class="minimize" href="#"><i class="mdi-navigation-expand-less"></i></a>
         </div>
-        <div class="content">Phasellus viverra, lectus quis iaculis gravida, nisl felis cursus dui, id rutrum nibh quam nec ante. In ullamcorper ipsum nec tincidunt convallis. Fusce rhoncus, nisl nec ornare laoreet, ligula eros volutpat odio, sit amet ultricies ex nulla quis dolor. Sed consectetur, elit non ultricies viverra, orci ex feugiat felis, quis suscipit enim metus id ante. Aenean urna elit, laoreet accumsan pharetra et, lobortis nec odio. Ut faucibus, neque at posuere fermentum, ipsum enim lacinia augue, nec malesuada velit orci sed enim. Vivamus porttitor lacus eget arcu dapibus semper. Proin nec pretium nunc, vitae interdum tortor.</div>
+        <div class="content" style="max-height: 310px; overflow: auto">
+          <a class="btn modal-trigger right" href="#social-oauth-modal" ng-show="providers.length < 2">Add Account</a>
+          <ul class="collection clear-b">
+            <li class="collection-item avatar" ng-repeat="provider in user.providers">
+              <i class="fa fa-{{provider.name}} circle {{provider.name}}-background"></i>
+              <span class="title" ng-bind="provider.name"></span>
+              <div>
+                <span ng-bind="provider.username || provider.email"></span> <br>
+                <span ng-bind-template="Last Login: {{user.last_sign_in_at | date: 'MM/dd/yyyy'}}"></span>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
       <!-- /About -->
     </div>
-    <div class="col s12 l3">
-      <!-- Statistics -->
-      <div class="card profile-skills">
-        <div class="title">
-          <h5><i class="fa fa-bar-chart"></i> Statistics</h5>
-          <a class="close" href="#"><i class="mdi-content-clear"></i></a> <a class="minimize" href="#"><i class="mdi-navigation-expand-less"></i></a>
-        </div>
-        <div class="content">
-          <div class="row center-align" style="margin-top: 0">
-            <div class="col m6 s12">
-              <strong>87</strong>
-              <h5>Following</h5>
-            </div>
-            <div class="col m6 s12">
-              <strong>12</strong>
-              <h5>Followers</h5>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- /Statistics -->
-      <p></p>
-      <!-- Skills -->
-      <div class="card profile-skills">
-        <div class="title">
-          <h5><i class="fa fa-trophy"></i> Skills</h5>
-          <a class="close" href="#"><i class="mdi-content-clear"></i></a> <a class="minimize" href="#"><i class="mdi-navigation-expand-less"></i></a>
-        </div>
-        <div class="content"><a href="#!" class="skill">JavaScript</a> <a href="#!" class="skill">CSS3</a> <a href="#!" class="skill">HTML5</a> <a href="#!" class="skill">jQuery</a> <a href="#!" class="skill">AngularJS</a> <a href="#!" class="skill">Bootstrap</a> <a href="#!" class="skill">PHP</a> <a href="#!" class="skill">MySQL</a></div>
-      </div>
-      <!-- /Skills -->
-      <p></p>
-      <!-- Send Message -->
-      <div class="card">
-        <div class="title">
-          <h5><i class="fa fa-user"></i> Send Message</h5>
-          <a class="close" href="#"><i class="mdi-content-clear"></i></a> <a class="minimize" href="#"><i class="mdi-navigation-expand-less"></i></a>
-        </div>
-        <div class="content">
-          <form action="#!">
-            <div class="input-field"><textarea id="textarea1" class="materialize-textarea" name="message"></textarea><label for="textarea1">Send me message</label></div>
-            <button class="btn">Send</button>
-          </form>
-        </div>
-      </div>
-      <!-- /Send Message -->
-    </div>
+    <user-bookmarks></user-bookmarks>
+    <user-reviews></user-reviews>
   </div>
   <%= render "avatar_modal" %>
+  <%= render "social_oauth_modal" %>
+
 </section>
 
 

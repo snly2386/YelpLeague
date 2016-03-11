@@ -1,4 +1,38 @@
 
+<div id="social-oauth-modal" class="modal modal-fixed-footer">
+  <div class="modal-content flow-text">
+    <h4>Add Social Account</h4>
+    <div class="modal-body">
+      <%=link_to user_omniauth_authorize_path(:twitter), class: 'social-icon-link', 'ng-show': "providerAvailable('twitter')" do %>
+        <i class="fa fa-twitter"></i>
+      <% end %>
+      <%=link_to user_omniauth_authorize_path(:facebook), class: 'social-icon-link', 'ng-show': "providerAvailable('facebook')" do %>
+        <i class="fa fa-facebook"></i>
+      <% end %>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat ">Cancel</a>
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat " ng-click="setAvatar()">Save</a>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="modal fade" tabindex="-1" role="dialog" id="social-oauth-modal">
   <div class="modal-dialog">
     <div class="modal-content">

@@ -4326,19 +4326,20 @@ th {
 }
 .collection .collection-item.avatar .circle {
     position: absolute;
-    width: 42px;
-    height: 42px;
+    width: 75px !important;
+    height: 75px !important;
     overflow: hidden;
     left: 15px;
     display: inline-block;
     vertical-align: middle
+    top: 25px;
 }
 .collection .collection-item.avatar i.circle {
-    font-size: 18px;
-    line-height: 42px;
+    font-size: 34px;
+    line-height: 48px;
     color: #fff;
-    background-color: #999;
-    text-align: center
+    margin-top: 6px;
+    padding: 13px;
 }
 .collection .collection-item.avatar .title {
     font-size: 16px
@@ -15181,4 +15182,22 @@ html.rtl pre.linenums {
 }
 html.rtl ol.linenums {
     padding-right: 30px
+}
+
+.clear-b{
+  clear: both;
+}
+.twitter-background{
+  background-color: #5EA9DD !important;
+}
+.facebook-background{
+  background-color: #3B579D !important;
+}
+.review-action-icon{
+  margin-right: 5px;
+  font-size: 15px !important;
+  padding: 5px;
+  background-color: #ee578a;
+  color: white;
+  border-radius: 5px;
 }

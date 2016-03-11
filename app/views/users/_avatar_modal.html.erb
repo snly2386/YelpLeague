@@ -4,8 +4,8 @@
     <h4>Select Avatar</h4>
     <div class="modal-body">
       <ul class="tabs">
-        <li class="tab"><a href="#championAvatars" class="active">Champions</a></li>
-        <li class="tab"><a href="#socialAvatars">Social Profile</a></li>
+        <li class="tab"><a href="#championAvatars" class="active f-12">Champions</a></li>
+        <li class="tab"><a href="#socialAvatars" class="f-12">Social Profile</a></li>
       </ul>
 
         <div id="championAvatars">
@@ -14,7 +14,7 @@
           </div>
           <div class="row">
             <div class="col s6 m3 avatar-wrap" ng-repeat="avatar in avatars | filter:avatarSearch" afkl-lazy-image=="{{avatar.image}}">
-              <img src="{{avatar.image}}" ng-class="{'active-border' : activeAvatar == avatar.image}" ng-click="setActiveAvatar(avatar.image)"/>
+              <img src="{{avatar.image}}" ng-class=" activeAvatar == avatar.image ? 'active-avatar' : 'inactive-avatar'" ng-click="setActiveAvatar(avatar.image)"/>
             </div>
           </div>
         </div>
@@ -30,7 +30,7 @@
     </div>
   </div>
   <div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat ">Disagree</a>
-    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat " ng-click="setAvatar()">Agree</a>
+    <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat ">Cancel</a>
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat " ng-click="setAvatar()">Save</a>
   </div>
 </div>

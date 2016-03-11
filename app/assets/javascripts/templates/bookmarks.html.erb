@@ -1,4 +1,40 @@
-<div id="primary" class="container">
+<div class="col s12 l6">
+  <div class="card profile-skills">
+    <div class="title">
+      <h5><i class="fa fa-bookmark"></i>Bookmarks</h5>
+      <a class="close" href="#"><i class="mdi-content-clear"></i></a> <a class="minimize" href="#"><i class="mdi-navigation-expand-less"></i></a>
+    </div>
+    <div class="content" style="max-height: 310px; overflow: auto">
+      <ul class="collection clear-b">
+        <li class="collection-item avatar" ng-repeat="bookmark in user.bookmarks">
+          <img src="https://s3-us-west-2.amazonaws.com/dynamicowlwendy/profileicon/{{bookmark.icon}}.png" class="circle"></i>
+          <span class="title" ng-bind="bookmark.display_name"></span>
+          <div>
+            <span ng-bind-template="Region: {{bookmark.region}}"></span> <br>
+            <span ng-bind-template="Level: {{bookmark.level}}"></span> <br>
+            <span ng-bind-template="Date: {{bookmark.created_at | date: 'MM/dd/yy'}}"></span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div id="primary" class="container">
     <div class="content-area">
       <main id="main" class="site-main" role="main">
         <article id="post-4479" class="post-4479 page type-page status-publish has-post-thumbnail hentry not-claimed content-box content-box-wrapper">
@@ -27,8 +63,7 @@
             </div>
           </div>
         </article>
-        <!-- #post-## -->
       </main>
     </div>
   </div>
-</div>
+</div> -->
