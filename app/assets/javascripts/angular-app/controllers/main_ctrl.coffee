@@ -50,6 +50,14 @@
         $scope.noticeAlert(data)
       )
 
+      $scope.$on('updateReviewError', (event, data) ->
+        $scope.errorAlert(data)
+      )
+
+      $scope.$on("updateReviewNotice", (event, data) ->
+        $scope.noticeAlert(data)
+      )
+
       angular.element(document).ready( ()->
           console.log $scope.noticeMsg
           $scope.noticeAlert($scope.noticeMsg) if $scope.noticeMsg

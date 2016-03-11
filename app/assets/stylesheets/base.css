@@ -15201,3 +15201,11 @@ html.rtl ol.linenums {
   color: white;
   border-radius: 5px;
 }
+
+.bootstrap-modal{
+  top: 10%;
+}
+
+.m-r-10{
+  margin-right: 10px !important;
+}
