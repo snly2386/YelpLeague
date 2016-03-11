@@ -139,6 +139,7 @@
                         <span class="upvote vote" ng-class="{'voted-up-background' : report.upvoted_by_user}" ng-click="report.upvoted_by_user ? false : upvoteReview(report, $index)"><i class="fa" ng-class="{'fa-thumbs-up' :report.upvoted_by_user, 'fa-thumbs-o-up' : !report.upvoted_by_user}"></i></span>
                         <span class="downvote vote" ng-class="{'voted-down-background' : report.downvoted_by_user}" ng-click="report.downvoted_by_user ? false : downvoteReview(report, $index)"><i class="fa" ng-class="{'fa-thumbs-down' :report.downvoted_by_user, 'fa-thumbs-o-down' : !report.downvoted_by_user}"></i></span>
                         <span ng-bind-template="{{report.total_upvotes - report.total_downvotes == 0 ? '0 points': upvoteTemplate(report)}}"></span>
+
                       </div>
                     </div>
                   </div>
