@@ -1,13 +1,21 @@
 <nav class="navbar-top navbar-dark">
   <div class="nav-wrapper">
-    <!-- Logo -->
     <a href="index.html" class="brand-logo">
       <%= image_tag "ggreported_logo.png" %>
     </a><!-- /Logo -->
-    <!-- Menu -->
     <ul>
       <li><a href="#!" class="demo-toggle"><i class="fa fa-cog"></i></a></li>
-      <li><a href="#!" class="search-bar-toggle"><i class="mdi-action-search"></i></a></li>
+      <li>
+        <i class="mdi-action-search"></i>
+      </li>
+      <li>
+        <%= form_for Player.new, class: 'navbar-form' do |f| %>
+          <%= f.text_field :name, placeholder: 'Summoner Name' %>
+        </li>
+        <li>
+          <%= f.select :region, options_for_select(regions),{:include_blank => "Region"} %>
+        </li>
+        <% end %>
       <li class="user">
         <a class="dropdown-button" data-activates="user-dropdown" href="#!">
           <% if current_user.avatar %>

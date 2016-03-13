@@ -5195,6 +5195,7 @@ nav ul {
 nav ul li {
     transition: background-color .3s;
     padding: 0
+    margin-right: 10px;
 }
 nav ul .sp-cancel,
 nav ul a {
@@ -15216,4 +15217,12 @@ html.rtl ol.linenums {
 #championAvatars{
   height: 270px;
   overflow: auto;
+}
+
+.social-account-icon{
+  padding: 10px;
+  color: white;
+  border-radius: 50%;
+  font-size: 55px;
+  margin-right: 10px;
 }
