@@ -14,7 +14,7 @@
       avatar = $("#avatar").text()
       username = $("#username").text()
       $scope.ratingOptions = [1, 2, 3, 4, 5]
-      $scope.report = { user_id : $scope.userId, player_id: playerId, user: { avatar: avatar, username: username } }
+      $scope.report = { user_id : $scope.userId, player_id: playerId, user: { avatar: avatar, username: username, id: $scope.userId } }
 
       ReportsService.get( {player_id: playerId }, (data) ->
         $scope.reports = data.reports
@@ -26,8 +26,6 @@
         $scope.player = data.player
         $scope.reportedByUser = data.reported_by_user
         $scope.bookmarked = data.bookmarked
-        console.log $scope.avgRating
-        console.log 'hello im here'
       )
 
       $scope.$on('editedReport', (event, data) ->
@@ -67,6 +65,7 @@
             vote_difference: 0
             voted_by_user: false
           })
+          console.log $scope.reports
           $scope.report = { user_id : $scope.userId, player_id: playerId }
           $scope.reportedByUser = true
           $scope.$emit('submittedReport', 'Review Sucessfully Submitted')
@@ -84,6 +83,7 @@
           .then(
             (response) ->
               $scope.bookmarked = response.data
+              $scope.$emit('bookmarkNotice', 'Player Successfully Bookmarked')
             (errorResponse) ->
               $scope.errorAlert(errorResponse.data.message)
           )
@@ -94,6 +94,7 @@
           .then(
             (response) ->
               $scope.bookmarked = response.data
+              $scope.$emit('unbookmarkNotice', 'Player Successfully Unbookmarked')
             (errorResponse) ->
               $scope.errorAlert(errorResponse.data.message)
           )

@@ -7,6 +7,7 @@
     ($scope) ->
       $scope.noticeMsg = $('#notice').text()
       $scope.avatar = $('#avatar').text() || '/assets/default_avatar.jpg'
+      $scope.alert = $('#alert').text()
 
       $scope.noticeAlert = (msg) ->
         $('.ns-box').hide()
@@ -64,9 +65,18 @@
         $scope.noticeAlert(data)
       )
 
+      $scope.$on("bookmarkNotice", (event, data) ->
+        $scope.noticeAlert(data)
+      )
+
+      $scope.$on("unbookmarkNotice", (event, data) ->
+        $scope.noticeAlert(data)
+      )
+
       angular.element(document).ready( ()->
           console.log $scope.noticeMsg
           $scope.noticeAlert($scope.noticeMsg) if $scope.noticeMsg
+          $scope.errorAlert($scope.alert) if $scope.alert
       )
   ]
 )()

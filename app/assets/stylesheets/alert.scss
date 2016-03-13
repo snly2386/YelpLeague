@@ -1,3 +1,5 @@
+@import 'variables.scss';
+
 .notification-shape {
   position: fixed;
   z-index: 1000;
@@ -406,7 +408,7 @@
 }
 
 .ns-error{
-  background-color: #FC6161 !important;
+  background-color: $thumbs-down !important;
 }
 
 .ns-error p{
@@ -414,7 +416,7 @@
 }
 
 .ns-notice {
- background-color: #77C04B !important;
+ background-color: $thumbs-up !important;
 }
 
 .ns-effect-thumbslider.ns-show .ns-content,

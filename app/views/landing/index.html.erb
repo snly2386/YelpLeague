@@ -1,7 +1,8 @@
 <div ng-controller="HomeCtrl">
-<% if @player.errors.any? %>
-  <%= @player.errors.full_messages %>
-<% end %>
+  <div class="hidden" id="avatar"><%=current_user.avatar%></div>
+  <% if @player.errors.any? %>
+    <%= @player.errors.full_messages %>
+  <% end %>
 <section class="landing" style="position:relative;">
     <div class="vid-container" >
       <video autoplay loop preload="auto" muted>
