@@ -65,7 +65,7 @@
             vote_difference: 0
             voted_by_user: false
           })
-          console.log $scope.reports
+          console.log data
           $scope.report = { user_id : $scope.userId, player_id: playerId }
           $scope.reportedByUser = true
           $scope.$emit('submittedReport', 'Review Sucessfully Submitted')
@@ -118,5 +118,16 @@
               else
                 alert('Error while posting.');
           )
+
+      $scope.initializeDeleteReport = (report, index) ->
+        $scope.pendingDeleteReport = report
+        $scope.pendingDeleteReportIndex = index
+
+      $scope.deleteReview = () ->
+        ReportsService.remove($scope.pendingDeleteReport, (data) ->
+          $scope.reports.splice($scope.pendingDeleteReportIndex, 1)
+          $('#deleteReviewModal').modal('hide')
+        )
+
   ]
 )()

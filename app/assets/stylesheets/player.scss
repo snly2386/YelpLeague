@@ -17,6 +17,14 @@ section.profile {
   .single-review {
     border-bottom: 1px solid grey;
     padding-bottom: 20px;
+    .user-action {
+      .fa {
+        margin-right: 3px;
+      }
+      p {
+        margin: 0;
+      }
+    }
   }
 
   .reviews {
@@ -135,7 +143,8 @@ section.profile {
 
 // Edit Review Modal
 #editReviewModal,
-#shareReviewModal {
+#shareReviewModal,
+#deleteReviewModal {
   z-index: 9999;
   margin-top: 60px;
   .modal-content {
