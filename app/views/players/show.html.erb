@@ -6,6 +6,7 @@
   <% end %>
     <div id="player-id" class="hidden"><%=@player.id%></div>
   <%= render 'edit_review_modal' %>
+  <%= render 'share_review_modal' %>
 
     <section class="content-wrap profile">
       <div class="card-panel">
@@ -117,15 +118,21 @@
                 <div dir-paginate="report in reports | orderBy: (sortCategory == 'myReviewSort' ? [myReview, sortCategory] : sortCategory) | itemsPerPage: 15" class="single-review">
                   <!-- Start Row -->
                   <div class="row">
-                    <div class="col s12 l4">
+                    <div class="col s12 l2">
                       <img ng-src="{{report.user.avatar}}" alt="" class="circle">
-                      <h5 class="ml-20" ng-bind="report.user.username"></h5>
-                      <div class="ml-20 cursor" ng-if="report.user.id == userId" data-toggle="modal" data-target="#editReviewModal" ng-click="initializeUpdateReport(report.report, $index)">
+                    </div>
+                    <div class="col s12 l3">
+                      <h5 ng-bind="report.user.username"></h5>
+                      <p class="cursor" ng-if="report.user.id == userId" data-toggle="modal" data-target="#editReviewModal" ng-click="initializeUpdateReport(report.report, $index)">
                         <i class="fa fa-pencil"></i>
                         <span class="edit-text">Edit Review<span>
-                      </div>
+                      </p>
+                      <p class="cursor" data-target="#shareReviewModal" data-toggle="modal">
+                        <i class="fa fa-pencil"></i>
+                        <span class="edit-text">Share Review<span>
+                      </p>
                     </div>
-                    <div class="col s12 l8">
+                    <div class="col s12 l7">
                       <span class='stars-rating'>
                         <i class="fa" ng-class="report.report.rating < 1 ? 'fa-star-o' : 'fa-star'"></i>
                         <i class="fa" ng-class="report.report.rating < 2 ? 'fa-star-o' : 'fa-star'"></i>
