@@ -37,6 +37,7 @@ class PlayersController < ApplicationController
         format.html { redirect_to @player }
         format.json { render :show, status: :created, location: @player}
       else
+        flash[:alert] = @player.errors.full_messages
         format.html { render template: "landing/index" }
         format.json { render json: @player.errors, status: :unprocessable_entity }
       end

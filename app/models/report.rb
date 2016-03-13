@@ -19,6 +19,14 @@ class Report < ActiveRecord::Base
     get_downvotes
   end
 
+  def get_all_votes
+    get_upvotes.count + get_downvotes.count
+  end
+
+  def get_upvote_percentage
+    ((get_upvotes.count.to_f / get_all_votes.to_f) * 100).to_i if get_all_votes > 0
+  end
+
   def get_vote_difference
     get_upvotes.count - get_downvotes.count
   end
@@ -52,6 +60,7 @@ class Report < ActiveRecord::Base
       if user
         arr << {
           report: report,
+          upvote_percentage: report.get_upvote_percentage,
           upvoted_by_user: report.upvoted_by_user(user),
           downvoted_by_user: report.downvoted_by_user(user),
           voted_by_user: report.voted_by_user(user),
@@ -63,6 +72,7 @@ class Report < ActiveRecord::Base
       else
         arr << {
           report: report,
+          upvote_percentage: report.get_upvote_percentage,
           total_downvotes: report.get_all_downvotes.count,
           total_upvotes: report.get_all_upvotes.count,
           vote_difference: report.get_vote_difference,

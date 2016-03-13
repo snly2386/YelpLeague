@@ -12,29 +12,45 @@
           <li><span ng-bind-template="Member since {{user.created_at | date:'MM/dd/yyyy'}}"></span></li>
         </ul>
       </div>
-      <div class="col s12 m3 l2 right-align"><a href="#!" class="btn grey lighten-3 grey-text z-depth-0 chat-toggle"><i class="fa fa-comments"></i></a></div>
+      <div class="col s12 m3 l2 right-align">
+        <!-- <a href="#!" class="btn grey lighten-3 grey-text z-depth-0 chat-toggle"><i class="fa fa-comments"></i></a> -->
+      </div>
     </div>
   </div>
   <user-dashboard></user-dashboard>
   <div class="row">
+    <div class="col l3 m6 s12"><a href="#" class="card-panel stats-card red lighten-2 red-text text-lighten-5" draggable="false"><i class="fa fa-comments-o"></i> <span class="count" ng-bind="reportsCount"></span><div class="name">Reviews</div></a>
+    </div>
+    <div class="col l3 m6 s12"><a href="#" class="card-panel stats-card blue lighten-2 blue-text text-lighten-5" draggable="false"><i class="fa fa-thumbs-up"></i> <span class="count" ng-bind="user.all_upvotes"></span><div class="name">Upvotes</div></a>
+    </div>
+    <div class="col l3 m6 s12"><a href="#" class="card-panel stats-card amber lighten-2 amber-text text-lighten-5"><i class="fa fa-thumbs-down"></i> <span class="count" ng-bind="user.all_downvotes"></span><div class="name">Downvotes</div></a>
+    </div>
+    <div class="col l3 m6 s12">
+      <div class="card-panel stats-card green lighten-2 green-text text-lighten-5"><i class="fa fa-bookmark"></i> <span class="count" ng-bind="userBookmarkCount"></span>
+        <div class="name">Bookmarks</div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
     <div class="col s12 l6">
       <div class="card">
         <div class="title">
-          <h5><i class="fa fa-user"></i>Social Accounts</h5>
+          <h5><i class="fa fa-thumbs-up"></i>Review Votes</h5>
           <a class="close" href="#"><i class="mdi-content-clear"></i></a> <a class="minimize" href="#"><i class="mdi-navigation-expand-less"></i></a>
         </div>
-        <div class="content" style="max-height: 310px; overflow: auto">
-          <a class="btn modal-trigger right" href="#social-oauth-modal" ng-show="providers.length < 2">Add Account</a>
-          <ul class="collection clear-b">
-            <li class="collection-item avatar" ng-repeat="provider in user.providers">
-              <i class="fa fa-{{provider.name}} circle {{provider.name}}-background"></i>
-              <span class="title" ng-bind="provider.name"></span>
-              <div>
-                <span ng-bind="provider.username || provider.email"></span> <br>
-                <span ng-bind-template="Last Login: {{user.last_sign_in_at | date: 'MM/dd/yyyy'}}"></span>
+        <div class="content orders-card">
+          <div ng-repeat="report in reports">
+            <h4 ng-bind="report.total_upvotes"></h4>
+            <div class="row">
+              <div><a ng-href="/players/{{report.player.id}}"><small ng-bind="report.player.display_name"></small></a></div>
+              <div class="col s6"><small>Total Upvotes</small></div>
+              <div class="col s6 right-align"><span ng-bind-template="{{report.upvote_percentage || '0'}}%"></span> <i class="fa fa-level-up red-text"></i>
               </div>
-            </li>
-          </ul>
+            </div>
+            <div class="progress small">
+              <div class="determinate" style="width: {{report.upvote_percentage || 0}}%"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -42,7 +58,6 @@
     <user-reviews></user-reviews>
   </div>
   <%= render "avatar_modal" %>
-  <%= render "social_oauth_modal" %>
   <%= render "edit_review_modal" %>
   <%= render "delete_review_modal" %>
 </section>

@@ -1,13 +1,21 @@
 <nav class="navbar-top navbar-dark">
   <div class="nav-wrapper">
-    <!-- Logo -->
     <a href="index.html" class="brand-logo">
       <%= image_tag "ggreported_logo.png" %>
     </a><!-- /Logo -->
-    <!-- Menu -->
     <ul>
       <li><a href="#!" class="demo-toggle"><i class="fa fa-cog"></i></a></li>
-      <li><a href="#!" class="search-bar-toggle"><i class="mdi-action-search"></i></a></li>
+      <li>
+        <i class="mdi-action-search"></i>
+      </li>
+      <li>
+        <%= form_for Player.new, class: 'navbar-form' do |f| %>
+          <%= f.text_field :name, placeholder: 'Summoner Name' %>
+        </li>
+        <li>
+          <%= f.select :region, options_for_select(regions),{:include_blank => "Region"} %>
+        </li>
+        <% end %>
       <li class="user">
         <a class="dropdown-button" data-activates="user-dropdown" href="#!">
           <% if current_user.avatar %>
@@ -28,72 +36,5 @@
       </ul><!-- /Menu -->
    </div>
 </nav>
-<!-- <header id="masthead landing" class="site-header" role="banner">
-    <div class="primary-header">
-
-        <div class="primary-header-inner">
-            <div class="site-branding">
-              <a href="#"><img src="/assets/ggreported_logo.png" alt="" /></a>
-            </div>
-            <div class="main-nav-menu" style="display:table-cell; color: white; padding-top: 25px;">
-                <div >
-                  <%= form_for Player.new, class: 'navbar-form' do |f| %>
-                    <div class="col-xs-6 form-group">
-                      <%= f.text_field :name, placeholder: 'Summoner Name', class: 'form-control col-xs-9' %>
-                      <%= f.select :region, options_for_select(regions),{:include_blank => "Region"}, class: 'form-control col-xs-3' %>
-                    </div>
-                  <% end %>
-                  <div uib-dropdown class="pull-right navmenu-container col-xs-3">
-                    <span uib-dropdown-toggle class="navmenu-toggle-container">
-                      <div class="navmenu-avatar">
-                        <img ng-src="{{avatar}}">
-                      </div>
-                      <div class="navmenu-toggle">
-                        <i class="fa fa-caret-down navmenu-toggle-icon" ></i>
-                      </div>
-                    </span>
-                    <ul class="uib-dropdown-menu dropdown-menu">
-                      <li>
-                        <div class="col-xs-4">
-                          <% if @user.avatar %>
-                            <%= image_tag "#{@user.avatar}", class: 'dropdown-avatar-img' %>
-                          <% else %>
-                            <img src="/assets/annie.png", class='dropdown-avatar-img'>
-                          <% end %>
-                        </div>
-                        <div class="col-xs-8 nav-dropdown-username">
-                          <%= @user.username %><br>
-                          <i class="fa fa-star"></i> <%= @user.report_count %>
-                          <div><i class="fa fa-calendar-check-o"></i> <%=format_date(@user.created_at)%></div>
-                        </div>
-                      </li>
-                      <li>
-                        <hr class="nav-separator"></hr>
-                      </li>
-                      <li>
-                        <%= link_to @user do %>
-                          <i class="fa fa-user"></i> &nbsp;About Me
-                        <% end %>
-                      </li>
-                      <li><i class="fa fa-cog"></i> Account Settings</li>
-                      <li><hr class="nav-separator bottom"></hr></li>
-                      <li>
-                        <% if !@user %>
-                          <%= link_to new_user_session_path, class: 'nav-menu-item ' do %>
-                            <i class="fa fa-sign-out"></i> Log In
-                          <% end %>
-                        <% else %>
-                          <%= link_to destroy_user_session_path, class: 'nav-menu-item ', method: 'delete' do  %>
-                            <i class="fa fa-sign-in"></i> Log Out
-                          <% end %>
-                        <% end %>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header> -->
 
 <%= render template: 'layouts/application' %>

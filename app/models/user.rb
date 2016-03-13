@@ -28,23 +28,48 @@ class User < ActiveRecord::Base
     find_voted_items
   end
 
+  def get_social_image_url(auth)
+    case auth.provider
+      when "facebook"
+        image = "#{auth.info.image}?type=normal"
+      when "twitter"
+        image = auth.info.image.sub("_normal", "")
+    end
+  end
+
   def self.from_omniauth(auth)
+    case auth.provider
+      when "facebook"
+        image = "#{auth.info.image}?type=normal"
+      when "twitter"
+        image = auth.info.image.sub("_normal", "")
+    end
+
     user = joins(:providers).where(providers: { name: auth.provider, uid: auth.uid }).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
       user.username = auth.info.name
       user.avatar = auth.info.image
-      user.providers.build(name: auth.provider, uid: auth.uid, username: auth.info.name, email: auth.info.email || '', image: auth.info.image)
+      user.providers.build(name: auth.provider, uid: auth.uid, username: auth.info.name, email: auth.info.email || '', image: image)
     end
     user.providers.select{|p| p.name == auth.provider && p.uid == auth.uid}.first.user_id = user.id
     user
   end
 
   def add_omniauth(auth)
-    providers.create(name: auth.provider, uid: auth.uid, username: auth.info.name, email: auth.info.email || '', image: auth.info.image)
+    image = get_social_image_url(auth)
+    providers.create(name: auth.provider, uid: auth.uid, username: auth.info.name, email: auth.info.email || '', image: image)
   end
 
   def upvotes_received
     reports.inject(0){|sum, report| sum + report.get_vote_difference }
+  end
+
+  def all_upvotes
+    reports.inject(0){|sum, report| sum + report.get_all_upvotes.count }
+  end
+
+  def all_downvotes
+    reports.inject(0){|sum, report| sum + report.get_all_downvotes.count }
   end
 end
