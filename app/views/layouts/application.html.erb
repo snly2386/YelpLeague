@@ -9,6 +9,21 @@
 </head>
 
 <body ng-app="yelpleague" ng-controller="MainCtrl" class="yay-hide">
+  <!-- share facebook button -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=1045841082125816";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <!-- end share facebook button -->
+  <!-- share twitter button -->
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+  </script>
+  <!-- end share twitter button -->
   <p class="notice hidden" id="notice"><%= notice %></p>
   <p class="alert hidden" id="alert"><%= alert %></p>
   <%= yield %>

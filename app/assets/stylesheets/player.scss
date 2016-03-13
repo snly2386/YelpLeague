@@ -134,8 +134,10 @@ section.profile {
 }
 
 // Edit Review Modal
-#editReviewModal {
+#editReviewModal,
+#shareReviewModal {
   z-index: 9999;
+  margin-top: 60px;
   .modal-content {
     .close {
       color: black;
