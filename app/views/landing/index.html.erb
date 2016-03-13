@@ -1,5 +1,5 @@
 <div ng-controller="HomeCtrl">
-  <div class="hidden" id="avatar"><%=current_user.avatar%></div>
+  <div class="hidden" id="avatar"><%=current_user.avatar if current_user %></div>
   <% if @player.errors.any? %>
     <%= @player.errors.full_messages %>
   <% end %>

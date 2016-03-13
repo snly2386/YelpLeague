@@ -39,7 +39,7 @@
           <a class="close" href="#"><i class="mdi-content-clear"></i></a> <a class="minimize" href="#"><i class="mdi-navigation-expand-less"></i></a>
         </div>
         <div class="content orders-card">
-          <div ng-repeat="report in reports">
+          <div dir-paginate="report in reports | itemsPerPage: 3" pagination-id="votes">
             <h4 ng-bind="report.total_upvotes"></h4>
             <div class="row">
               <div><a ng-href="/players/{{report.player.id}}"><small ng-bind="report.player.display_name"></small></a></div>
@@ -50,6 +50,7 @@
             <div class="progress small">
               <div class="determinate" style="width: {{report.upvote_percentage || 0}}%"></div>
             </div>
+            <dir-pagination-controls pagination-id="votes"></dir-pagination-controls>
           </div>
         </div>
       </div>

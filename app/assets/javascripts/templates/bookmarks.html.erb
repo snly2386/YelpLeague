@@ -4,9 +4,9 @@
       <h5><i class="fa fa-bookmark"></i>Bookmarks</h5>
       <a class="close" href="#"><i class="mdi-content-clear"></i></a> <a class="minimize" href="#"><i class="mdi-navigation-expand-less"></i></a>
     </div>
-    <div class="content" style="max-height: 310px; overflow: auto">
+    <div class="content">
       <ul class="collection clear-b">
-        <li class="collection-item avatar" ng-repeat="bookmark in user.bookmarks">
+        <li class="collection-item avatar" dir-paginate="bookmark in user.bookmarks | itemsPerPage: 2" pagination-id="bookmarks">
           <a ng-href="/players/{{bookmark.id}}"><img src="https://s3-us-west-2.amazonaws.com/dynamicowlwendy/profileicon/{{bookmark.icon}}.png" class="circle"/></a>
           <a ng-href="/players/{{bookmark.id}}"> <span class="title" ng-bind="bookmark.display_name"></span></a>
           <div>
@@ -14,6 +14,7 @@
             <span ng-bind-template="Level: {{bookmark.level}}"></span> <br>
             <span ng-bind-template="Date: {{bookmark.created_at | date: 'MM/dd/yy'}}"></span>
           </div>
+          <dir-pagination-controls pagination-id="bookmarks"></dir-pagination-controls>
         </li>
       </ul>
     </div>
