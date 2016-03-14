@@ -145,7 +145,7 @@
                         <i class="fa" ng-class="report.report.rating < 4 ? 'fa-star-o' : 'fa-star'"></i>
                         <i class="fa" ng-class="report.report.rating < 5 ? 'fa-star-o' : 'fa-star'"></i>
                       </span>
-                      <span class="elapsed" ng-bind="report.report.created_at | date:'MM/dd/yyyy'"></span>
+                      <span class="elapsed" ng-bind="report.report.updated_at | date:'MM/dd/yyyy' || report.report.created_at | date:'MM/dd/yyyy'"></span>
                       <p ng-bind="report.report.message"></p>
                       <upvote-tool></upvote-tool>
                     </div>

@@ -18,7 +18,6 @@
 
       ReportsService.get( {player_id: playerId }, (data) ->
         $scope.reports = data.reports
-        console.log $scope.reports
       )
 
       PlayersService.get( {id: playerId}, (data) ->
@@ -47,6 +46,7 @@
             $('#editReviewModal').modal('hide')
             $scope.$broadcast('editedReport', $scope.updateReport)
             $scope.$emit('editedReport', $scope.updateReport)
+
         )
 
       $scope.myReview = (review) ->
@@ -128,6 +128,7 @@
           $scope.reports.splice($scope.pendingDeleteReportIndex, 1)
           $('#deleteReviewModal').modal('hide')
           $scope.$emit('deleteReview', 'Review Successfully Deleted')
+          $scope.reportedByUser = false
         )
 
   ]
