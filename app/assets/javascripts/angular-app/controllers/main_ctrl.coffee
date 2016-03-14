@@ -73,6 +73,10 @@
         $scope.noticeAlert(data)
       )
 
+      $scope.$on("deleteReview", (event, data) ->
+        $scope.noticeAlert(data)
+      )
+
       angular.element(document).ready( ()->
           console.log $scope.noticeMsg
           $scope.noticeAlert($scope.noticeMsg) if $scope.noticeMsg

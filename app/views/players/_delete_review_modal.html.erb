@@ -9,21 +9,11 @@
         <h4 class="modal-title">Delete Review</h4>
       </div>
       <div class="modal-body">
-          <p>Are you sure you want to delete your review for <strong><span ng-bind="deletedReviewPlayer"></span></strong>?<p>
+          <p>Are you sure you want to delete your review for <strong><span ng-bind="player.display_name"></span></strong>?<p>
       </div>
       <div class="modal-footer">
         <button ng-click="deleteReview()" type="button" class="btn btn-default waves-effect waves-light">Delete</button>
       </div>
     </div>
   </div>
-  <!-- <div class="modal-content flow-text">
-    <h4>Delete Review</h4>
-    <div class="modal-body">
-      <p>Are you sure you want to delete your review for <strong><span ng-bind="deletedReviewPlayer"></span></strong>?<p>
-    </div>
-  </div>
-  <div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-red btn btn-default " data-dismiss="modal">Cancel</a>
-    <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-default m-r-10" ng-click="deleteReview()">Delete</a>
-  </div> -->
 </div>

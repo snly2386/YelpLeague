@@ -127,6 +127,7 @@
         ReportsService.remove($scope.pendingDeleteReport, (data) ->
           $scope.reports.splice($scope.pendingDeleteReportIndex, 1)
           $('#deleteReviewModal').modal('hide')
+          $scope.$emit('deleteReview', 'Review Successfully Deleted')
         )
 
   ]
