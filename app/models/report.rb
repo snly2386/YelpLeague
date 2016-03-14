@@ -5,7 +5,16 @@ class Report < ActiveRecord::Base
   acts_as_votable
   scope :by_player_id, -> (playerId){ where("player_id = ?", playerId) }
   scope :by_user_id, -> (userId){ where("user_id = ?", userId) }
+  scope :positive, -> { where("rating >= 3") }
+  scope :negative, -> { where("rating < 3") }
 
+  def self.get_positive_report_count(playerId)
+    positive.by_player_id(playerId).count
+  end
+
+  def self.get_negative_report_count(playerId)
+    negative.by_player_id(playerId).count
+  end
 
   def user_report_count
     user.report_count

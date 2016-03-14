@@ -61,6 +61,15 @@ class ReportsController < ApplicationController
     @report = Report.find(params[:report_id])
   end
 
+  def positive_negative_data
+    playerId = params[:player_id]
+    @reportData = { positive: Report.get_positive_report_count(playerId), negative: Report.get_negative_report_count(playerId) }
+
+    respond_to do |format|
+      format.json { render json: @reportData }
+    end
+  end
+
   def destroy
     @report = Report.find(params[:id])
     @report.destroy

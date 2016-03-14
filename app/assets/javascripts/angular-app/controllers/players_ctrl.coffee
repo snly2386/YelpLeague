@@ -7,8 +7,9 @@
     'PlayersService'
     'BookmarkService'
     'UpvoteService'
+    'ReportsDataService'
 
-    ($scope, ReportsService, PlayersService, BookmarkService, UpvoteService) ->
+    ($scope, ReportsService, PlayersService, BookmarkService, UpvoteService, ReportsDataService) ->
       playerId = $("#player-id").text()
       $scope.userId = $("#user-id").text()
       avatar = $("#avatar").text()
@@ -18,7 +19,18 @@
 
       ReportsService.get( {player_id: playerId }, (data) ->
         $scope.reports = data.reports
+        console.log data.reports
       )
+
+      ReportsDataService.get(playerId)
+        .then(
+          (response) ->
+            console.log response
+            $scope.positiveReviewCount = response.data.positive
+            $scope.negativeReviewCount = response.data.negative
+          (errorResponse) ->
+            console.log errorResponse
+        )
 
       PlayersService.get( {id: playerId}, (data) ->
         $scope.avgRating = data.average_rating
@@ -46,7 +58,6 @@
             $('#editReviewModal').modal('hide')
             $scope.$broadcast('editedReport', $scope.updateReport)
             $scope.$emit('editedReport', $scope.updateReport)
-
         )
 
       $scope.myReview = (review) ->
