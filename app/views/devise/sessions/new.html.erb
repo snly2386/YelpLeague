@@ -1,56 +1,64 @@
-
-  <div class="popup  popup-wide"><h2 class="popup-title">My Account</h2>
-
-
-  <article id="post-4479" class="post-4479 page type-page status-publish has-post-thumbnail hentry not-claimed content-box content-box-wrapper">
-
-    <div class="content-box-inner">
-
-            <div class="entry-content">
-          <div class="woocommerce">
-
-      <h2>Login</h2>
-
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html:{ class: 'login col-md-6'}) do |f| %>
-        <p class="form-row form-row-wide">
-          <label for="email">Email Address <span class="required">*</span></label>
-          <%= f.email_field :email, autofocus: true, class: "input-text" %>
-        </p>
-        <p class="form-row form-row-wide">
-          <label for="password">Password <span class="required">*</span></label>
-           <%= f.password_field :password, autocomplete: "off", class: 'input-text' %>
-        </p>
-
-
-        <p class="form-row">
-          <%=f.submit 'login', class: 'button'%>
-
-        </p>
-        <p class="lost_password">
-        <%= render "devise/shared/links" %>
-        </p>
-      <% end %>
-
-      <p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-
-
-  <div class="wc-social-login form-row-wide col-md-6">
-
-      <p>For fast login or registration use your social account.</p>
-
-        <%=link_to user_omniauth_authorize_path(:facebook), class: 'social-icon-link' do %>
-          <i class="fa fa-facebook"></i>
-        <% end %>
-
-        <%=link_to user_omniauth_authorize_path(:twitter), class: 'social-icon-link' do %>
-          <i class="fa fa-twitter"></i>
-        <% end %>
-
-    </div></div>
-        </div>
-
-
-        </div>
-  </article><!-- #post-## -->
+<section id="sign-in">
+  <!-- Background Bubbles -->
+  <canvas id="bubble-canvas" width="1179" height="283" style="position: fixed; top: 0px; left: 0px; z-index: 1;"></canvas>
+  <!-- /Background Bubbles -->
+  <!-- Sign In Form -->
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+    <div class="row links">
+      <div class="col s6 logo">
+        <img src="/assets/ggreported_logo.png" alt="">
+      </div>
+      <div class="col s6 right-align">
+        <strong>Sign In</strong> /
+        <%= link_to 'Sign Up', new_user_registration_path %>
+      </div>
     </div>
+    <div class="card-panel clearfix">
+      <!-- Social Sign Up -->
+      <div class="row socials">
+        <div class="col s6">
+          <%=link_to user_omniauth_authorize_path(:facebook), class: 'btn blue darken-2 z-depth-0 z-depth-1-hover' do %>
+            <i class="fa fa-2x fa-facebook"></i>
+          <% end %>
+        </div>
+        <div class="col s6">
+          <%=link_to user_omniauth_authorize_path(:twitter), class: 'btn blue lighten-2 z-depth-0 z-depth-1-hover' do %>
+            <i class="fa fa-2x fa-twitter"></i>
+          <% end %>
+        </div>
+      </div>
+      <!-- /Social Sign Up -->
+      <div class="row">
+        <div class="col">
+        </div>
+      </div>
+      <!-- Username -->
+      <div class="input-field">
+        <i class="fa fa-envelope prefix"></i>
+        <label for="input-email">Email Address</label>
+        <%= f.email_field :email, class: "validate", id: "input-email" %>
+      </div>
+      <!-- /Username -->
+      <!-- Password -->
+      <div class="input-field">
+        <i class="fa fa-unlock-alt prefix"></i>
+        <label for="password-input">Password</label>
+        <%= f.password_field :password, autocomplete: "off", class: 'validate', id: 'password-input' %>
+      </div>
+      <!-- /Password -->
+      <!-- <div class="switch">
+        <label>
+          <input type="checkbox" checked="checked">
+          <span class="lever"></span> Remember
+        </label>
+      </div> -->
+      <button class="waves-effect waves-light btn-large z-depth-0 z-depth-1-hover"><%=f.submit 'Sign In' %></button>
+    </div>
+    <div class="links right-align">
+      <a href="page-forgot-password.html"><%= render "devise/shared/links" %></a>
+    </div>
+  </form>
+  <% end %>
+  <!-- /Sign In Form -->
+</section>
