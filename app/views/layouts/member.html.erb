@@ -1,6 +1,6 @@
 <nav class="navbar-top navbar-dark">
   <div class="nav-wrapper">
-    <a href="index.html" class="brand-logo">
+    <a href="/" class="brand-logo">
       <%= image_tag "ggreported_logo.png" %>
     </a><!-- /Logo -->
     <ul>
@@ -11,10 +11,10 @@
       <li>
         <%= form_for Player.new, class: 'navbar-form' do |f| %>
           <%= f.text_field :name, placeholder: 'Summoner Name' %>
-        </li>
-        <li>
+      </li>
+      <li>
           <%= f.select :region, options_for_select(regions),{:include_blank => "Region"} %>
-        </li>
+      </li>
         <% end %>
       <li class="user">
         <a class="dropdown-button" data-activates="user-dropdown" href="#!">
