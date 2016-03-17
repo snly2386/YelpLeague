@@ -2,10 +2,12 @@
   <div class="card profile-skills">
     <div class="title">
       <h5><i class="fa fa-bookmark"></i>Bookmarks</h5>
-      <a class="close" href="#"><i class="mdi-content-clear"></i></a> <a class="minimize" href="#"><i class="mdi-navigation-expand-less"></i></a>
     </div>
     <div class="content">
       <ul class="collection clear-b">
+        <li ng-if="!user.books">
+          You don't have any bookmarks.
+        </li>
         <li class="collection-item avatar" dir-paginate="bookmark in user.bookmarks | itemsPerPage: 2" pagination-id="bookmarks">
           <a ng-href="/players/{{bookmark.id}}"><img src="https://s3-us-west-2.amazonaws.com/dynamicowlwendy/profileicon/{{bookmark.icon}}.png" class="circle"/></a>
           <a ng-href="/players/{{bookmark.id}}"> <span class="title" ng-bind="bookmark.display_name"></span></a>

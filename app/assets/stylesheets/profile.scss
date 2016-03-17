@@ -1,0 +1,30 @@
+@import 'variables.scss';
+
+.review-votes {
+  a,
+  .fa {
+    color: $pink;
+  }
+  .collection .collection-item.avatar {
+    border-bottom: 1px solid #E8E8E8;
+  }
+  .action-button {
+    position: absolute;
+    right: 0;
+    top: 23;
+
+    .fa {
+      color: white;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+    .review-votes {
+      .action-button {
+        position: initial;
+        display: inline-block;
+        padding: 10px;
+      }
+    }
+}

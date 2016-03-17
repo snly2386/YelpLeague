@@ -2,7 +2,6 @@
   <div class="card profile-skills">
     <div class="title">
       <h5><i class="fa fa-bookmark"></i>Reviews</h5>
-      <a class="close" href="#"><i class="mdi-content-clear"></i></a> <a class="minimize" href="#"><i class="mdi-navigation-expand-less"></i></a>
     </div>
     <div class="content">
       <ul class="collection clear-b">
@@ -11,20 +10,20 @@
           <a ng-href="/players/{{report.player.id}}"><span class="title" ng-bind="report.player.display_name"></span></a>
           <div>
             <span ng-bind="report.report.created_at | date: 'MM/dd/yy'"></span> <br>
-            <span style="color:#77c04b"><i class="fa" ng-class="report.report.rating < 1 ? 'fa-star-o' : 'fa-star'"></i></span>
-            <span style="color:#77c04b"><i class="fa" ng-class="report.report.rating < 2 ? 'fa-star-o' : 'fa-star'"></i></span>
-            <span style="color:#77c04b"><i class="fa" ng-class="report.report.rating < 3 ? 'fa-star-o' : 'fa-star'"></i></span>
-            <span style="color:#77c04b"><i class="fa" ng-class="report.report.rating < 4 ? 'fa-star-o' : 'fa-star'"></i></span>
-            <span style="color:#77c04b"><i class="fa" ng-class="report.report.rating < 5 ? 'fa-star-o' : 'fa-star'"></i></span>
+            <span><i class="fa" ng-class="report.report.rating < 1 ? 'fa-star-o' : 'fa-star'"></i></span>
+            <span><i class="fa" ng-class="report.report.rating < 2 ? 'fa-star-o' : 'fa-star'"></i></span>
+            <span><i class="fa" ng-class="report.report.rating < 3 ? 'fa-star-o' : 'fa-star'"></i></span>
+            <span><i class="fa" ng-class="report.report.rating < 4 ? 'fa-star-o' : 'fa-star'"></i></span>
+            <span><i class="fa" ng-class="report.report.rating < 5 ? 'fa-star-o' : 'fa-star'"></i></span>
             <br>
             <span ng-bind="report.report.message"></span> <br>
             <div class="clear-b"></div>
-            <div ng-cloak>
+            <span class="action-button" ng-cloak>
               <span class="right">
                 <a data-toggle="modal" data-target="#delete-review-modal" ng-click="setDeletedReview(report, report.report)"><i class="fa fa-trash review-action-icon"></i></a>
                 <a data-toggle="modal" data-target="#edit-review-modal" ng-click="setEditedReview(report.report)"><i class="fa fa-pencil review-action-icon"></i></a>
               </span>
-            </div>
+            </span>
           </div>
           <dir-pagination-controls pagination-id="review"></dir-pagination-controls>
         </li>
