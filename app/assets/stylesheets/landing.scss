@@ -69,7 +69,10 @@ nav {
   .search_button {
     display: inline-block;
     margin-right: 1em;
-    width: 20%;
+    width: 10%;
+  }
+  .search_keywords {
+    width: 30%;
   }
   .search_button {
     margin-left: 1%;
@@ -108,58 +111,65 @@ nav {
       line-height: 48px;
     }
   }
-}
-.collection {
-  border: none;
-  .title h1 {
-    font-size: 1em;
-    margin: 0;
-    color: $pink;
-    width: 60%;
-  }
-  .secondary-content {
-    i {
-      font-size: 20px;
-    }
-  }
-  .stars-rating {
-    span {
-      float: right;
-    }
-    i {
-      position: relative;
-      font-size: 20px;
-      color: $pink;
-    }
-  }
-  .region,
-  .badge.new {
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-  .badge.new {
-    color: #D6D6D6;
-    background-color: transparent;
-    border: 1px solid #D6D6D6;
-  }
-
-  .collection-item.avatar {
-    background-color: rgba(255, 255, 255, 0.13);
-    padding-left: 11em;
+  .collection {
     border: none;
-    p {
-      margin: 1.5em 0;
-      color: white;
+    .title h1 {
+      font-size: 1em;
+      margin: 0;
+      color: $pink;
+      width: 60%;
     }
-    .circle {
-      width: 100px;
-      height: 100px;
-      top: 25px;
+    .secondary-content {
+      i {
+        font-size: 20px;
+      }
     }
-    .elapsed {
-      font-size: 14px;
-      margin-top: -8px;
-      color: grey;
+    .stars-rating {
+      span {
+        float: right;
+      }
+      i {
+        position: relative;
+        font-size: 20px;
+        color: $pink;
+      }
+    }
+    .region,
+    .badge.new {
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    .badge.new {
+      color: #D6D6D6;
+      background-color: transparent;
+      border: 1px solid #D6D6D6;
+    }
+
+    .collection-item {
+      &.avatar {
+        background-color: rgba(255, 255, 255, 0.13);
+        padding-left: 11em;
+        border: none;
+        p {
+          margin: 1.5em 0;
+          color: white;
+        }
+        .circle {
+          width: 100px;
+          height: 100px;
+          top: 25px;
+        }
+        .elapsed {
+          font-size: 14px;
+          margin-top: -8px;
+          color: grey;
+        }
+        &:hover {
+          background-color: #525252;
+          transition-duration: .5s;
+          transition-timing-function: ease-out;
+        }
+      }
     }
   }
 }
@@ -172,8 +182,55 @@ footer {
   padding: 3em;
 }
 
-// @media only screen and (max-width: 767px) {
-//     .recent-searches .social-media {
-//       padding-top: 5px;
-//     }
-// }
+@media only screen and (max-width: 940px) {
+    .landing {
+      video {
+        margin-top: 0px;
+      }
+
+      .search_jobs {
+        .search_keywords {
+          width: 65%;
+          float: left;
+        }
+        .search_categories {
+          width: 44%;
+          float: left;
+        }
+        .search_button {
+          float: left;
+        }
+      }
+    }
+}
+
+@media only screen and (max-width: 620px) {
+  .landing {
+    video {
+      margin-top: 65px;
+    }
+    .video-overlay {
+      .text {
+        margin: 5em 0 0 5em ;
+        h1 {
+          font-size: 20px;
+        }
+        h4 {
+          font-size: 16px;
+        }
+        form {
+          margin-top: 0px;
+        }
+      }
+    }
+  }
+  .recent-searches {
+    h4 {
+      text-align: center;
+    }
+  }
+  .row .col.s12 {
+    padding :0!important;
+    margin: 0;
+  }
+}
