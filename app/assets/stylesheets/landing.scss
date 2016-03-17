@@ -45,6 +45,23 @@ header {
     text-align: left;
   }
 }
+nav {
+  .select-wrapper input.select-dropdown,
+   input[type=text] {
+      height: 3.5rem;
+      line-height: 5rem;
+  }
+  .select-wrapper span.caret {
+    color: $pink;
+    top: 0;
+  }
+  li.search-button {
+    margin: 24px 20px;
+  }
+  .nav-wrapper i {
+    line-height: 75px;
+  }
+}
 
 .search_jobs {
   .search_keywords,

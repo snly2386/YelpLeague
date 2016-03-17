@@ -6,27 +6,15 @@
     </a><!-- /Logo -->
     <!-- Menu -->
     <ul>
-      <li><a href="#!" class="demo-toggle"><i class="fa fa-cog"></i></a></li>
-      <li>
-        <i class="mdi-action-search"></i>
-      </li>
-      <li>
-        <%= form_for Player.new, class: 'navbar-form' do |f| %>
-          <%= f.text_field :name, placeholder: 'Summoner Name' %>
-      </li>
-      <li>
-          <%= f.select :region, options_for_select(regions),{:include_blank => "Region"} %>
-      </li>
-        <% end %>
       <li class="user">
         <a class="dropdown-button" data-activates="user-dropdown" href="#!">
           <% if current_user.avatar %>
               <%= image_tag "#{current_user.avatar}", class: "circle" %>
-              <%= current_user.username %>
-              <i class="mdi-navigation-expand-more right"></i>
           <% else %>
-              <img src="/assets/annie.png", class="circle" >
+              <img src="/assets/default_avatar.jpg", class="circle" >
           <% end %>
+          <%= current_user.username %>
+          <i class="mdi-navigation-expand-more right"></i>
         </a>
         <ul id="user-dropdown" class="dropdown-content">
           <li><%=link_to user_path(current_user) do %><i class="fa fa-user"></i> Profile <% end %></li>
