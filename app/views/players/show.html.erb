@@ -80,7 +80,7 @@
                 </div> -->
                 <div class="row" ng-if="!reportedByUser">
                   <div class="col s12 l4">
-                    <% if current_user.avatar %>
+                    <% if current_user %>
                       <%=image_tag current_user.avatar, class:'circle' %>
                       <h5 class="ml-20"><%=current_user.username %></h5>
                     <% else %>
@@ -126,7 +126,9 @@
                       <img ng-src="{{report.user.avatar}}" alt="" class="circle">
                     </div>
                     <div class="col s12 l3 user-action">
+                      <a href="/users/{{report.user.id}}/profile">
                         <h5 ng-bind="report.user.username"></h5>
+                      </a>
                       <p class="cursor" ng-if="report.user.id == userId" data-toggle="modal" data-target="#editReviewModal" ng-click="initializeUpdateReport(report.report, $index)">
                         <i class="fa fa-pencil-square"></i>
                         <span class="edit-text">Edit Review<span>
