@@ -18,7 +18,7 @@
             <br>
             <span ng-bind="report.report.message"></span> <br>
             <div class="clear-b"></div>
-            <span class="action-button" ng-cloak>
+            <span ng-if="user" class="action-button" ng-cloak>
               <span class="right">
                 <a data-toggle="modal" data-target="#delete-review-modal" ng-click="setDeletedReview(report, report.report)"><i class="fa fa-trash review-action-icon"></i></a>
                 <a data-toggle="modal" data-target="#edit-review-modal" ng-click="setEditedReview(report.report)"><i class="fa fa-pencil review-action-icon"></i></a>

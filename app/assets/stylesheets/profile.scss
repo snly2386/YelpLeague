@@ -6,8 +6,11 @@
     .fa {
       color: $pink;
     }
+    a:hover {
+      color: $light-grey;
+    }
     .collection .collection-item.avatar {
-      border-bottom: 1px solid #E8E8E8;
+      border-bottom: 1px solid $lighter-grey;
       padding-left: 10em;
     }
     .action-button {
