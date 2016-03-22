@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable
+         :recoverable, :rememberable, :trackable, :validatable
 
   devise :omniauthable, :omniauth_providers => [:facebook, :twitter]
 
@@ -10,7 +10,12 @@ class User < ActiveRecord::Base
   has_many :providers
   validates_presence_of :email, unless: :twitter?
   validates_presence_of :username
+  after_save :send_welcome_email
   acts_as_voter
+
+  def send_welcome_email
+    UserMailer.welcome_email(self)
+  end
 
   def email_required
     false

@@ -5,10 +5,6 @@
     '$scope'
 
     ($scope) ->
-      $scope.noticeMsg = $('#notice').text()
-      $scope.avatar = $('#avatar').text() || '/assets/default_avatar.jpg'
-      $scope.alert = $('#alert').text()
-
       $scope.noticeAlert = (msg) ->
         $('.ns-box').hide()
         notification = new NotificationFx(
@@ -78,9 +74,13 @@
       )
 
       angular.element(document).ready( ()->
-          console.log $scope.noticeMsg
+          $scope.noticeMsg = $('#notice').text()
+          $scope.avatar = $('#avatar').text() || '/assets/default_avatar.jpg'
+          $scope.alert = $('#alert').text()
+          $scope.deviseAlert = $('#devise-alert').text()
           $scope.noticeAlert($scope.noticeMsg) if $scope.noticeMsg
           $scope.errorAlert($scope.alert) if $scope.alert
+          $scope.errorAlert($scope.deviseAlert) if $scope.deviseAlert
       )
   ]
 )()
