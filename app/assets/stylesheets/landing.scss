@@ -182,32 +182,45 @@ footer {
   padding: 3em;
 }
 
-@media only screen and (max-width: 940px) {
-    .landing {
-      video {
-        margin-top: 0px;
-      }
 
-      .search_jobs {
-        .search_keywords {
-          width: 65%;
-          float: left;
-        }
-        .search_categories {
-          width: 44%;
-          float: left;
-        }
-        .search_button {
-          float: left;
-        }
+@media only screen and (max-width: 940px) {
+  .landing {
+    video {
+      margin-top: 0px;
+    }
+
+    .search_jobs {
+      .search_keywords {
+        width: 65%;
+        float: left;
+      }
+      .search_categories {
+        width: 44%;
+        float: left;
+      }
+      .search_button {
+        float: left;
       }
     }
+  }
+  .search-bar.mobile>.layer-content {
+    .input-field input{
+      font-size: 20px;
+    }
+    .btn {
+      width: 100%;
+    }
+  }
 }
 
 @media only screen and (max-width: 620px) {
   .landing {
     video {
       margin-top: 65px;
+    }
+    .row .col.s12 {
+      padding :0!important;
+      margin: 0;
     }
     .video-overlay {
       .text {
@@ -229,8 +242,5 @@ footer {
       text-align: center;
     }
   }
-  .row .col.s12 {
-    padding :0!important;
-    margin: 0;
-  }
+
 }

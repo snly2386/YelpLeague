@@ -10060,6 +10060,7 @@ html.rtl .yaybar.yay-light .nano-content>ul>li>ul>li>ul>li>ul>li>a {
     width: 5rem
 }
 .search-bar>.layer-content .input-field .prefix~input {
+    font-size: 20px;
     margin-left: 6rem;
     width: 91%;
     width: calc(100% - 6rem)
@@ -10067,7 +10068,8 @@ html.rtl .yaybar.yay-light .nano-content>ul>li>ul>li>ul>li>ul>li>a {
 .search-bar>.layer-content .input-field input {
     font-size: 5rem;
     height: 7rem;
-    margin: 0 0 20px
+    margin: 0 0 20px;
+    font-size: 20px;
 }
 @media only screen and (max-width: 992px) {
     .search-bar>.layer-content {
@@ -10086,7 +10088,7 @@ html.rtl .yaybar.yay-light .nano-content>ul>li>ul>li>ul>li>ul>li>a {
         width: calc(100% - 4rem)
     }
     .search-bar>.layer-content .input-field input {
-        font-size: 3rem;
+        font-size: 20px;
         height: 4rem;
         margin: 0 0 20px
     }

@@ -4,17 +4,19 @@
       <%= image_tag "ggreported_logo.png" %>
     </a><!-- /Logo -->
     <ul>
-      <li>
-        <i class="mdi-action-search"></i>
+      <li class="hide-on-med-and-up">
+        <a href="#!" class="search-bar-toggle">
+          <i class="mdi-action-search"></i>
+        </a>
       </li>
-      <li class="mr-10">
+      <li class="mr-10 hide-on-small-only">
         <%= form_for Player.new, class: 'navbar-form' do |f| %>
           <%= f.text_field :name, placeholder: 'Summoner Name' %>
       </li>
-      <li>
+      <li class="hide-on-small-only">
           <%= f.select :region, options_for_select(regions),{:include_blank => "Region"}, class: 'w-60' %>
       </li>
-      <li class="search-button">
+      <li class="search-button hide-on-small-only">
         <%= f.submit 'Search', class: 'btn btn-small' %>
         <% end %>
       </li>
@@ -38,5 +40,6 @@
     </ul><!-- /Menu -->
   </div>
 </nav>
+<%= render 'mobile_search' %>
 
 <%= render template: 'layouts/application' %>
