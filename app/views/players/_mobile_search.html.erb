@@ -1,0 +1,20 @@
+<div class="search-bar mobile layer-opened">
+  <div class="layer-overlay" style="position: absolute; width: 100%; height: 100%; z-index: 0; transform: scale(1); background: none;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><g transform="translate(968, 29)"><circle cx="0" cy="0" r="1396.0247132483007" fill="rgb(255, 255, 255)" class="" style="transform: scale(1);"></circle></g></svg>
+  </div>
+  <div class="layer-content">
+    <%= form_for Player.new do |f| %>
+      <!-- Header -->
+      <a class="search-bar-toggle grey-text text-darken-2 right" href="#!"><i class="mdi-navigation-close"></i></a>
+
+      <!-- Search Input -->
+      <div class="input-field">
+        <i class="mdi-action-search prefix"></i>
+        <!-- <input type="text" name="con-search" placeholder="Type to search..."> -->
+        <%= f.text_field :name, placeholder: 'Summoner Name'%>
+        <%= f.select :region, options_for_select(regions),{:include_blank => "Region"} %>
+      </div>
+      <%= f.submit 'Search', class: 'btn btn-default' %>
+    <% end %>
+  </div>
+</div>
