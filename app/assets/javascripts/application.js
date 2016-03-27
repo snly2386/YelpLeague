@@ -28,7 +28,6 @@
 //= require angular-lazy-img
 //= require angular-utils-pagination/dirPagination
 //= require jquery-requestAnimationFrame/dist/jquery.requestAnimationFrame
-//= require nanoscroller/bin/javascripts/jquery.nanoscroller
 //= require materialize
 //= require sortable/js/sortable
 //= require base.min

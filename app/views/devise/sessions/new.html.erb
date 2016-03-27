@@ -1,10 +1,13 @@
 <section id="sign-in">
-  <!-- Background Bubbles -->
+  <% if alert %>
+    <div class="alert alert-border-left" style="margin-top: -80px">
+      <%=alert%>
+    </div>
+  <% end %>
   <canvas id="bubble-canvas" width="1179" height="283" style="position: fixed; top: 0px; left: 0px; z-index: 1;"></canvas>
   <!-- /Background Bubbles -->
   <!-- Sign In Form -->
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
     <div class="row links">
       <div class="col s6 logo">
         <img src="/assets/ggreported_logo.png" alt="">
@@ -26,11 +29,6 @@
           <%=link_to user_omniauth_authorize_path(:twitter), class: 'btn blue lighten-2 z-depth-0 z-depth-1-hover' do %>
             <i class="fa fa-2x fa-twitter"></i>
           <% end %>
-        </div>
-      </div>
-      <!-- /Social Sign Up -->
-      <div class="row">
-        <div class="col">
         </div>
       </div>
       <!-- Username -->

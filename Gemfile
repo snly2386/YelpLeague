@@ -39,6 +39,13 @@ gem 'sprockets', '2.12.3'
 gem 'active_model_serializers'
 gem 'acts_as_votable', '~> 0.10.0'
 
+# Gem used for deployment to Digital Ocean
+gem 'capistrano', '~> 3.1.0'
+gem 'capistrano-bundler', '~> 1.1.2'
+gem 'capistrano-rails', '~> 1.1.1'
+gem 'capistrano-rvm', github: "capistrano/rvm"
+gem 'capistrano-rails-console'
+
 #authorization
 gem 'cancan'
 
