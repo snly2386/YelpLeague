@@ -12,8 +12,18 @@
  *
 *= depend_on "variables"
 *= require materialize/bin/materialize
-*= require_tree .
 *= require_self
 */
 
 @import 'variables';
+@import 'active';
+@import 'alert2';
+@import 'alert';
+@import 'animate';
+@import 'base';
+@import 'fonts';
+@import 'initial_load';
+@import 'landing';
+@import 'landing';
+@import 'player';
+@import 'profile';
