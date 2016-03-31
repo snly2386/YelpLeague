@@ -81,5 +81,4 @@ test:
 production:
   <<: *default
   database: yelp_league_production
-  username: yelp_league
-  password: <%= ENV['YELP_LEAGUE_DATABASE_PASSWORD'] %>
+ 

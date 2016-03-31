@@ -26,10 +26,9 @@ gem 'angular-rails-templates'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
-# gem 'unicorn'
+ gem 'unicorn'
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
@@ -40,11 +39,6 @@ gem 'active_model_serializers'
 gem 'acts_as_votable', '~> 0.10.0'
 
 # Gem used for deployment to Digital Ocean
-gem 'capistrano', '~> 3.1.0'
-gem 'capistrano-bundler', '~> 1.1.2'
-gem 'capistrano-rails', '~> 1.1.1'
-gem 'capistrano-rvm', github: "capistrano/rvm"
-gem 'capistrano-rails-console'
 
 #authorization
 gem 'cancan'
