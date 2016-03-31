@@ -40,6 +40,9 @@ gem 'acts_as_votable', '~> 0.10.0'
 
 # Gem used for deployment to Digital Ocean
 
+gem 'unicorn'
+
+
 #authorization
 gem 'cancan'
 
@@ -59,5 +62,3 @@ group :development, :test do
   gem 'spring'
   gem "better_errors"
 end
-
-

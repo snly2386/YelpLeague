@@ -4331,7 +4331,7 @@ th {
     overflow: hidden;
     left: 15px;
     display: inline-block;
-    vertical-align: middle
+    vertical-align: middle;
     top: 25px;
 }
 .collection .collection-item.avatar i.circle {
