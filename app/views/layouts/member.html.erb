@@ -4,13 +4,13 @@
       <%= image_tag "ggreported_logo.png" %>
     </a><!-- /Logo -->
     <ul>
+      <%= form_for Player.new, class: 'navbar-form' do |f| %>
       <li class="hide-on-med-and-up">
         <a href="#!" class="search-bar-toggle">
           <i class="mdi-action-search"></i>
         </a>
       </li>
       <li class="mr-10 hide-on-small-only">
-        <%= form_for Player.new, class: 'navbar-form' do |f| %>
           <%= f.text_field :name, placeholder: 'Summoner Name' %>
       </li>
       <li class="hide-on-small-only">
@@ -18,7 +18,6 @@
       </li>
       <li class="search-button hide-on-small-only">
         <%= f.submit 'Search', class: 'btn btn-small' %>
-        <% end %>
       </li>
       <li class="user cursor">
         <a class="dropdown-button" data-activates="user-dropdown" href="#!">
@@ -37,6 +36,7 @@
           <li><%=link_to destroy_user_session_path, method: 'delete' do %><i class="fa fa-sign-out"></i> Sign Out <% end %></li>
         </ul>
       </li>
+      <% end %>
     </ul><!-- /Menu -->
   </div>
 </nav>

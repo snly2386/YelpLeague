@@ -19,7 +19,6 @@
 
       ReportsService.get( {player_id: playerId }, (data) ->
         $scope.reports = data.reports
-        console.log data.reports
       )
 
       ReportsDataService.get(playerId)
@@ -29,7 +28,6 @@
             $scope.positiveReviewCount = response.data.positive
             $scope.negativeReviewCount = response.data.negative
           (errorResponse) ->
-            console.log errorResponse
         )
 
       PlayersService.get( {id: playerId}, (data) ->
@@ -41,7 +39,7 @@
 
       $scope.$on('editedReport', (event, data) ->
         for report in $scope.reports
-          if report.user.id == parseInt($scope.userId)
+          if parseInt(report.user.id) == parseInt($scope.userId)
             for k,v of report.report
               report.report[k] = data[k]
       )
@@ -56,7 +54,6 @@
         ReportsService.update(angular.extend({player_id: playerId , id: $scope.updateReport.id}, $scope.updateReport),
           (data) ->
             $('#editReviewModal').modal('hide')
-            $scope.$broadcast('editedReport', $scope.updateReport)
             $scope.$emit('editedReport', $scope.updateReport)
         )
 
@@ -76,7 +73,12 @@
             vote_difference: 0
             voted_by_user: false
           })
-          console.log data
+          if $scope.report.rating >= 3
+            $scope.positiveReviewCount += 1
+          else
+            $scope.negativeReviewCount += 1
+
+
           $scope.report = { user_id : $scope.userId, player_id: playerId }
           $scope.reportedByUser = true
           $scope.$emit('submittedReport', 'Review Sucessfully Submitted')

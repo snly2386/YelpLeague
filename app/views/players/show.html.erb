@@ -29,7 +29,7 @@
                     <i class="fa" ng-class="avgRating < 4 ? 'fa-star-o' : 'fa-star'"></i>
                     <i class="fa" ng-class="avgRating < 5 ? 'fa-star-o' : 'fa-star'"></i>
                   </span>
-                  <span class="light"> <%= @player.reports.length %> Reviews </span>
+                  <span class="light"><span ng-bind="reports.length"></span> Reviews </span>
                 </div>
                 <div class="contacts">
                   <span>{{player.region}}</span>, Level {{player.level}}

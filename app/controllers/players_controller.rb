@@ -90,11 +90,7 @@ class PlayersController < ApplicationController
   end
 
   def set_layout
-    if current_user
-      'member'
-    else
-      'non_member'
-    end
+    current_user ? 'member' : 'non_member'
   end
   private
 

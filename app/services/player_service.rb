@@ -10,6 +10,7 @@ class PlayerService
       http.on_missing { @missing = true }
       http.on_failure { @failure = true }
     end
+    puts "HIHI #{@player_obj.body_str}"
   end
 
   def get_player

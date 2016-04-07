@@ -3,8 +3,14 @@
     <div class="title">
       <h5><i class="fa fa-bookmark"></i>Bookmarks</h5>
     </div>
-    <div class="content">
-      <ul class="collection clear-b">
+    <div class="content user-profile-card">
+      <div ng-hide="bookmarks.length" class="align-center card-placeholder">
+        <i class="fa fa-info-circle" style="color: rgb(174, 171, 171)"></i>
+        <div>
+          NO BOOKMARKS
+        </div>
+      </div>
+      <ul class="collection clear-b" ng-show="user.bookmarks.length">
         <li ng-if="!user.bookmarks">
           You don't have any bookmarks.
         </li>

@@ -269,6 +269,8 @@ figure.hover-effect figcaption::before {
 }
 .profile-page-avatar{
   width: 100px;
+  height: 100px;
+  margin-top: 7px;
 }
 .pink.darken-4 {
     background-color: #880e4f!important
@@ -1880,6 +1882,10 @@ figure.hover-effect figcaption::before {
 }
 .align-center {
     text-align: center
+}
+.card-placeholder{
+  margin-top: 24px;
+  color: rgb(174, 171, 171);
 }
 .align-justify {
     text-align: justify
@@ -9820,6 +9826,7 @@ html.rtl .yaybar.yay-light .nano-content>ul>li>ul>li>ul>li>ul>li>a {
 }
 .navbar-top .user img {
     width: 35px;
+    height: 35px;
     margin-right: 10px;
     vertical-align: middle
 }
@@ -9836,6 +9843,9 @@ html.rtl .yaybar.yay-light .nano-content>ul>li>ul>li>ul>li>ul>li>a {
 }
 .navbar-top .nav-wrapper>ul>li {
     position: relative
+}
+.user-profile-card{
+  min-height: 150px;
 }
 .navbar-top .nav-wrapper>ul>li>.sp-cancel>.badge,
 .navbar-top .nav-wrapper>ul>li>a>.badge {
