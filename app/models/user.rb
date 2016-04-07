@@ -38,16 +38,16 @@ class User < ActiveRecord::Base
       when "facebook"
         image = "#{auth.info.image}?type=normal"
       when "twitter"
-        image = auth.info.image.sub("_normal", "")
+        image = auth.info.image.sub("_normal", "_bigger")
     end
   end
 
   def self.from_omniauth(auth)
     case auth.provider
       when "facebook"
-        image = "#{auth.info.image}?type=normal"
+        image = "#{auth.info.image}?type=large"
       when "twitter"
-        image = auth.info.image.sub("_normal", "")
+        image = auth.info.image.sub("normal", "bigger")
     end
 
     user = joins(:providers).where(providers: { name: auth.provider, uid: auth.uid }).first_or_create do |user|
@@ -61,10 +61,10 @@ class User < ActiveRecord::Base
     user
   end
 
-  def add_omniauth(auth)
-    image = get_social_image_url(auth)
-    providers.create(name: auth.provider, uid: auth.uid, username: auth.info.name, email: auth.info.email || '', image: image)
-  end
+  # def add_omniauth(auth)
+  #   image = get_social_image_url(auth)
+  #   providers.create(name: auth.provider, uid: auth.uid, username: auth.info.name, email: auth.info.email || '', image: image)
+  # end
 
   def upvotes_received
     reports.inject(0){|sum, report| sum + report.get_vote_difference }

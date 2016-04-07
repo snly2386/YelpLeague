@@ -267,6 +267,9 @@ figure.hover-effect figcaption::before {
 .pink-text.text-darken-3 {
     color: #ad1457!important
 }
+.profile-page-avatar{
+  width: 100px;
+}
 .pink.darken-4 {
     background-color: #880e4f!important
 }

@@ -2,7 +2,7 @@
   <table class="profile-info">
     <tbody>
       <tr>
-        <td class="photo"><a href="#avatar-modal" class="modal-trigger"><img ng-src="{{user.avatar || '/assets/default-avatar.jpg'}}"/></a></td>
+        <td class="photo"><a href="#avatar-modal" class="modal-trigger"><img ng-src="{{user.avatar || '/assets/default-avatar.jpg'}}" class="profile-page-avatar"/></a></td>
         <td>
           <h3 ng-bind="user.username"></h3>
           <span>Hello <strong ng-bind="user.username"></strong> (not <span ng-bind="user.username"></span>? <a href="/users/sign_out" data-method="delete">Sign Out</a>).</span>
