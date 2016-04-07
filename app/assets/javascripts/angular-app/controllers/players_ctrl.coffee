@@ -119,6 +119,9 @@
         $scope.sharedReport = report
 
       $scope.shareReview = () ->
+        console.log "https://s3-us-west-2.amazonaws.com/dynamicowlwendy/profileicon/#{$scope.player.icon}.png"
+        console.log "#{username}'s review of #{$scope.player.display_name}"
+        console.log "#{$scope.sharedReport.message.substring(0, 10)}"
         FB.ui(
             {
               method: 'share'
