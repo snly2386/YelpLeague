@@ -115,15 +115,18 @@
       $scope.userReview = (reportId) ->
         'userReview' if reportId == parseInt $scope.userId
 
-      $scope.shareReview = (user, playerId, report) ->
+      $scope.initializeShareReview = (report) ->
+        $scope.sharedReport = report
+
+      $scope.shareReview = () ->
         FB.ui(
             {
               method: 'share'
-              href: "http://www.yelpleague.com:3000/players/#{playerId}"
+              href: "http://104.131.111.127:8080/players/#{playerId}"
               picture: "https://s3-us-west-2.amazonaws.com/dynamicowlwendy/profileicon/#{$scope.player.icon}.png"
-              title: "Player Review",
-              description: "#{user.username}'s review of #{$scope.player.display_name}",
-              caption: "#{report.message.substring(1, 10)}"
+              title: "Player Review"
+              description: "#{username}'s review of #{$scope.player.display_name}",
+              caption: "#{$scope.sharedReport.message.substring(1, 10)}"
             },
             (response) ->
               if (response && !response.error_message)
