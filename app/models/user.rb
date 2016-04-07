@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :providers
   validates_presence_of :email, unless: :twitter?
   validates_presence_of :username
+  validates :username, uniqueness: true
   after_save :send_welcome_email
   acts_as_voter
 

@@ -119,23 +119,21 @@
         $scope.sharedReport = report
 
       $scope.shareReview = () ->
-        console.log "https://s3-us-west-2.amazonaws.com/dynamicowlwendy/profileicon/#{$scope.player.icon}.png"
-        console.log "#{username}'s review of #{$scope.player.display_name}"
-        console.log "#{$scope.sharedReport.message.substring(0, 10)}"
         FB.ui(
             {
               method: 'share'
               href: "http://104.131.111.127:8080/players/#{playerId}"
-              picture: "https://s3-us-west-2.amazonaws.com/dynamicowlwendy/profileicon/#{$scope.player.icon}.png"
+              picture: "https://s3-us-west-2.amazonaws.com/ggreported/profileicon/#{$scope.player.icon}.png"
               title: "Player Review"
               description: "#{username}'s review of #{$scope.player.display_name}",
               caption: "#{$scope.sharedReport.message.substring(1, 10)}"
             },
             (response) ->
               if (response && !response.error_message)
-                alert('Posting completed.');
+                $scope.emit('facebookSuccess', 'Successfully posted to Facebook')
               else
-                alert('Error while posting.');
+                $scope.emit('facebookError', 'Error posting to Facebook')
+
           )
 
       $scope.initializeDeleteReport = (report, index) ->
@@ -145,6 +143,11 @@
       $scope.deleteReview = () ->
         ReportsService.remove($scope.pendingDeleteReport, (data) ->
           $scope.reports.splice($scope.pendingDeleteReportIndex, 1)
+          if $scope.pendingDeleteReport.rating >= 3
+            $scope.positiveReviewCount -= 1
+          else
+            $scope.negativeReviewCount -= 1
+
           $('#deleteReviewModal').modal('hide')
           $scope.$emit('deleteReview', 'Review Successfully Deleted')
           $scope.reportedByUser = false
