@@ -19,7 +19,6 @@
 
       ReportsService.get( {player_id: playerId }, (data) ->
         $scope.reports = data.reports
-        console.log data.reports
       )
 
       ReportsDataService.get(playerId)
@@ -29,7 +28,6 @@
             $scope.positiveReviewCount = response.data.positive
             $scope.negativeReviewCount = response.data.negative
           (errorResponse) ->
-            console.log errorResponse
         )
 
       PlayersService.get( {id: playerId}, (data) ->
@@ -41,7 +39,7 @@
 
       $scope.$on('editedReport', (event, data) ->
         for report in $scope.reports
-          if report.user.id == parseInt($scope.userId)
+          if parseInt(report.user.id) == parseInt($scope.userId)
             for k,v of report.report
               report.report[k] = data[k]
       )
@@ -56,7 +54,6 @@
         ReportsService.update(angular.extend({player_id: playerId , id: $scope.updateReport.id}, $scope.updateReport),
           (data) ->
             $('#editReviewModal').modal('hide')
-            $scope.$broadcast('editedReport', $scope.updateReport)
             $scope.$emit('editedReport', $scope.updateReport)
         )
 
@@ -76,7 +73,12 @@
             vote_difference: 0
             voted_by_user: false
           })
-          console.log data
+          if $scope.report.rating >= 3
+            $scope.positiveReviewCount += 1
+          else
+            $scope.negativeReviewCount += 1
+
+
           $scope.report = { user_id : $scope.userId, player_id: playerId }
           $scope.reportedByUser = true
           $scope.$emit('submittedReport', 'Review Sucessfully Submitted')
@@ -113,21 +115,25 @@
       $scope.userReview = (reportId) ->
         'userReview' if reportId == parseInt $scope.userId
 
-      $scope.shareReview = (user, playerId, report) ->
+      $scope.initializeShareReview = (report) ->
+        $scope.sharedReport = report
+
+      $scope.shareReview = () ->
         FB.ui(
             {
               method: 'share'
-              href: "http://www.yelpleague.com:3000/players/#{playerId}"
-              picture: "https://s3-us-west-2.amazonaws.com/dynamicowlwendy/profileicon/#{$scope.player.icon}.png"
-              title: "Player Review",
-              description: "#{user.username}'s review of #{$scope.player.display_name}",
-              caption: "#{report.message.substring(1, 10)}"
+              href: "http://104.131.111.127:8080/players/#{playerId}"
+              picture: "https://s3-us-west-2.amazonaws.com/ggreported/profileicon/#{$scope.player.icon}.png"
+              title: "Player Review"
+              description: "#{username}'s review of #{$scope.player.display_name}",
+              caption: "#{$scope.sharedReport.message.substring(1, 10)}"
             },
             (response) ->
               if (response && !response.error_message)
-                alert('Posting completed.');
+                $scope.emit('facebookSuccess', 'Successfully posted to Facebook')
               else
-                alert('Error while posting.');
+                $scope.emit('facebookError', 'Error posting to Facebook')
+
           )
 
       $scope.initializeDeleteReport = (report, index) ->
@@ -137,6 +143,11 @@
       $scope.deleteReview = () ->
         ReportsService.remove($scope.pendingDeleteReport, (data) ->
           $scope.reports.splice($scope.pendingDeleteReportIndex, 1)
+          if $scope.pendingDeleteReport.rating >= 3
+            $scope.positiveReviewCount -= 1
+          else
+            $scope.negativeReviewCount -= 1
+
           $('#deleteReviewModal').modal('hide')
           $scope.$emit('deleteReview', 'Review Successfully Deleted')
           $scope.reportedByUser = false

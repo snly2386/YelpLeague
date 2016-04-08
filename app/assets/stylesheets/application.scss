@@ -10,7 +10,19 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
-*= require materialize/bin/materialize
-*= require_tree .
+*= depend_on "variables"
 *= require_self
 */
+
+@import 'variables';
+@import 'active';
+@import 'alert-2';
+@import 'alert';
+@import 'animate';
+@import 'base';
+@import 'fonts';
+@import 'initial_load';
+@import 'landing';
+@import 'landing';
+@import 'player';
+@import 'profile';

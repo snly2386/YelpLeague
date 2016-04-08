@@ -21,7 +21,7 @@
         $scope.$broadcast('userFound', $scope.user)
         $scope.activeAvatar = $scope.user.avatar
         $scope.providers = $scope.user.providers
-        $scope.providerAvatars.push({ name:provider.name, providerImage: provider.image, image: provider.image }) for provider in $scope.providers when $scope.providers.length
+        # $scope.providerAvatars.push({ name:provider.name, providerImage: provider.image, image: provider.image }) for provider in $scope.providers when $scope.providers.length
       )
 
       ReportsByUserService.get({id: $scope.userId}, (data) ->

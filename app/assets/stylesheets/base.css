@@ -267,6 +267,11 @@ figure.hover-effect figcaption::before {
 .pink-text.text-darken-3 {
     color: #ad1457!important
 }
+.profile-page-avatar{
+  width: 100px;
+  height: 100px;
+  margin-top: 7px;
+}
 .pink.darken-4 {
     background-color: #880e4f!important
 }
@@ -1877,6 +1882,10 @@ figure.hover-effect figcaption::before {
 }
 .align-center {
     text-align: center
+}
+.card-placeholder{
+  margin-top: 24px;
+  color: rgb(174, 171, 171);
 }
 .align-justify {
     text-align: justify
@@ -4308,7 +4317,6 @@ th {
 }
 .collection {
     margin: .66667rem 0 1.33333rem;
-    border: 1px solid #e0e0e0;
     border-radius: 2px;
     overflow: hidden
 }
@@ -4317,7 +4325,6 @@ th {
     line-height: 1.5rem;
     padding: 10px 20px;
     margin: 0;
-    border-bottom: 1px solid #e0e0e0
 }
 .collection .collection-item.avatar {
     min-height: 84px;
@@ -4331,8 +4338,8 @@ th {
     overflow: hidden;
     left: 15px;
     display: inline-block;
-    vertical-align: middle
-    top: 25px;
+    vertical-align: middle;
+    top: 15px;
 }
 .collection .collection-item.avatar i.circle {
     font-size: 34px;
@@ -4374,7 +4381,6 @@ th {
 }
 .collection.with-header .collection-header {
     background-color: #fff;
-    border-bottom: 1px solid #e0e0e0;
     padding: 10px 20px
 }
 .collection.with-header .collection-item {
@@ -9817,6 +9823,7 @@ html.rtl .yaybar.yay-light .nano-content>ul>li>ul>li>ul>li>ul>li>a {
 }
 .navbar-top .user img {
     width: 35px;
+    height: 35px;
     margin-right: 10px;
     vertical-align: middle
 }
@@ -9833,6 +9840,9 @@ html.rtl .yaybar.yay-light .nano-content>ul>li>ul>li>ul>li>ul>li>a {
 }
 .navbar-top .nav-wrapper>ul>li {
     position: relative
+}
+.user-profile-card{
+  min-height: 150px;
 }
 .navbar-top .nav-wrapper>ul>li>.sp-cancel>.badge,
 .navbar-top .nav-wrapper>ul>li>a>.badge {

@@ -37,7 +37,13 @@
         <div class="title">
           <h5><i class="fa fa-thumbs-up"></i>Review Votes</h5>
         </div>
-        <div class="content orders-card">
+        <div class="content orders-card user-profile-card">
+          <div ng-hide="reports.length" class="align-center card-placeholder">
+            <i class="fa fa-info-circle" style="color: rgb(174, 171, 171)"></i>
+            <div>
+              NO REVIEW VOTES
+            </div>
+          </div>
           <div dir-paginate="report in reports | itemsPerPage: 3" pagination-id="votes">
             <h4 ng-bind="report.total_upvotes"></h4>
             <div class="row">

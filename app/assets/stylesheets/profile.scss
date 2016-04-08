@@ -1,5 +1,21 @@
-@import 'variables.scss';
+@import 'variables';
 
+.user-profile-container{
+  .profile-img{
+    width: 200px;
+  }
+  .review-options:nth-child(1){
+    margin-top: 11px;
+  }
+  .user-profile-reviews, .user-profile-info{
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px 40px;
+    margin-top: 20px;
+  }
+  .user-profile-reviews{
+  }
+}
 .user-profile {
   .review-votes {
     a,
@@ -10,7 +26,7 @@
       color: $light-grey;
     }
     .collection .collection-item.avatar {
-      border-bottom: 1px solid $lighter-grey;
+      // border-bottom: 1px solid $lighter-grey;
       padding-left: 10em;
     }
     .action-button {

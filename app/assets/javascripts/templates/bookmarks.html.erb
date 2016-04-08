@@ -3,13 +3,19 @@
     <div class="title">
       <h5><i class="fa fa-bookmark"></i>Bookmarks</h5>
     </div>
-    <div class="content">
-      <ul class="collection clear-b">
+    <div class="content user-profile-card">
+      <div ng-hide="user.bookmarks.length" class="align-center card-placeholder">
+        <i class="fa fa-info-circle" style="color: rgb(174, 171, 171)"></i>
+        <div>
+          NO BOOKMARKS
+        </div>
+      </div>
+      <ul class="collection clear-b" ng-show="user.bookmarks.length">
         <li ng-if="!user.bookmarks">
           You don't have any bookmarks.
         </li>
         <li class="collection-item avatar" dir-paginate="bookmark in user.bookmarks | itemsPerPage: 2" pagination-id="bookmarks">
-          <a ng-href="/players/{{bookmark.id}}"><img src="https://s3-us-west-2.amazonaws.com/dynamicowlwendy/profileicon/{{bookmark.icon}}.png" class="circle"/></a>
+          <a ng-href="/players/{{bookmark.id}}"><img src="https://s3-us-west-2.amazonaws.com/ggreported/profileicon/{{bookmark.icon}}.png" class="circle"/></a>
           <a ng-href="/players/{{bookmark.id}}"> <span ng-bind="bookmark.display_name"></span></a>
           <div>
             <span ng-bind-template="Region: {{bookmark.region}}"></span> <br>

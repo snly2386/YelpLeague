@@ -73,6 +73,14 @@
         $scope.noticeAlert(data)
       )
 
+      $scope.$on("facebookSuccess", (event, data) ->
+        $scope.noticeAlert(data)
+      )
+
+      $scope.$on("facebookError", (event, data) ->
+        $scope.errorAlert(data)
+      )
+
       $scope.noticeMsg = $('#notice').text()
       $scope.avatar = $('#avatar').text() || '/assets/default_avatar.jpg'
       $scope.alert = $('#alert').text()

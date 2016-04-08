@@ -15,7 +15,7 @@
           <tbody>
             <tr>
               <td class="photo">
-                <img  src="https://s3-us-west-2.amazonaws.com/dynamicowlwendy/profileicon/{{player.icon}}.png">
+                <img src="https://s3-us-west-2.amazonaws.com/ggreported/profileicon/{{player.icon}}.png">
               </td>
               <td><!-- Name -->
                 <h2 ng-bind="player.display_name" class="light"></h2>
@@ -29,7 +29,7 @@
                     <i class="fa" ng-class="avgRating < 4 ? 'fa-star-o' : 'fa-star'"></i>
                     <i class="fa" ng-class="avgRating < 5 ? 'fa-star-o' : 'fa-star'"></i>
                   </span>
-                  <span class="light"> <%= @player.reports.length %> Reviews </span>
+                  <span class="light"><span ng-bind="reports.length"></span> Reviews </span>
                 </div>
                 <div class="contacts">
                   <span>{{player.region}}</span>, Level {{player.level}}
@@ -133,7 +133,7 @@
                         <i class="fa fa-pencil-square"></i>
                         <span class="edit-text">Edit Review<span>
                       </p>
-                      <p class="cursor" data-target="#shareReviewModal" data-toggle="modal">
+                      <p class="cursor" data-target="#shareReviewModal" data-toggle="modal" ng-click="initializeShareReview(report.report)">
                         <i class="fa fa-share-square"></i>
                         <span class="edit-text">Share Review<span>
                       </p>

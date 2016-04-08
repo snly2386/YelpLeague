@@ -7,6 +7,7 @@ app.directive 'userReviews', ['ReportsService', (ReportsService) ->
       )
 
       scope.setEditedReview = (review) ->
+        console.log 'set it'
         scope.editedReview = review
 
       scope.setDeletedReview = (report, review) ->
