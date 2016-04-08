@@ -4317,7 +4317,6 @@ th {
 }
 .collection {
     margin: .66667rem 0 1.33333rem;
-    border: 1px solid #e0e0e0;
     border-radius: 2px;
     overflow: hidden
 }
@@ -4326,7 +4325,6 @@ th {
     line-height: 1.5rem;
     padding: 10px 20px;
     margin: 0;
-    border-bottom: 1px solid #e0e0e0
 }
 .collection .collection-item.avatar {
     min-height: 84px;
@@ -4341,7 +4339,7 @@ th {
     left: 15px;
     display: inline-block;
     vertical-align: middle;
-    top: 25px;
+    top: 15px;
 }
 .collection .collection-item.avatar i.circle {
     font-size: 34px;
@@ -4383,7 +4381,6 @@ th {
 }
 .collection.with-header .collection-header {
     background-color: #fff;
-    border-bottom: 1px solid #e0e0e0;
     padding: 10px 20px
 }
 .collection.with-header .collection-item {

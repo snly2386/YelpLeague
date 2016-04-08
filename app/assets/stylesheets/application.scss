@@ -11,7 +11,6 @@
  * file per style scope.
  *
 *= depend_on "variables"
-*= require materialize/bin/materialize
 *= require_self
 */
 
@@ -27,4 +26,3 @@
 @import 'landing';
 @import 'player';
 @import 'profile';
-@import 'materialize';
