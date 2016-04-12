@@ -5,6 +5,10 @@ class LandingController < ApplicationController
     @player = Player.new
   end
 
+  def riot
+    render file: "riot.txt", layout: false, content_type: 'text/plain'
+  end
+
   private
 
   def set_theme
