@@ -50,16 +50,16 @@ class User < ActiveRecord::Base
       when "twitter"
         image = auth.info.image.sub("normal", "bigger")
     end
-
-    user = joins(:providers).where(providers: { name: auth.provider, uid: auth.uid }).first_or_create do |user|
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+    # user = joins(:providers).where(providers: { name: auth.provider, uid: auth.uid }).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
       user.username = auth.info.name
-      user.avatar = auth.info.image
-      user.providers.build(name: auth.provider, uid: auth.uid, username: auth.info.name, email: auth.info.email || '', image: image)
+      user.avatar = image
+      # user.providers.build(name: auth.provider, uid: auth.uid, username: auth.info.name, email: auth.info.email || '', image: image)
     end
-    user.providers.select{|p| p.name == auth.provider && p.uid == auth.uid}.first.user_id = user.id
-    user
+    # user.providers.select{|p| p.name == auth.provider && p.uid == auth.uid}.first.user_id = user.id
+    # user
   end
 
   # def add_omniauth(auth)
