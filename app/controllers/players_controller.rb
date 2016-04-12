@@ -25,11 +25,13 @@ class PlayersController < ApplicationController
     params["player"]["name"] = params["player"]["name"].downcase
     params["player"]["name"].gsub!(/\s+/, "")
     @player = Player.find_or_initialize_by(player_params)
-    ps = player_service_request(@player.name, @player.region)
-    if @missing
-      @player.errors.add(:base, @missing)
-    elsif @failure
-      @player.errors.add(:base, @failure)
+    if @player.valid?
+      ps = player_service_request(@player.name, @player.region)
+      if @missing
+        @player.errors.add(:base, @missing)
+      elsif @failure
+        @player.errors.add(:base, @failure)
+      end
     end
     respond_to do |format|
       if @success && @player.save

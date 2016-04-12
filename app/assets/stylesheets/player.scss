@@ -128,10 +128,12 @@ section.profile {
 
 .voted-up-background{
   background-color: $thumbs-up !important;
+  padding: 0 1em;
 }
 
 .voted-down-background{
   background-color: $thumbs-down !important;
+  padding: 0 1em;
 }
 
 .listing-cover.content-single-user-hero {
