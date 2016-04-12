@@ -130,9 +130,11 @@
             },
             (response) ->
               if (response && !response.error_message)
-                $scope.emit('facebookSuccess', 'Successfully posted to Facebook')
+                $scope.$emit('facebookSuccess', 'Successfully posted to Facebook')
+                $('#shareReviewModal').modal('hide')
+
               else
-                $scope.emit('facebookError', 'Error posting to Facebook')
+                $scope.$emit('facebookError', 'Error posting to Facebook')
 
           )
 
