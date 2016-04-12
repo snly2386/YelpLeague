@@ -82,7 +82,7 @@
       )
 
       $scope.noticeMsg = $('#notice').text()
-      $scope.avatar = $('#avatar').text() || '/assets/default_avatar.jpg'
+      $scope.avatar = $('#avatar').text() || 'https://s3-us-west-2.amazonaws.com/ggreported/default.png'
       $scope.alert = $('#alert').text()
 
       angular.element(document).ready( ()->
