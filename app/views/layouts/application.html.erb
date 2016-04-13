@@ -27,6 +27,7 @@
 </head>
 
 <body ng-app="yelpleague" ng-controller="MainCtrl" class="yay-hide">
+<loader ng-if="loaderPresent"></loader>
   <!-- share facebook button -->
   <div id="fb-root"></div>
   <script>
@@ -84,6 +85,7 @@
   <!-- end share twitter button -->
   <p class="notice hidden" id="notice"><%= notice %></p>
   <p class="alert hidden" id="alert"><%= alert %></p>
+  <%= yield :nav %>
   <%= yield %>
   <footer>
     League Yelp isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.

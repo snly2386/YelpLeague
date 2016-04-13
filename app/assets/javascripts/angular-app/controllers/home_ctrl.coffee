@@ -7,10 +7,12 @@
     'BookmarkService'
 
     ($scope, PlayersService, BookmarkService) ->
+      $scope.$emit('loaderPresent', true)
+      
       PlayersService.get((data)->
         console.log data
         $scope.players = data.players
-        $scope.loaded = true
+        $scope.$emit('loaded', true)
       )
 
       $scope.bookmarkPlayer = (playerId, index) ->

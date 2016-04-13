@@ -1,5 +1,10 @@
 @import 'variables';
 
+#championAvatars{
+  img{
+    border-radius: 50%;
+  }
+}
 .user-profile-container{
   .profile-img{
     width: 200px;

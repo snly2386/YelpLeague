@@ -10,6 +10,7 @@
     'ReportsDataService'
 
     ($scope, ReportsService, PlayersService, BookmarkService, UpvoteService, ReportsDataService) ->
+      $scope.$emit('loaderPresent', true)
       playerId = $("#player-id").text()
       $scope.userId = $("#user-id").text()
       avatar = $("#avatar").text()
@@ -34,7 +35,7 @@
         $scope.player = data.player
         $scope.reportedByUser = data.reported_by_user
         $scope.bookmarked = data.bookmarked
-        $scope.loaded = true
+        $scope.$emit('loaded', true)
       )
 
       $scope.$on('editedReport', (event, data) ->

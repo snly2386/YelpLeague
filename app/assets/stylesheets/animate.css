@@ -1240,6 +1240,12 @@
   animation-name: fadeIn;
 }
 
+.fadeHide{
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1 !important;
+}
+
 @-webkit-keyframes fadeInDown {
   from {
     opacity: 0;
@@ -1272,6 +1278,7 @@
   -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown;
 }
+
 
 @-webkit-keyframes fadeInDownBig {
   from {

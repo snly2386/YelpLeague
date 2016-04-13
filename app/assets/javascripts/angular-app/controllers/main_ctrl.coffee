@@ -22,7 +22,7 @@
       $scope.errorAlert = (msg) ->
         $('.ns-box').hide()
         notification = new NotificationFx(
-          message: "<div class='ns-thumb'><img src='/assets/teemo.png'/></div><div class='ns-content ns-error'><p>#{msg}</p></div>"
+          message: "<div class='ns-thumb'><img src='https://s3-us-west-2.amazonaws.com/ggreported/default.png'/></div><div class='ns-content ns-error'><p>#{msg}</p></div>"
           layout: 'other'
           effect: 'thumbslider'
           type: 'notice'
@@ -31,6 +31,14 @@
             true
         )
         notification.show()
+
+      $scope.$on('loaderPresent', (event, data) ->
+        $scope.loaderPresent = true
+      )
+
+      $scope.$on('loaded', (event, data) ->
+        $scope.loaded = true
+      )
 
       $scope.$on('upvoteError', (event, data) ->
         $scope.errorAlert("<a href='/users/sign_in'>#{data}</a>")

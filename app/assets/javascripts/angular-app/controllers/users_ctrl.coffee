@@ -9,6 +9,7 @@
     'AvatarService'
 
     ($scope, $rootScope, UsersService, ReportsByUserService, AvatarService) ->
+      $scope.$emit('loaderPresent', true)
       $scope.userId = $("#user-id").text()
       $scope.providerAvatars = []
       $scope.activeTab = 'dashboard'
@@ -21,6 +22,8 @@
         $scope.$broadcast('userFound', $scope.user)
         $scope.activeAvatar = $scope.user.avatar
         $scope.providers = $scope.user.providers
+        $scope.$emit('loaded', true)
+
         # $scope.providerAvatars.push({ name:provider.name, providerImage: provider.image, image: provider.image }) for provider in $scope.providers when $scope.providers.length
       )
 
