@@ -1,4 +1,4 @@
-<div ng-controller="HomeCtrl">
+<div ng-controller="HomeCtrl" ng-cloak>
   <div class="hidden" id="avatar"><%=current_user.avatar if current_user %></div>
   <% if @player.errors.any? %>
     <%= @player.errors.full_messages %>
