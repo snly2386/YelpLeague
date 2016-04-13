@@ -34,6 +34,7 @@
         $scope.player = data.player
         $scope.reportedByUser = data.reported_by_user
         $scope.bookmarked = data.bookmarked
+        $scope.loaded = true
       )
 
       $scope.$on('editedReport', (event, data) ->

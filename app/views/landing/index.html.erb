@@ -1,9 +1,10 @@
 <div ng-controller="HomeCtrl">
+  <loader></loader>
   <div class="hidden" id="avatar"><%=current_user.avatar if current_user %></div>
   <% if @player.errors.any? %>
     <%= @player.errors.full_messages %>
   <% end %>
-<section class="landing" style="position:relative;">
+<section class="landing" style="position:relative;" ng-cloak>
     <div class="vid-container" >
       <video autoplay loop preload="auto" muted>
         <source src="https://s3-us-west-2.amazonaws.com/dynamicowlwendy/mind_virtuoso.mp4" type="video/mp4">
@@ -89,31 +90,4 @@
     </div>
   </section>
 </div>
-<!-- <div id="content" class="site-content">
-    <div style="padding: 0; background-color: none;" class="homepage-cover page-cover entry-cover has-image">
-      <q class="assembly">
-        <q class="tri"></q>
-        <q class="tri"></q>
-        <q class="tri"></q>
-        <q class="tri"></q>
-        <q class="tri"></q>
-        <q class="tri"></q>
-        <q class="tri"></q>
-        <q class="tri"></q>
-        <q class="tri"></q>
-        <q class="tri"></q>
-        <q class="tri"></q>
-        <q class="tri"></q>
-        <q class="tri"></q>
-        <q class="tri"></q>
-        <q class="tri"></q>
-        <q class="tri"></q>
-        <q class="tri"></q>
-        <q class="tri"></q>
-        <q class="hex"></q>
-      </q>
-    </div>
-
-</div> -->
-
 <div id="ajax-response"></div>

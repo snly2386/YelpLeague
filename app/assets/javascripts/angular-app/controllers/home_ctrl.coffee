@@ -10,6 +10,7 @@
       PlayersService.get((data)->
         console.log data
         $scope.players = data.players
+        $scope.loaded = true
       )
 
       $scope.bookmarkPlayer = (playerId, index) ->
@@ -35,7 +36,7 @@
 
       $scope.errorAlert = (msg) ->
         notification = new NotificationFx(
-          message: '<div class="ns-thumb"><img src="/assets/teemo.png"/></div><div class="ns-content ns-error"><p><a href="/users/sign_in">Sign In</a> to bookmark summoners. </p></div>'
+          message: '<div class="ns-thumb"><img src="https://s3-us-west-2.amazonaws.com/ggreported/default.png"/></div><div class="ns-content ns-error"><p><a href="/users/sign_in">Sign In</a> to bookmark summoners. </p></div>'
           layout: 'other'
           effect: 'thumbslider'
           type: 'notice'
