@@ -24,7 +24,6 @@
       ReportsDataService.get(playerId)
         .then(
           (response) ->
-            console.log response
             $scope.positiveReviewCount = response.data.positive
             $scope.negativeReviewCount = response.data.negative
           (errorResponse) ->
@@ -118,6 +117,9 @@
       $scope.initializeShareReview = (report) ->
         $scope.sharedReport = report
 
+      $scope.closeShareDialog = () ->
+        $('#shareReviewModal').modal('hide')
+
       $scope.shareReview = () ->
         FB.ui(
             {
@@ -131,7 +133,7 @@
             (response) ->
               if (response && !response.error_message)
                 $scope.$emit('facebookSuccess', 'Successfully posted to Facebook')
-                $('#shareReviewModal').modal('hide')
+                $scope.closeShareDialog()
 
               else
                 $scope.$emit('facebookError', 'Error posting to Facebook')
@@ -154,6 +156,12 @@
           $scope.$emit('deleteReview', 'Review Successfully Deleted')
           $scope.reportedByUser = false
         )
+
+      twttr.ready( (twttr)->
+        twttr.events.bind('tweet', (event)->
+          $scope.closeShareDialog()
+        )
+      )
 
   ]
 )()
